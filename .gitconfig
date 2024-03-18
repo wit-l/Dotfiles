@@ -1,0 +1,7 @@
+[user]
+	name = WittyCo
+	email = witty.ysl@gmail.com
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true

@@ -1,0 +1,34 @@
+#!/bin/zsh
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$XDG_CONFIG_HOME/.local"
+export XDG_CACHE_HOME="$XDG_CONFIG_HOME/.cache"
+export XDG_STATE_HOME="$XDG_DATA_HOME/state"
+export LESSHISTFILE="$XDG_CONFIG_HOME/.lesshst"
+export EDITOR="/snap/bin/nvim"
+export VISUAL="/snap/bin/nvim"
+export LAUNCHPAD_HOME="$XDG_CONFIG_HOME/.launchpadlib"
+export SSH_CONFIG_DIR="$XDG_CONFIG_HOME/.ssh"
+export PYTHONUSERBASE="$XDG_DATA_HOME"
+export PYTHONPATH="$PYTHONUSERBASE/lib/python$(python --version 2>&1 | awk '{print $2}' | tr -d .)/site-packages:$PYTHONPATH"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/.npmrc"
+export NPM_CONFIG_USERDIR="$XDG_CONFIG_HOME/.npm"
+export WGET_HSTS_FILE="$XDG_CONFIG_HOME/.wget-hsts"
+export SUDO_TIMESTAMP_FILE="$XDG_CONFIG_HOME/.sudo_as_admin_successful"
+export FZF_DEFAULT_COMMAND='fd --type f --follow --hidden --exclude .git --color=always'
+export FZF_DEFAULT_OPTS="-e --ansi --height 100% --layout=reverse --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+#export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+if ! echo "$PATH" | grep -q 'cmake'; then
+    export PATH="/opt/cmake-3.29.0-rc3-linux-x86_64/bin:$PATH"
+fi
+if ! echo "$PATH" | grep -q 'node'; then
+    export PATH="/opt/node-v20.11.1-linux-x64/bin:$PATH"
+fi
+if ! echo "$PATH" | grep -q '/snap/bin'; then
+    export PATH="$PATH:/snap/bin"
+fi
+if ! echo "$PATH" | grep -q ${XDG_DATA_HOME}/bin; then
+    export PATH="$XDG_DATA_HOME/bin:$PATH"
+fi
