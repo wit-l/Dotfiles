@@ -34,19 +34,18 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 autoload -U compinit; compinit
 ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+# [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+# [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "$ZINIT_HOME/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 zinit ice lucid wait atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 zinit ice lucid wait"0"
-#zinit light zsh-users/zsh-completions
+# zinit light zsh-users/zsh-completions
 zinit light zdharma/fast-syntax-highlighting
-# zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
+zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
 zinit snippet OMZ::plugins/git/git.plugin.zsh
-zinit ice lucid wait
 # zinit snippet OMZ::lib/key-bindings.zsh
 zinit snippet OMZ::lib/completion.zsh
 zinit snippet OMZ::lib/history.zsh
@@ -54,6 +53,9 @@ zinit snippet OMZ::lib/git.zsh
 zinit snippet OMZ::lib/theme-and-appearance.zsh
 # zinit snippet OMZT::steeef
 zinit snippet OMZT::robbyrussell
+bindkey -M emacs '^o' sudo-command-line
+bindkey -M vicmd '^o' sudo-command-line
+bindkey -M viins '^o' sudo-command-line
 . /usr/share/autojump/autojump.sh
 [ -f $XDG_CONFIG_HOME/.fzf.zsh ] && source $XDG_CONFIG_HOME/.fzf.zsh
 for index ({1..9}) alias "$index"="cd +${index}"; unset index

@@ -6,4 +6,5 @@ export SAVEHIST=10000
 if [ -z "$DISPLAY" ]; then
 	export DISPLAY=:0
 fi
-# export TERM="xterm-256color"
+. $XDG_CONFIG_HOME/.common_env
+DOTDIR='/home/witty/.config/Dotfiles'
