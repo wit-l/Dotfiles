@@ -14,11 +14,24 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/.npmrc"
 export NPM_CONFIG_USERDIR="$XDG_CONFIG_HOME/.npm"
 export WGET_HSTS_FILE="$XDG_CONFIG_HOME/.wget-hsts" ##
 export SUDO_TIMESTAMP_FILE="$XDG_CONFIG_HOME/.sudo_as_admin_successful" ##
-export FZF_DEFAULT_COMMAND='fd --follow --hidden --exclude .git --color=always'
-export FZF_DEFAULT_OPTS="-e --ansi --height 40% --layout=reverse --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-#export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+
+## fzf相关配置
+export FZF_DEFAULT_OPTS="--height 80% -e --ansi --layout=reverse"
+
+## ctrl+t用于搜索文件
+export FZF_CTRL_T_COMMAND='fd -t f --follow -H --exclude .git --color=always'
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+
+## alt+c用于寻找路径（文件夹）
+export FZF_ALT_C_COMMAND="fd -t d --follow -H --color=always"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+
+## ctrl+r用于搜索历史命令
+export FZF_CTRL_R_OPTS="--height 50%"
+
+## 给manual加上语法高亮
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# export MANROFFOPT="-c"
 if ! echo "$PATH" | grep -q '/snap/bin'; then
     export PATH="$PATH:/snap/bin"
 fi

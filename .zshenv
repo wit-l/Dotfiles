@@ -8,3 +8,6 @@ if [ -z "$DISPLAY" ]; then
 fi
 . $XDG_CONFIG_HOME/.common_env
 DOTDIR='/home/witty/.config/Dotfiles'
+export _ZL_DATA="$XDG_CONFIG_HOME/.zlua"
+export _ZL_ECHO=1
+export _ZL_MATCH_MODE=1

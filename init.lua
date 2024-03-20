@@ -183,6 +183,7 @@ vim.keymap.set('n', '<leader>x', '<cmd>q!<CR>', { desc = 'Exit the file' })
 vim.keymap.set('n', '<leader>w', '<cmd>w!<CR>', { desc = 'Save the file' })
 vim.keymap.set('n', 'o', 'o<Esc>', { desc = 'feed line down' })
 vim.keymap.set('n', 'O', 'O<Esc>', { desc = 'feed line up' })
+vim.keymap.set('n', '<leader>t', '<cmd>Neotree<CR>', { desc = 'open neotree' })
 
 -- TIP: Disable arrow keys in normal mode
 vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
