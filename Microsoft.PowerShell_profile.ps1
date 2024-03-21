@@ -4,16 +4,30 @@ $VIMRUNTIME="D:\software\vim\vim91"
 $CODE="D:\Users\witty\Documents\code"
 New-Alias -Name "vi" -Value "nvim"
 New-Alias -Name "ghl" -Value "Get-Help"
+. "D:\Software\ripgrep\complete\_rg.ps1"
+
+function grv {
+    git remote -v @args
+}
+
+function lla {
+    ls.exe --color=always -al @args
+}
+
+function glog {
+    git log --decorate --graph --oneline @args
+}
+
 function ls_ {
     ls.exe --color=auto @args
 }
+
 function ll {
     ls.exe --color=auto -l @args
 }
-# function grep {
-#     grep.exe --color=auto @args
-# }
+
 Set-Alias -Name ls -Value ls_
+
 function mkcd {
     param (
         [Parameter(Mandatory=$true)]
@@ -25,9 +39,9 @@ function mkcd {
     Set-Location -Path $dir
 }
 
-# function fzf {
-#     fzf.exe -e --preview 'bat --color=always --style=numbers --line-range=:500 {}' @args
-# }
+function fzf {
+    fzf.exe -e --preview 'bat --color=always --style=numbers --line-range=:500 {}' @args
+}
 
 #------------------------------- Import Modules BEGIN -------------------------------
 # Import-Module PSReadLine
@@ -55,8 +69,6 @@ Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
 
 # 设置 Ctrl+d 为退出 PowerShell
 Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function ViExit
-# Set-PSReadLineKeyHandler -Key "Ctrl+f" -Function AcceptSuggestion
-# Set-PSReadLineKeyHandler -Key "Alt+n" -Function AcceptNextSuggestionWord
 
 # 退出到Normal模式
 Set-PSReadLineKeyHandler -Key "Alt+q" -Function ViCommandMode
@@ -82,10 +94,5 @@ Set-PSReadLineKeyHandler -Key "Shift+LeftArrow" -Function SelectBackwardChar
 Set-PSReadLineKeyHandler -Key "Shift+RightArrow" -Function SelectForwardChar
 Set-PSReadLineKeyHandler -Key "Ctrl+Shift+LeftArrow" -Function SelectBackwardWord
 Set-PSReadLineKeyHandler -Key "Ctrl+Shift+RightArrow" -Function SelectForwardWord
-
-# Set-PSReadlineKeyHandler -Key "Ctrl+e" -Function DeleteWord
-# Set-PSReadlineKeyHandler -Key "Ctrl+h" -Function BackwardDeleteLine
-# Set-PSReadlineKeyHandler -Key "Ctrl+l" -Function ForwardDeleteLine
-# Set-PSReadlineKeyHandler -Key "Ctrl+a" -Function SelectAll
 #------------------------------- Set Hot-keys END -------------------------------
 # neofetch
