@@ -49,6 +49,21 @@ source "$ZINIT_HOME/zinit.zsh" # 加载zinit的初始化脚本
 autoload -Uz _zinit # 在用户区域加载_zinit函数,且忽略任何现有定义
 (( ${+_comps} )) && _comps[zinit]=_zinit  # 检查数组_comps是否定义(是否有任何补全函数注册)以添加进去
 
+# == fzf-tab
+zstyle ':fzf-tab:complete:_zlua:*' query-string input
+zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
+zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3:wrap'
+zstyle ':fzf-tab:complete:kill:*' popup-pad 0 3
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
+zstyle ":fzf-tab:*" fzf-flags --color=bg+:23
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+zstyle ':fzf-tab:*' switch-group ',' '.'
+zstyle ":completion:*:git-checkout:*" sort false
+zstyle ':completion:*' file-sort modification
+zstyle ':completion:*:exa' sort false
+zstyle ':completion:files' sort false
+
 zinit ice lucid wait='0' atload='_zsh_autosuggest_start'
 zinit load zsh-users/zsh-autosuggestions
 
@@ -58,22 +73,28 @@ zinit load zdharma/fast-syntax-highlighting
 zinit ice lucid wait='0'
 zinit load zsh-users/zsh-completions
 
+zinit wait="1" lucid for \
+    OMZL::clipboard.zsh
+
 # 加载OMZ部分插件
-zinit snippet OMZ::lib/git.zsh
-zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
-# zinit snippet OMZ::lib/key-bindings.zsh
-zinit snippet OMZ::lib/completion.zsh
-zinit snippet OMZ::lib/history.zsh
-zinit snippet OMZ::lib/theme-and-appearance.zsh
+zinit snippet OMZL::git.zsh
+zinit snippet OMZP::sudo/sudo.plugin.zsh
+# zinit snippet OMZL::key-bindings.zsh
+zinit snippet OMZL::completion.zsh
+zinit snippet OMZL::history.zsh
+zinit snippet OMZL::theme-and-appearance.zsh
 # zinit snippet OMZT::steeef
 zinit snippet OMZT::robbyrussell
 
 zinit ice lucid wait='1'
-zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit snippet OMZP::git/git.plugin.zsh
 
 # 快速目录跳转
 zinit ice lucid wait='1'
 zinit light skywind3000/z.lua
+
+zinit ice lucid wait='1'
+zinit light Aloxaf/fzf-tab
 
 # OMZ的sudo代码段生效快捷键
 bindkey -M emacs '^o' sudo-command-line
