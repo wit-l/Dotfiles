@@ -93,6 +93,7 @@ zinit snippet OMZP::git/git.plugin.zsh
 zinit ice lucid wait='1'
 zinit light skywind3000/z.lua
 
+# 补全菜单实现模糊搜索
 zinit ice lucid wait='1'
 zinit light Aloxaf/fzf-tab
 
