@@ -45,11 +45,12 @@ alias grs='git remote show'
 alias grv='git remote -v'
 alias glo='git log --pretty="oneline"'
 alias glog='git log --graph --oneline --decorate'
+alias gmv='git mv'
 alias tc='tmux attach -t'
 alias tkill='pkill -f tmux'
 alias tl='tmux ls'
 alias tn='tmux new -s'
-alias treload='tmux source-file $XDG_CONFIG_HOME/Dotfiles/.tmux.conf'
+alias treload='tmux source-file $XDG_CONFIG_HOME/Dotfiles/tmux/.tmux.conf'
 function mkcd() {
     mkdir -p "$1" && cd "$1" || return $?
 }
