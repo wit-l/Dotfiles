@@ -543,8 +543,42 @@ require('lazy').setup({
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-      local servers = {
-        -- clangd = {},
+      local lspconfig = require 'lspconfig'
+--      local servers = {
+--        clangd = {
+--          cmd = { 'clangd', '--background-index' }, -- `clangd` 命令及参数
+--          filetypes = { 'c', 'cxx', 'cpp' },
+--          root_dir = lspconfig.util.root_pattern(
+--            '.clangd',
+--            '.clang-tidy',
+--            '.clang-format',
+--            'compile_commands.json',
+--            'compile_flags.txt',
+--            'configure.ac',
+--            '.git'
+--          ),
+--
+--          single_file_support = true,
+--          initialization_options = {
+--            -- `clangd` 初始化选项
+--            cache = {
+--              directory = vim.fn.stdpath 'cache' .. '/clangd_cache', -- 缓存目录
+--            },
+--          },
+--
+--          settings = {
+--            -- `clangd` 设置
+--            clangd = {
+--              formatting = {
+--                style = 'file', -- 格式化风格
+--              },
+--              diagnostics = {
+--                enable = true, -- 启用诊断
+--              },
+--            },
+--          },
+--        },
+--        },
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},

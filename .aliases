@@ -11,6 +11,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 alias sudo='sudo '
+alias man='man '
 alias wget='wget --hsts-file $XDG_CONFIG_HOME/.wget-hsts'
 alias vi='nvim'
 alias l='ls -l'
