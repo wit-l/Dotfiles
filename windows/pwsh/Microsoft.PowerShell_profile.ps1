@@ -1,13 +1,18 @@
 $PSStyle.FileInfo.Directory="`e[34;1m"
-$VIMRC="D:\software\vim\_vimrc"
-$VIMRUNTIME="D:\software\vim\vim91"
 $CODE="D:\Users\witty\Documents\code"
 New-Alias -Name "vi" -Value "nvim"
 New-Alias -Name "ghl" -Value "Get-Help"
 . "D:\Software\ripgrep\complete\_rg.ps1"
-
 function grv {
     git remote -v @args
+}
+
+function gs {
+    git status @args
+}
+
+function ga {
+    git add @args
 }
 
 function lla {
@@ -48,7 +53,6 @@ function fzf {
 #------------------------------- Import Modules END -------------------------------
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/montys.omp.json" | Invoke-Expression
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/robbyrussell.omp.json" | Invoke-Expression
-
 #------------------------------- Set Hot-keys BEGIN -------------------------------
 # 设置预测文本来源为历史记录
 Set-PSReadLineOption -PredictionSource History -HistorySearchCursorMovesToEnd -EditMode Vi -PredictionViewStyle InlineView -BellStyle None 
@@ -67,11 +71,8 @@ Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnVi
 # 设置 Tab 为菜单补全和 Intellisense
 Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
 
-# 设置 Ctrl+d 为退出 PowerShell
-Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function ViExit
-
 # 退出到Normal模式
-Set-PSReadLineKeyHandler -Key "Alt+q" -Function ViCommandMode
+Set-PSReadLineKeyHandler -Key "Ctrl+;" -Function ViCommandMode
 # Emacs风格key-bindings
 Set-PSReadLineKeyHandler -Key "Alt+b" -Function BackwardWord
 Set-PSReadLineKeyHandler -Key "Alt+f" -Function ForwardWord
