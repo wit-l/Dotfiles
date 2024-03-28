@@ -43,8 +43,8 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
 ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
-# [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-# [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "$ZINIT_HOME/zinit.zsh" # 加载zinit的初始化脚本
 autoload -Uz _zinit # 在用户区域加载_zinit函数,且忽略任何现有定义
 (( ${+_comps} )) && _comps[zinit]=_zinit  # 检查数组_comps是否定义(是否有任何补全函数注册)以添加进去
@@ -65,13 +65,13 @@ zstyle ':completion:*:exa' sort false
 zstyle ':completion:files' sort false
 
 zinit ice lucid wait='0' atload='_zsh_autosuggest_start'
-zinit load zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-autosuggestions
 
 zinit ice lucid wait='0' atinit='zpcompinit'
-zinit load zdharma/fast-syntax-highlighting
+zinit light zdharma/fast-syntax-highlighting
 
-zinit ice lucid wait='0'
-zinit load zsh-users/zsh-completions
+# zinit ice lucid wait='0'
+# zinit light zsh-users/zsh-completions
 
 zinit wait="1" lucid for \
     OMZL::clipboard.zsh
