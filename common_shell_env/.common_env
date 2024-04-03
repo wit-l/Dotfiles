@@ -4,5 +4,3 @@ export _ZL_DATA="$XDG_CONFIG_HOME/.zlua"
 export _ZL_ECHO=1
 export _ZL_MATCH_MODE=1
 export _ZL_ADD_ONCE=1
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

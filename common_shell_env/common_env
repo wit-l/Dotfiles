@@ -1,3 +1,4 @@
+#!/bin/zsh
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$XDG_CONFIG_HOME/.local"
 export XDG_CACHE_HOME="$XDG_CONFIG_HOME/.cache"
@@ -14,7 +15,7 @@ export NPM_CONFIG_USERDIR="$XDG_CONFIG_HOME/.npm"
 export TMUX_CONF="$XDG_CONFIG_HOME/.tmux.conf"
 export SVN_CONFIG_DIR="$XDG_CONFIG_HOME/.subversion"
 ## fzf相关配置
-export FZF_DEFAULT_OPTS="--height 80% -e --ansi --layout=reverse"
+export FZF_DEFAULT_OPTS="--height 80% -e --ansi --layout=reverse --border"
 
 ## ctrl+t用于搜索文件
 export FZF_CTRL_T_COMMAND='fd -t f --follow -H --exclude .git --color=always'
