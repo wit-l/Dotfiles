@@ -1,5 +1,5 @@
 # Created by newuser for 5.8.1
-zmodload zsh/zprof
+# zmodload zsh/zprof
 bindkey -v # CLI可使用vim模式
 export KEYTIMEOUT=1
 # Emacs
@@ -72,10 +72,8 @@ zinit wait lucid for \
   OMZL::completion.zsh \
   OMZP::git/git.plugin.zsh \
   OMZP::nvm/nvm.plugin.zsh \
-  atclone"sed -i '105,108s/\\\e\\\e/\\^o/g' sudo.plugin.zsh; \
-  zi compile OMZP::sudo/sudo.plugin.zsh; \
-  zi snippet OMZP::sudo/sudo.plugin.zsh" \
-  atpull"%atclone" \
+  atclone"sed -i '105,108s/\\\e\\\e/\\^o/g' sudo.plugin.zsh" \
+  nocompile"!" atpull"%atclone" \
     OMZP::sudo/sudo.plugin.zsh \
   skywind3000/z.lua \
   hlissner/zsh-autopair \
@@ -130,4 +128,4 @@ zinit wait lucid light-mode for \
 [ -f $XDG_CONFIG_HOME/.aliases ] && source $XDG_CONFIG_HOME/.aliases
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
-zprof
+# zprof
