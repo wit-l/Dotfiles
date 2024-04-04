@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # NOTE: Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # zmodload zsh/zprof
 setopt prompt_subst histignorealldups sharehistory HIST_SAVE_NO_DUPS # Do not write a duplicate event to the history file.
@@ -12,8 +12,8 @@ setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
 setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
 
 ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -r $ZINIT_HOME/zinit.zsh ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+# [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+# [ ! -r $ZINIT_HOME/zinit.zsh ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "$ZINIT_HOME/zinit.zsh" # 加载zinit的初始化脚本
 
 zinit depth'1' light-mode for \
@@ -39,6 +39,8 @@ zinit wait lucid light-mode from"gh-r" completions blockf for \
     sbin"ripgrep*/rg"       BurntSushi/ripgrep \
   mv"fd*/fd.1 -> $ZINIT[MAN_DIR]/man1/" compile"fd*/autocomplete/_fd" \
     sbin"fd*/fd"            @sharkdp/fd \
+  mv"hyperfine*/hyperfine.1 -> $ZINIT[MAN_DIR]/man1/" compile"hyperfine*/autocomplete/_hyperfine" \
+    sbin"hyperfine"           @sharkdp/hyperfine \
   mv"bat*/autocomplete/bat.zsh -> _bat" compile"_bat" \
   atclone"mv bat*/bat.1 $ZINIT[MAN_DIR]/man1/" atpull"%atclone" \
     sbin"bat*/bat"          @sharkdp/bat \
