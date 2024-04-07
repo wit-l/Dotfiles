@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # NOTE: Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # zmodload zsh/zprof
 setopt prompt_subst histignorealldups sharehistory HIST_SAVE_NO_DUPS # Do not write a duplicate event to the history file.
@@ -63,15 +63,17 @@ zinit wait lucid as"null" light-mode for \
   atclone"chmod a+x fzf-preview.sh;mv fzf-preview.sh $ZPFX/bin/" atpull"%atclone" \
     https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-preview.sh \
   atclone"chmod a+x fzf-tmux;mv fzf-tmux $ZPFX/bin/" atpull"%atclone" \
-    https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux
+    https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux \
+  pick"fz.sh" \
+    https://raw.githubusercontent.com/mrjohannchang/fz.sh/master/fz.sh
 
 zinit wait lucid light-mode as="completion" blockf for \
   atpull'zinit creinstall -q .' \
     zsh-users/zsh-completions \
   https://raw.githubusercontent.com/lmburns/dotfiles/master/.config/zsh/completions/_fzf
 
-zinit wait lucid light-mode blockf for \
-  atinit"zicompinit; source $ZDOTDIR/completions" \
+zinit wait lucid light-mode for \
+  blockf atinit"zicompinit; source $ZDOTDIR/completions" \
     Aloxaf/fzf-tab \
   atload"_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
