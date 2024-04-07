@@ -1,6 +1,10 @@
-export PATH="/opt/cmake-3.29.0-rc3-linux-x86_64/bin:$XDG_DATA_HOME/bin:/opt/nvim-linux64/bin:$PATH"
-DOTDIR='/home/witty/.config/Dotfiles'
+#!/bin/sh
 export _ZL_DATA="$XDG_CONFIG_HOME/.zlua"
 export _ZL_ECHO=1
 export _ZL_MATCH_MODE=1
 export _ZL_ADD_ONCE=1
+export _ZL_ZSH_NO_FZF=1
+export _ZL_ROOT_MARKERS=".git,.svn,.hg,.root,package.json"
+export _ZL_INT_SORT=1
+export _ZL_HYPHEN=1
+export _ZL_FZF="/home/witty/.config/.local/zinit/plugins/junegunn---fzf/fzf"

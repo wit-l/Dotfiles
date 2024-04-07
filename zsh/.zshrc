@@ -11,9 +11,9 @@ setopt AUTO_PUSHD           # Push the current directory visited on the stack.
 setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
 setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
 
-ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 # [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-# [ ! -r $ZINIT_HOME/zinit.zsh ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+# [ ! -f $ZINIT_HOME/zinit.zsh ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "$ZINIT_HOME/zinit.zsh" # 加载zinit的初始化脚本
 
 zinit depth'1' light-mode for \
@@ -31,7 +31,10 @@ zinit wait lucid light-mode for \
   atclone"sed -i '105,108s/\\\e\\\e/\\^o/g' sudo.plugin.zsh" \
   nocompile"!" atpull"%atclone" \
     OMZP::sudo/sudo.plugin.zsh \
-  skywind3000/z.lua \
+  atclone"mkdir -p ~/.config/ranger/plugins;mv ranger_zlua.py ~/.config/ranger/plugins/" \
+  atpull'!git reset --hard' \
+  atload"export RANGER_ZLUA='$ZINIT[PLUGINS_DIR]/skywind3000---z.lua/z.lua'" \
+    skywind3000/z.lua \
   hlissner/zsh-autopair
 
 zinit wait lucid light-mode from"gh-r" completions blockf for \
@@ -40,16 +43,16 @@ zinit wait lucid light-mode from"gh-r" completions blockf for \
   mv"fd*/fd.1 -> $ZINIT[MAN_DIR]/man1/" compile"fd*/autocomplete/_fd" \
     sbin"fd*/fd"            @sharkdp/fd \
   mv"hyperfine*/hyperfine.1 -> $ZINIT[MAN_DIR]/man1/" compile"hyperfine*/autocomplete/_hyperfine" \
-    sbin"hyperfine"           @sharkdp/hyperfine \
+    sbin"hyperfine"         @sharkdp/hyperfine \
   mv"bat*/autocomplete/bat.zsh -> _bat" compile"_bat" \
   atclone"mv bat*/bat.1 $ZINIT[MAN_DIR]/man1/" atpull"%atclone" \
     sbin"bat*/bat"          @sharkdp/bat \
   mv"completions/exa.zsh -> _exa" compile"_exa" \
   atclone"mv -f man/*.1 $ZINIT[MAN_DIR]/man1/;mv -f man/*.5 $ZINIT[MAN_DIR]/man5/" \
-  atpull"$atclone" atload"alias ls='exa'" \
+  atpull"%atclone" atload"alias ls='exa'" \
     sbin"bin/exa"           ogham/exa \
   atload"source $XDG_CONFIG_HOME/.fzf.zsh" \
-    fbin"fzf"               junegunn/fzf
+    fbin                    junegunn/fzf
 
 # install manual and scripts
 zinit wait lucid as"null" light-mode for \
@@ -57,9 +60,9 @@ zinit wait lucid as"null" light-mode for \
     https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf.1 \
   mv"fzf-tmux.1 -> $ZINIT[MAN_DIR]/man1/" \
     https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf-tmux.1 \
-  atclone"chmod a+x fzf-preview.sh;mv fzf-preview.sh $ZPFX/bin/" atpull"%atpull" \
+  atclone"chmod a+x fzf-preview.sh;mv fzf-preview.sh $ZPFX/bin/" atpull"%atclone" \
     https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-preview.sh \
-  atclone"chmod a+x fzf-tmux;mv fzf-tmux $ZPFX/bin/" atpull"%atpull" \
+  atclone"chmod a+x fzf-tmux;mv fzf-tmux $ZPFX/bin/" atpull"%atclone" \
     https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux
 
 zinit wait lucid light-mode as="completion" blockf for \
@@ -67,11 +70,12 @@ zinit wait lucid light-mode as="completion" blockf for \
     zsh-users/zsh-completions \
   https://raw.githubusercontent.com/lmburns/dotfiles/master/.config/zsh/completions/_fzf
 
-zinit wait lucid light-mode for \
-  atinit"zicompinit; zicdreplay" \
+zinit wait lucid light-mode blockf for \
+  atinit"zicompinit; source $ZDOTDIR/completions" \
     Aloxaf/fzf-tab \
   atload"_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
+  atload"zicdreplay" \
   zdharma-continuum/fast-syntax-highlighting
 
 bindkey -v # CLI可使用vim模式
@@ -105,6 +109,7 @@ echo -ne '\e[5 q'
 
 # == fzf-tab
 zstyle ':fzf-tab:complete:_zlua:*' query-string input
+zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm,cmd -w -w"
 zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
 zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3:wrap'
 zstyle ':fzf-tab:complete:kill:*' popup-pad 0 3
@@ -119,12 +124,14 @@ zstyle ':completion:*:git-checkout:*' sort false
 # set descriptions format to enable group support
 # NOTE: don't use escape sequences here, fzf-tab will ignore them
 zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
 zstyle ':completion:*' menu no
 # preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -a -1 --color=always $realpath'
-# switch group using `,` and `.`
-zstyle ':fzf-tab:*' switch-group ',' '.'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -al --color=always $realpath'
+# switch group using `<` and `>`
+zstyle ':fzf-tab:*' switch-group '<' '>'
 
 [ -f /usr/share/autojump/autojump.sh ] && source /usr/share/autojump/autojump.sh
 [ -f $XDG_CONFIG_HOME/.aliases ] && source $XDG_CONFIG_HOME/.aliases
