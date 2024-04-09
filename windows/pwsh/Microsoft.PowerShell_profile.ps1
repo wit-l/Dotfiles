@@ -2,7 +2,20 @@ $PSStyle.FileInfo.Directory="`e[34;1m"
 $CODE="D:\Users\witty\Documents\code"
 New-Alias -Name "vi" -Value "nvim"
 New-Alias -Name "ghl" -Value "Get-Help"
-. "D:\Software\ripgrep\complete\_rg.ps1"
+Set-Alias -Name "j" -Value "Invoke-ZLocation"
+$MSYS2_SOFTWARE="D:\msys64\home\witty\.config\.local\zinit\plugins"
+$ENV:PATH="$MSYS2_SOFTWARE\BurntSushi---ripgrep\ripgrep-14.1.0-x86_64-pc-windows-gnu;$MSYS2_SOFTWARE\eza-community---eza;$MSYS2_SOFTWARE\sharkdp---bat\bat-v0.24.0-x86_64-pc-windows-gnu;$MSYS2_SOFTWARE\junegunn---fzf;$MSYS2_SOFTWARE\sharkdp---fd\fd-v9.0.0-x86_64-pc-windows-gnu;"+$ENV:PATH
+
+if (Test-Path -Path $MSYS2_SOFTWARE\BurntSushi---ripgrep\ripgrep-14.1.0-x86_64-pc-windows-gnu\complete\_rg.ps1) {
+  . "$MSYS2_SOFTWARE\BurntSushi---ripgrep\ripgrep-14.1.0-x86_64-pc-windows-gnu\complete\_rg.ps1"
+}
+if (Test-Path -Path $MSYS2_SOFTWARE\sharkdp---bat\bat-v0.24.0-x86_64-pc-windows-gnu\autocomplete\_bat.ps1) {
+  . "$MSYS2_SOFTWARE\sharkdp---bat\bat-v0.24.0-x86_64-pc-windows-gnu\autocomplete\_bat.ps1"
+}
+if (Test-Path -Path $MSYS2_SOFTWARE\sharkdp---fd\fd-v9.0.0-x86_64-pc-windows-gnu\autocomplete\fd.ps1) {
+  . "$MSYS2_SOFTWARE\sharkdp---fd\fd-v9.0.0-x86_64-pc-windows-gnu\autocomplete\fd.ps1"
+}
+
 function grv {
     git remote -v @args
 }
@@ -16,7 +29,7 @@ function ga {
 }
 
 function lla {
-    ls.exe --color=always -al @args
+    eza.exe -al @args
 }
 
 function glog {
@@ -24,11 +37,11 @@ function glog {
 }
 
 function ls_ {
-    ls.exe --color=auto @args
+    eza.exe  @args
 }
 
 function ll {
-    ls.exe --color=auto -l @args
+    eza.exe  -l @args
 }
 
 Set-Alias -Name ls -Value ls_
@@ -44,15 +57,27 @@ function mkcd {
     Set-Location -Path $dir
 }
 
-function fzf {
-    fzf.exe -e --preview 'bat --color=always --style=numbers --line-range=:500 {}' @args
-}
+# function fzf {
+#     fzf.exe -e --preview 'bat --color=always --style=numbers --line-range=:500 {}' @args
+# }
 
 #------------------------------- Import Modules BEGIN -------------------------------
 # Import-Module PSReadLine
 #------------------------------- Import Modules END -------------------------------
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/montys.omp.json" | Invoke-Expression
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/robbyrussell.omp.json" | Invoke-Expression
+if (Test-Path -Path D:/msys64/home/witty/.config/.local/zinit/plugins/skywind3000---z.lua/z.lua) {
+  Invoke-Expression (& { (lua D:/msys64/home/witty/.config/.local/zinit/plugins/skywind3000---z.lua/z.lua --init powershell enhanced fzf echo once) -join "`n" })
+}
+
+$_ZL_DATA="~/.config/.zlua"
+$_ZL_ECHO=1
+$_ZL_MATCH_MODE=1
+$_ZL_ADD_ONCE=1
+$_ZL_ZSH_NO_FZF=0
+$_ZL_ROOT_MARKERS=".git,.svn,.hg,.root,package.json"
+$_ZL_INT_SORT=1
+
 #------------------------------- Set Hot-keys BEGIN -------------------------------
 # 设置预测文本来源为历史记录
 Set-PSReadLineOption -PredictionSource History -HistorySearchCursorMovesToEnd -EditMode Vi -PredictionViewStyle InlineView -BellStyle None 
