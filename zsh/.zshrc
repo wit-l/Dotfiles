@@ -21,7 +21,6 @@ zinit depth'1' light-mode for \
     romkatv/powerlevel10k \
   lucid \
     zdharma-continuum/zinit-annex-bin-gem-node
-
 export NVM_LAZY=1
 zinit wait lucid light-mode for \
   OMZL::history.zsh \
@@ -47,10 +46,8 @@ zinit wait lucid light-mode from"gh-r" completions blockf for \
   mv"bat*/autocomplete/bat.zsh -> _bat" compile"_bat" \
   atclone"mv bat*/bat.1 $ZINIT[MAN_DIR]/man1/" atpull"%atclone" \
     sbin"bat*/bat"          @sharkdp/bat \
-  mv"completions/exa.zsh -> _exa" compile"_exa" \
-  atclone"mv -f man/*.1 $ZINIT[MAN_DIR]/man1/;mv -f man/*.5 $ZINIT[MAN_DIR]/man5/" \
-  atpull"%atclone" atload"alias ls='exa'" \
-    sbin"bin/exa"           ogham/exa \
+  atload"alias ls='eza -g'" \
+    sbin"eza"               eza-community/eza \
   atload"source $XDG_CONFIG_HOME/.fzf.zsh" \
     fbin                    junegunn/fzf
 
@@ -70,7 +67,8 @@ zinit wait lucid as"null" light-mode for \
 zinit wait lucid light-mode as="completion" blockf for \
   atpull'zinit creinstall -q .' \
     zsh-users/zsh-completions \
-  https://raw.githubusercontent.com/lmburns/dotfiles/master/.config/zsh/completions/_fzf
+  https://raw.githubusercontent.com/lmburns/dotfiles/master/.config/zsh/completions/_fzf \
+  https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza
 
 zinit wait lucid light-mode for \
   blockf atinit"zicompinit; source $ZDOTDIR/completions" \
@@ -117,9 +115,9 @@ zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3
 zstyle ':fzf-tab:complete:kill:*' popup-pad 0 3
 zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
 zstyle ":fzf-tab:*" fzf-flags --color=bg+:23
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+# zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup # It makes fzf-tab can't work in tmux
 zstyle ':completion:*' file-sort modification
-zstyle ':completion:*:exa' sort false
+zstyle ':completion:*:eza' sort false
 zstyle ':completion:files' sort false
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
@@ -127,18 +125,16 @@ zstyle ':completion:*:git-checkout:*' sort false
 # NOTE: don't use escape sequences here, fzf-tab will ignore them
 zstyle ':completion:*:descriptions' format '[%d]'
 # set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
 zstyle ':completion:*' menu no
-# preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -al --color=always $realpath'
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -al --color=always $realpath'
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
 # set case insensitive when change directory with cd
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
-[ -f /usr/share/autojump/autojump.sh ] && source /usr/share/autojump/autojump.sh
 [ -f $XDG_CONFIG_HOME/.aliases ] && source $XDG_CONFIG_HOME/.aliases
-for index ({1..9}) alias "$index"="cd +${index}"; unset index
 # make instant prompt quiet if console output during zsh initialization
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # zprof
