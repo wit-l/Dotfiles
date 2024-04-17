@@ -49,7 +49,9 @@ zinit wait lucid light-mode from"gh-r" completions blockf for \
   atload"alias ls='eza -g'" \
     sbin"eza"               eza-community/eza \
   atload"source $XDG_CONFIG_HOME/.fzf.zsh" \
-    fbin                    junegunn/fzf
+    fbin                    junegunn/fzf \
+  mv"tree-sitter* -> tree-sitter" \
+    fbin"tree-sitter"       tree-sitter/tree-sitter
 
 # install manual and scripts
 zinit wait lucid as"null" light-mode for \
