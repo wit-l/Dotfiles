@@ -1,16 +1,8 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
-    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "$schema": "https://aka.ms/terminal-profiles-schema-preview",
     "actions": 
     [
-        {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+c"
-        },
         {
             "command": 
             {
@@ -22,70 +14,18 @@
         {
             "command": 
             {
-                "action": "movePane",
-                "index": 5
+                "action": "copy",
+                "singleLine": false
             },
-            "keys": "alt+shift+6"
+            "keys": "ctrl+c"
         },
         {
             "command": 
             {
-                "action": "movePane",
-                "index": 6
-            },
-            "keys": "alt+shift+7"
-        },
-        {
-            "command": "unbound",
-            "keys": "alt+up"
-        },
-        {
-            "command": "unbound",
-            "keys": "alt+down"
-        },
-        {
-            "command": "unbound",
-            "keys": "alt+right"
-        },
-        {
-            "command": "unbound",
-            "keys": "alt+left"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+shift+up"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+shift+down"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+alt+left"
-        },
-        {
-            "command": "unbound",
-            "keys": "alt+space"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+shift+space"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 2
-            },
-            "keys": "alt+shift+3"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
+                "action": "resizePane",
                 "direction": "up"
             },
-            "keys": "ctrl+alt+k"
+            "keys": "alt+shift+k"
         },
         {
             "command": "paste",
@@ -94,33 +34,34 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "down"
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
             },
-            "keys": "ctrl+alt+j"
+            "keys": "alt+shift+d"
         },
         {
             "command": 
             {
-                "action": "moveFocus",
+                "action": "scrollDown"
+            },
+            "keys": "ctrl+shift+j"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "command": 
+            {
+                "action": "resizePane",
                 "direction": "left"
             },
-            "keys": "ctrl+alt+h"
+            "keys": "alt+shift+h"
         },
         {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "right"
-            },
-            "keys": "ctrl+alt+l"
-        },
-        {
-            "command": 
-            {
-                "action": "scrollUp"
-            },
-            "keys": "ctrl+shift+k"
+            "command": "openNewTabDropdown",
+            "keys": "ctrl+alt+p"
         },
         {
             "command": 
@@ -133,9 +74,17 @@
         {
             "command": 
             {
-                "action": "scrollDown"
+                "action": "scrollUp"
             },
-            "keys": "ctrl+shift+j"
+            "keys": "ctrl+shift+k"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "keys": "ctrl+alt+h"
         },
         {
             "command": 
@@ -149,93 +98,44 @@
             "command": 
             {
                 "action": "resizePane",
-                "direction": "up"
-            },
-            "keys": "alt+shift+k"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "left"
-            },
-            "keys": "alt+shift+h"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
                 "direction": "right"
             },
             "keys": "alt+shift+l"
         },
         {
-            "command": "scrollToBottom",
-            "keys": "ctrl+shift+e"
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "keys": "ctrl+alt+k"
         },
         {
             "command": 
             {
-                "action": "movePane",
-                "index": 0
+                "action": "moveFocus",
+                "direction": "down"
             },
-            "keys": "alt+shift+1"
-        },
-        {
-            "command": "scrollToTop",
-            "keys": "ctrl+shift+a"
+            "keys": "ctrl+alt+j"
         },
         {
             "command": 
             {
-                "action": "movePane",
-                "index": 1
+                "action": "moveFocus",
+                "direction": "right"
             },
-            "keys": "alt+shift+2"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 3
-            },
-            "keys": "alt+shift+4"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 4
-            },
-            "keys": "alt+shift+5"
-        },
-        {
-            "command": 
-            {
-                "action": "movePane",
-                "index": 7
-            },
-            "keys": "alt+shift+8"
+            "keys": "ctrl+alt+l"
         },
         {
             "command": "toggleFocusMode",
             "keys": "alt+z"
-        },
-        {
-            "command": "openNewTabDropdown",
-            "keys": "ctrl+alt+p"
         }
     ],
-    "alwaysOnTop": false,
-    "alwaysShowNotificationIcon": true,
-    "alwaysShowTabs": true,
     "centerOnLaunch": true,
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{71970a5a-81b5-485d-ac00-0e8741757c1b}",
     "experimental.rendering.forceFullRepaint": true,
-    "experimental.rendering.software": true,
-    "language": "en-US",
     "launchMode": "focus",
     "newTabMenu": 
     [
@@ -249,18 +149,14 @@
         "defaults": 
         {
             "adjustIndistinguishableColors": "always",
-            "altGrAliasing": true,
-            "antialiasingMode": "cleartype",
             "colorScheme": "One Half Dark",
-            "cursorShape": "bar",
             "font": 
             {
                 "face": "Maple Mono SC NF",
-                "size": 13.0
+                "size": 14.0
             },
-            "intenseTextStyle": "all",
-            "opacity": 50,
-            "scrollbarState": "visible",
+            "opacity": 55,
+            "padding": "8",
             "useAcrylic": true
         },
         "list": 
@@ -271,6 +167,14 @@
                 "hidden": false,
                 "icon": "D:\\Users\\witty\\OneDrive - GiantHard\\\u56fe\u7247\\pwsh-icons\\black-transparent-32.ico",
                 "name": "PowerShell7",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "commandline": "pwsh -ExecutionPolicy ByPass -NoExit -Command \"& 'D:\\Software\\anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate sklearn-env \"",
+                "guid": "{eebcc7d5-2846-4cc7-a2a0-963efd3db668}",
+                "hidden": false,
+                "icon": "D:\\Users\\witty\\OneDrive - GiantHard\\\u56fe\u7247\\pwsh-icons\\black-transparent-32.ico",
+                "name": "PowerShell7 (Anaconda)",
                 "startingDirectory": "%USERPROFILE%"
             },
             {
@@ -300,12 +204,12 @@
             {
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Command Prompt"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
             },
@@ -330,6 +234,28 @@
                 "icon": "D:\\msys64\\ucrt64.ico",
                 "name": "UCRT64 / MSYS2",
                 "startingDirectory": "D:/msys64/home/%USERNAME%"
+            },
+            {
+                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start  -here -clang64",
+                "guid": "{1a60ba25-9ff5-449d-a2b1-cf3a0e95f789}",
+                "hidden": false,
+                "icon": "D:\\msys64\\clang64.ico",
+                "name": "CLANG64 / MSYS2",
+                "startingDirectory": "D:/msys64/home/%USERNAME%"
+            },
+            {
+                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start  -here -mingw64",
+                "guid": "{e8af0abe-17fb-43e0-ad83-785ad9617236}",
+                "hidden": false,
+                "icon": "D:\\msys64\\mingw64.ico",
+                "name": "MINGW64 / MSYS2",
+                "startingDirectory": "D:/msys64/home/%USERNAME%"
+            },
+            {
+                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+                "hidden": false,
+                "name": "Git Bash",
+                "source": "Git"
             }
         ]
     },
@@ -589,9 +515,7 @@
             "yellow": "#808000"
         }
     ],
-    "showTabsInTitlebar": true,
-    "tabWidthMode": "equal",
-    "theme": "system",
     "themes": [],
-    "useAcrylicInTabRow": true
+    "useAcrylicInTabRow": true,
+    "windowingBehavior": "useNew"
 }
