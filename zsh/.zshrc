@@ -139,4 +139,5 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}
 [ -f $XDG_CONFIG_HOME/.aliases ] && source $XDG_CONFIG_HOME/.aliases
 # make instant prompt quiet if console output during zsh initialization
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+export TERM="tmux-256color"
 # zprof
