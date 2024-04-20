@@ -12,8 +12,8 @@ setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
 setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-# [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-# [ ! -f $ZINIT_HOME/zinit.zsh ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -f $ZINIT_HOME/zinit.zsh ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "$ZINIT_HOME/zinit.zsh" # 加载zinit的初始化脚本
 
 zinit depth'1' light-mode for \
@@ -21,6 +21,7 @@ zinit depth'1' light-mode for \
     romkatv/powerlevel10k \
   lucid \
     zdharma-continuum/zinit-annex-bin-gem-node
+
 export NVM_LAZY=1
 zinit wait lucid light-mode for \
   OMZL::history.zsh \
@@ -73,7 +74,7 @@ zinit wait lucid light-mode as="completion" blockf for \
   https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza
 
 zinit wait lucid light-mode for \
-  blockf atinit"zicompinit; source $ZDOTDIR/completions" \
+  blockf atinit"zicompinit; source $ZDOTDIR/zshrc.zsh" \
     Aloxaf/fzf-tab \
   atload"_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
@@ -134,8 +135,10 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -al --color=always $realpath'
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
+
 # set case insensitive when change directory with cd
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+
 [ -f $XDG_CONFIG_HOME/.aliases ] && source $XDG_CONFIG_HOME/.aliases
 # make instant prompt quiet if console output during zsh initialization
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
