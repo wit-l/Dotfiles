@@ -147,5 +147,8 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}
 [ -f $XDG_CONFIG_HOME/.aliases ] && source $XDG_CONFIG_HOME/.aliases
 # make instant prompt quiet if console output during zsh initialization
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+# Anaconda environment color.
+typeset -g POWERLEVEL9K_ANACONDA_FOREGROUND=37
+typeset -g POWERLEVEL9K_ANACONDA_CONTENT_EXPANSION='${${${${CONDA_PROMPT_MODIFIER#\(}% }%\)}:-${CONDA_PREFIX:t}}'
 export TERM="tmux-256color"
 # zprof
