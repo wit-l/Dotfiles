@@ -70,6 +70,7 @@ zinit wait lucid as"null" light-mode for \
 zinit wait lucid light-mode as="completion" blockf for \
   atpull'zinit creinstall -q .' \
     zsh-users/zsh-completions \
+  conda-incubator/conda-zsh-completion \
   https://raw.githubusercontent.com/lmburns/dotfiles/master/.config/zsh/completions/_fzf \
   https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza
 
