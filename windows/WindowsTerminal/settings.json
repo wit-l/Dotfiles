@@ -142,11 +142,19 @@
     },
     "list": [
       {
-        "commandline": "pwsh -ExecutionPolicy ByPass -NoExit -Command \"& 'D:\\Software\\anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate sklearn-env \"",
-        "guid": "{71970a5a-81b5-485d-ac00-0e8741757c1b}",
+        "commandline": "pwsh",
+        "guid": "{e00e127c-3aa0-47e2-a80c-a63c22fb31a3}",
         "hidden": false,
         "icon": "D:\\Users\\witty\\OneDrive - GiantHard\\\u56fe\u7247\\pwsh-icons\\black-transparent-32.ico",
         "name": "PowerShell7",
+        "startingDirectory": "%USERPROFILE%"
+      },
+      {
+        "commandline": "pwsh -ExecutionPolicy ByPass -NoExit -Command \"& 'D:\\Software\\anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate sklearn\"",
+        "guid": "{71970a5a-81b5-485d-ac00-0e8741757c1b}",
+        "hidden": false,
+        "icon": "D:\\Users\\witty\\OneDrive - GiantHard\\\u56fe\u7247\\pwsh-icons\\black-transparent-32.ico",
+        "name": "PowerShell7(conda)",
         "startingDirectory": "%USERPROFILE%"
       },
       {
