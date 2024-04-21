@@ -1,19 +1,30 @@
+# set PowerShell to UTF-8
+[console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
+
 $PSStyle.FileInfo.Directory="`e[34;1m"
-$CODE="D:\Users\witty\Documents\code"
+$Dot="D:\Users\witty\OneDrive - GiantHard\文档\PowerShell\Dotfiles"
 New-Alias -Name "vi" -Value "nvim"
 New-Alias -Name "ghl" -Value "Get-Help"
-Set-Alias -Name "j" -Value "Invoke-ZLocation"
-$MSYS2_SOFTWARE="D:\msys64\home\witty\.config\.local\zinit\plugins"
-$ENV:PATH="$MSYS2_SOFTWARE\BurntSushi---ripgrep\ripgrep-14.1.0-x86_64-pc-windows-gnu;$MSYS2_SOFTWARE\eza-community---eza;$MSYS2_SOFTWARE\sharkdp---bat\bat-v0.24.0-x86_64-pc-windows-gnu;$MSYS2_SOFTWARE\junegunn---fzf;$MSYS2_SOFTWARE\sharkdp---fd\fd-v9.0.0-x86_64-pc-windows-gnu;"+$ENV:PATH
+New-Alias -Name "j" -Value "_zlua"
 
-if (Test-Path -Path $MSYS2_SOFTWARE\BurntSushi---ripgrep\ripgrep-14.1.0-x86_64-pc-windows-gnu\complete\_rg.ps1) {
-  . "$MSYS2_SOFTWARE\BurntSushi---ripgrep\ripgrep-14.1.0-x86_64-pc-windows-gnu\complete\_rg.ps1"
+if (Test-Path -Path D:\Software\MsysSoftware\BurntSushi---ripgrep\ripgrep\complete\_rg.ps1) {
+    . "D:\Software\MsysSoftware\BurntSushi---ripgrep\ripgrep\complete\_rg.ps1"
 }
-if (Test-Path -Path $MSYS2_SOFTWARE\sharkdp---bat\bat-v0.24.0-x86_64-pc-windows-gnu\autocomplete\_bat.ps1) {
-  . "$MSYS2_SOFTWARE\sharkdp---bat\bat-v0.24.0-x86_64-pc-windows-gnu\autocomplete\_bat.ps1"
+if (Test-Path -Path D:\Software\MsysSoftware\sharkdp---bat\bat\autocomplete\_bat.ps1) {
+    . "D:\Software\MsysSoftware\sharkdp---bat\bat\autocomplete\_bat.ps1"
 }
-if (Test-Path -Path $MSYS2_SOFTWARE\sharkdp---fd\fd-v9.0.0-x86_64-pc-windows-gnu\autocomplete\fd.ps1) {
-  . "$MSYS2_SOFTWARE\sharkdp---fd\fd-v9.0.0-x86_64-pc-windows-gnu\autocomplete\fd.ps1"
+if (Test-Path -Path D:\Software\MsysSoftware\sharkdp---fd\fd\autocomplete\fd.ps1) {
+    . "D:\Software\MsysSoftware\sharkdp---fd\fd\autocomplete\fd.ps1"
+}
+if (Test-Path -Path D:\Users\witty\Documents\PowerShell\Scripts\UseLinuxTools.ps1) {
+    . "D:\Users\witty\Documents\PowerShell\Scripts\UseLinuxTools.ps1"
+}
+function ji {
+    _zlua -i @args
+}
+
+function jb {
+    _zlua -b @args
 }
 
 function grv {
@@ -29,7 +40,7 @@ function ga {
 }
 
 function lla {
-    eza.exe -al @args
+    eza.exe -al --icons=auto @args
 }
 
 function glog {
@@ -37,11 +48,11 @@ function glog {
 }
 
 function ls_ {
-    eza.exe  @args
+    eza.exe --icons=auto @args
 }
 
 function ll {
-    eza.exe  -l @args
+    eza.exe  -l --icons=auto @args
 }
 
 Set-Alias -Name ls -Value ls_
@@ -56,28 +67,21 @@ function mkcd {
     }
     Set-Location -Path $dir
 }
-
-# function fzf {
-#     fzf.exe -e --preview 'bat --color=always --style=numbers --line-range=:500 {}' @args
-# }
-
+# Utilities
+function which ($command) {
+  Get-Command -Name $command -ErrorAction SilentlyContinue |
+    Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
+}
 #------------------------------- Import Modules BEGIN -------------------------------
-# Import-Module PSReadLine
+# Import-Module Terminal-Icons
 #------------------------------- Import Modules END -------------------------------
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/montys.omp.json" | Invoke-Expression
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/robbyrussell.omp.json" | Invoke-Expression
-if (Test-Path -Path D:/msys64/home/witty/.config/.local/zinit/plugins/skywind3000---z.lua/z.lua) {
-  Invoke-Expression (& { (lua D:/msys64/home/witty/.config/.local/zinit/plugins/skywind3000---z.lua/z.lua --init powershell enhanced fzf echo once) -join "`n" })
+
+if (Test-Path -Path D:\Software\MsysSoftware\skywind3000---z.lua\z.lua) {
+  Invoke-Expression (& { (lua D:\Software\MsysSoftware\skywind3000---z.lua\z.lua --init powershell enhanced fzf echo once) -join "`n" })
 }
-
-$_ZL_DATA="~/.config/.zlua"
-$_ZL_ECHO=1
-$_ZL_MATCH_MODE=1
-$_ZL_ADD_ONCE=1
-$_ZL_ZSH_NO_FZF=0
-$_ZL_ROOT_MARKERS=".git,.svn,.hg,.root,package.json"
-$_ZL_INT_SORT=1
-
+Set-Alias -Name "z" -Value "Invoke-ZLocation"
 #------------------------------- Set Hot-keys BEGIN -------------------------------
 # 设置预测文本来源为历史记录
 Set-PSReadLineOption -PredictionSource History -HistorySearchCursorMovesToEnd -EditMode Vi -PredictionViewStyle InlineView -BellStyle None 
@@ -92,9 +96,12 @@ function OnViModeChange {
     }
 }
 
+# replace 'Ctrl+t' and 'Ctrl+r' with your preferred bindings:
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
+
 Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnViModeChange
-# 设置 Tab 为菜单补全和 Intellisense
-Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
+# Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
 
 # 退出到Normal模式
 Set-PSReadLineKeyHandler -Key "Ctrl+;" -Function ViCommandMode
@@ -121,4 +128,3 @@ Set-PSReadLineKeyHandler -Key "Shift+RightArrow" -Function SelectForwardChar
 Set-PSReadLineKeyHandler -Key "Ctrl+Shift+LeftArrow" -Function SelectBackwardWord
 Set-PSReadLineKeyHandler -Key "Ctrl+Shift+RightArrow" -Function SelectForwardWord
 #------------------------------- Set Hot-keys END -------------------------------
-# neofetch
