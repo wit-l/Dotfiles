@@ -14,7 +14,7 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/.npmrc"
 export NPM_CONFIG_USERDIR="$XDG_CONFIG_HOME/.npm"
 export SVN_CONFIG_DIR="$XDG_CONFIG_HOME/.subversion"
 ## fzf相关配置
-export FZF_DEFAULT_OPTS="--height 80% -e --ansi --layout=reverse --border"
+export FZF_DEFAULT_OPTS="--height 80% -e --ansi --layout=reverse"
 
 ## ctrl+t
 export FZF_CTRL_T_COMMAND='fd --follow -H --exclude .git --color=always'
