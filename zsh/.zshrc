@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # NOTE: Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # zmodload zsh/zprof
 setopt prompt_subst histignorealldups sharehistory HIST_SAVE_NO_DUPS # Do not write a duplicate event to the history file.
@@ -54,7 +54,7 @@ zinit wait lucid light-mode from"gh-r" completions blockf for \
   atload"alias ls='eza -g'" \
     sbin"eza"               eza-community/eza \
   atload"source $XDG_CONFIG_HOME/.fzf.zsh" \
-    fbin                    junegunn/fzf \
+    as"program"             junegunn/fzf \
   mv"tree-sitter* -> tree-sitter" \
     sbin"tree-sitter"       tree-sitter/tree-sitter
 
@@ -123,7 +123,7 @@ zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3
 zstyle ':fzf-tab:complete:kill:*' popup-pad 0 3
 zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
 zstyle ":fzf-tab:*" fzf-flags --color=bg+:23
-# zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup # It makes fzf-tab can't work in tmux
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 zstyle ':completion:*' file-sort modification
 zstyle ':completion:*:eza' sort false
 zstyle ':completion:files' sort false
@@ -137,7 +137,7 @@ zstyle ':completion:*:descriptions' format '[%d]'
 # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
 zstyle ':completion:*' menu no
 # preview directory's content with eza when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -al --color=always $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 -a --color=always $realpath'
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
