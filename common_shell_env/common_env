@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/hint/zsh
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$XDG_CONFIG_HOME/.local"
 export XDG_CACHE_HOME="$XDG_CONFIG_HOME/.cache"
@@ -7,7 +7,7 @@ export LESSHISTFILE="$XDG_CONFIG_HOME/.lesshst"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export LAUNCHPAD_HOME="$XDG_CONFIG_HOME/.launchpadlib"
-export SSH_CONFIG_DIR="$XDG_CONFIG_HOME/.ssh"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export PYTHONUSERBASE="$XDG_DATA_HOME"
 export PYTHONPATH="$PYTHONUSERBASE/lib/python$(python --version 2>&1 | awk '{print $2}' | tr -d .)/site-packages:$PYTHONPATH"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/.npmrc"
@@ -30,9 +30,6 @@ export FZF_CTRL_R_COMMAND="fd"
 ## 给manual加上语法高亮
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
-if ! echo "$PATH" | grep -q '/snap/bin'; then
-    export PATH="$PATH:/snap/bin"
-fi
-export PATH="/opt/cmake-3.29.0-rc3-linux-x86_64/bin:$XDG_DATA_HOME/bin:/opt/nvim-linux64/bin:$PATH"
-DOTDIR='/home/witty/.config/Dotfiles'
+export PATH="/opt/cmake/bin:$XDG_DATA_HOME/bin:/opt/nvim-linux64/bin:$PATH"
+DOTDIR='/home/witty/.config/dotfiles'
 export EZA_ICONS_AUTO=1
