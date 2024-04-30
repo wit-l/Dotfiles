@@ -181,7 +181,7 @@
             {
                 "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
                 "hidden": false,
-                "icon": "https://www.debian.org/Pics/debian-logo-1024x576.png",
+                "icon": "D:\\Users\\witty\\OneDrive - GiantHard\\\u56fe\u7247\\pwsh-icons\\debian.ico",
                 "name": "Debian",
                 "source": "Windows.Terminal.Wsl"
             },
