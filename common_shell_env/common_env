@@ -17,7 +17,7 @@ export CARGO_HOME="$XDG_CONFIG_HOME/.cargo"
 export BOB_CONFIG="$XDG_DATA_HOME/bob/config.json"
 export SVN_CONFIG_DIR="$XDG_CONFIG_HOME/.subversion"
 ## fzf相关配置
-export FZF_DEFAULT_OPTS="-e --ansi --layout=reverse"
+export FZF_DEFAULT_OPTS="--height 80% -e --ansi --layout=reverse"
 
 ## ctrl+t
 export FZF_CTRL_T_COMMAND='fd --follow -H --exclude .git --color=always'

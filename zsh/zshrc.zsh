@@ -13,5 +13,9 @@ else
     fi
 fi
 unset __conda_setup
+
+if [ -f "/opt/anaconda3/etc/profile.d/mamba.sh" ]; then
+    . "/opt/anaconda3/etc/profile.d/mamba.sh"
+fi
 # <<< conda initialize <<<
 . "/home/witty/.config/.cargo/env"
