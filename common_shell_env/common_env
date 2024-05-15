@@ -36,3 +36,5 @@ export MANROFFOPT="-c"
 export PATH="/opt/cmake/bin:$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PATH"
 DOTDIR='/home/witty/.config/dotfiles'
 export EZA_ICONS_AUTO=1
+export http_proxy=127.0.0.1:7890
+export https_proxy=127.0.0.1:7890
