@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/hint/zsh
 export _ZL_DATA="$XDG_CONFIG_HOME/.zlua"
 export _ZL_ECHO=1
 export _ZL_MATCH_MODE=1
