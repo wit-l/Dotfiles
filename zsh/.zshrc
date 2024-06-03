@@ -68,9 +68,7 @@ zinit wait lucid as"null" light-mode for \
   atclone"chmod a+x fzf-preview.sh;mv fzf-preview.sh $ZPFX/bin/" atpull"%atclone" \
     https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-preview.sh \
   atclone"chmod a+x fzf-tmux;mv fzf-tmux $ZPFX/bin/" atpull"%atclone" \
-    https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux \
-  pick"fz.sh" \
-    https://raw.githubusercontent.com/mrjohannchang/fz.sh/master/fz.sh
+    https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux
 
 zinit wait lucid light-mode as="completion" blockf for \
   atpull'zinit creinstall -q .' \
