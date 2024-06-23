@@ -52,6 +52,8 @@ zinit wait lucid light-mode from"gh-r" completions blockf for \
   mv"bat*/autocomplete/bat.zsh -> _bat" compile"_bat" \
   atclone"mv bat*/bat.1 $ZINIT[MAN_DIR]/man1/" atpull"%atclone" \
     sbin"bat*/bat"          @sharkdp/bat \
+  atload"alias ls='eza -g -F auto'" \
+    sbin"eza"               @eza-community/eza \
   atload"source $XDG_CONFIG_HOME/.fzf.zsh" \
     as"program"             junegunn/fzf \
   mv"tree-sitter* -> tree-sitter" \
@@ -75,7 +77,7 @@ zinit wait lucid light-mode as="completion" blockf for \
     conda-incubator/conda-zsh-completion \
   has"fzf" \
     https://raw.githubusercontent.com/lmburns/dotfiles/master/.config/zsh/completions/_fzf \
-  has"eza" atload"alias ls='eza -g -F auto'" \
+  has"eza" \
     https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza \
   has"rustc" \
     OMZP::/rust/_rustc
