@@ -78,7 +78,9 @@ zinit wait lucid light-mode as"completion" blockf for \
   has"fzf" \
     https://raw.githubusercontent.com/lmburns/dotfiles/master/.config/zsh/completions/_fzf \
   has"eza" \
-    https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza \
+    https://raw.githubusercontent.com/wit-l/Dotfiles/main/eza/_eza \
+  has"bob" \
+    https://raw.githubusercontent.com/wit-l/Dotfiles/main/bob/_bob \
   has"rustc" \
     OMZP::/rust/_rustc
 
