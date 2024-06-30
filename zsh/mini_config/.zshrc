@@ -53,6 +53,9 @@ zinit wait lucid as"null" light-mode for \
     https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf.1 \
   mv"fzf-tmux.1 -> $ZINIT[MAN_DIR]/man1/" id-as"fzf-tmux.1" \
     https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf-tmux.1 \
+  from"gh-r" bpick"man*" mv"target/man*/eza.1 -> $ZINIT[MAN_DIR]/man1/" \
+  atclone"mv target/man*/*.5 $ZINIT[MAN_DIR]/man5/" atpull"%atclone" id-as"eza-man" \
+    @eza-community/eza \
   atclone"chmod a+x fzf-preview.sh;mv fzf-preview.sh $ZPFX/bin/" atpull"%atclone" id-as"fzf-preview.sh" \
     https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-preview.sh \
   atclone"chmod a+x fzf-tmux;mv fzf-tmux $ZPFX/bin/" atpull"%atclone" id-as"fzf-tmux" \
