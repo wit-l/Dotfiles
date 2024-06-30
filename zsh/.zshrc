@@ -61,28 +61,32 @@ zinit wait lucid light-mode from"gh-r" completions blockf for \
 . "/home/witty/.config/.cargo/env"
 # install manual and scripts
 zinit wait lucid as"null" light-mode for \
-  mv"fzf.1 -> $ZINIT[MAN_DIR]/man1/" \
+  mv"fzf.1 -> $ZINIT[MAN_DIR]/man1/" id-as"fzf.1" \
     https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf.1 \
-  mv"fzf-tmux.1 -> $ZINIT[MAN_DIR]/man1/" \
+  mv"fzf-tmux.1 -> $ZINIT[MAN_DIR]/man1/" id-as"fzf-tmux.1" \
     https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf-tmux.1 \
-  atclone"chmod a+x fzf-preview.sh;mv fzf-preview.sh $ZPFX/bin/" atpull"%atclone" \
+  atclone"chmod a+x fzf-preview.sh;mv fzf-preview.sh $ZPFX/bin/" atpull"%atclone" id-as"fzf-preview.sh" \
     https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-preview.sh \
-  atclone"chmod a+x fzf-tmux;mv fzf-tmux $ZPFX/bin/" atpull"%atclone" \
+  atclone"chmod a+x fzf-tmux;mv fzf-tmux $ZPFX/bin/" atpull"%atclone" id-as"fzf-tmux" \
     https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux
 
 zinit wait lucid light-mode as"completion" blockf for \
   atpull'zinit creinstall -q .' \
     zsh-users/zsh-completions \
-  has"conda" \
+  has'conda' \
     conda-incubator/conda-zsh-completion \
-  has"fzf" \
+  has'fzf' id-as'_fzf' \
     https://raw.githubusercontent.com/lmburns/dotfiles/master/.config/zsh/completions/_fzf \
-  has"eza" \
+  has'eza' id-as'_eza' \
     https://raw.githubusercontent.com/wit-l/Dotfiles/main/eza/_eza \
-  has"bob" \
+  has'bob' id-as'_bob' \
     https://raw.githubusercontent.com/wit-l/Dotfiles/main/bob/_bob \
-  has"rustc" \
-    OMZP::/rust/_rustc
+  has'rustc' id-as'_rustc' \
+    OMZP::/rust/_rustc \
+  has'rustup' id-as'_rustup' \
+    https://raw.githubusercontent.com/wit-l/Dotfiles/main/rust/_rustup \
+  has'cargo' id-as'_cargo' \
+    https://raw.githubusercontent.com/wit-l/Dotfiles/main/rust/_cargo
 
 zinit wait lucid light-mode for \
   blockf atinit"zicompinit; source $ZDOTDIR/zshrc.zsh" \
@@ -90,7 +94,7 @@ zinit wait lucid light-mode for \
   atload"_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
   atload"zicdreplay" \
-  zdharma-continuum/fast-syntax-highlighting
+    zdharma-continuum/fast-syntax-highlighting
 
 bindkey -v # CLI可使用vim模式
 export KEYTIMEOUT=1
