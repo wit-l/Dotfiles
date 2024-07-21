@@ -18,3 +18,4 @@ if [ -f "/opt/anaconda3/etc/profile.d/mamba.sh" ]; then
     . "/opt/anaconda3/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
+export MANPATH=/home/witty/.config/nvm/versions/node/v20.15.0/share/man:$MANPATH
