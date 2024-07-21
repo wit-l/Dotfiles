@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # NOTE: Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 # zmodload zsh/zprof
 module_path+=( "$XDG_DATA_HOME/zinit/module/Src" )
 zmodload zdharma_continuum/zinit
@@ -57,7 +57,9 @@ zinit wait lucid light-mode from"gh-r" completions blockf for \
   atload"source $XDG_CONFIG_HOME/.fzf.zsh" \
     as"program"             junegunn/fzf \
   mv"tree-sitter* -> tree-sitter" \
-    sbin"tree-sitter"       tree-sitter/tree-sitter
+    sbin"tree-sitter"       tree-sitter/tree-sitter \
+  mv"viu* -> viu" \
+    sbin"viu"               @atanunq/viu
 . "/home/witty/.config/.cargo/env"
 # install manual and scripts
 zinit wait lucid as"null" light-mode for \
