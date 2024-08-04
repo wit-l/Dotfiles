@@ -64,16 +64,16 @@ zinit wait lucid light-mode from"gh-r" completions blockf for \
 # install manual and scripts
 zinit wait lucid as"null" light-mode for \
   mv"fzf.1 -> $ZINIT[MAN_DIR]/man1/" id-as"fzf.1" \
-    https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf.1 \
+    https://cdn.jsdelivr.net/gh/junegunn/fzf/man/man1/fzf.1 \
   mv"fzf-tmux.1 -> $ZINIT[MAN_DIR]/man1/" id-as"fzf-tmux.1" \
-    https://raw.githubusercontent.com/junegunn/fzf/master/man/man1/fzf-tmux.1 \
+    https://cdn.jsdelivr.net/gh/junegunn/fzf/man/man1/fzf-tmux.1 \
   from"gh-r" bpick"man*" mv"target/man*/eza.1 -> $ZINIT[MAN_DIR]/man1/" \
   atclone"mv target/man*/*.5 $ZINIT[MAN_DIR]/man5/" atpull"%atclone" id-as"eza-man" \
     @eza-community/eza \
   atclone"chmod a+x fzf-preview.sh;mv fzf-preview.sh $ZPFX/bin/" atpull"%atclone" id-as"fzf-preview.sh" \
-    https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-preview.sh \
+    https://cdn.jsdelivr.net/gh/junegunn/fzf/bin/fzf-preview.sh \
   atclone"chmod a+x fzf-tmux;mv fzf-tmux $ZPFX/bin/" atpull"%atclone" id-as"fzf-tmux" \
-    https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux
+    https://cdn.jsdelivr.net/gh/junegunn/fzf/bin/fzf-tmux
 # completions
 zinit wait lucid light-mode as"completion" blockf for \
   atpull'zinit creinstall -q .' \
@@ -81,17 +81,17 @@ zinit wait lucid light-mode as"completion" blockf for \
   has'conda' \
     conda-incubator/conda-zsh-completion \
   has'fzf' id-as'_fzf' \
-    https://raw.githubusercontent.com/lmburns/dotfiles/master/.config/zsh/completions/_fzf \
+    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/fzf/_fzf \
   has'eza' id-as'_eza' \
-    https://raw.githubusercontent.com/wit-l/Dotfiles/main/eza/_eza \
+    https://cdn.jsdelivr.net/gh/eza-community/eza@main/completions/zsh/_eza \
   has'bob' id-as'_bob' \
-    https://raw.githubusercontent.com/wit-l/Dotfiles/main/bob/_bob \
+    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/bob/_bob \
   has'rustc' id-as'_rustc' \
     OMZP::/rust/_rustc \
   has'rustup' id-as'_rustup' \
-    https://raw.githubusercontent.com/wit-l/Dotfiles/main/rust/_rustup \
+    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/rust/_rustup \
   has'cargo' id-as'_cargo' \
-    https://raw.githubusercontent.com/wit-l/Dotfiles/main/rust/_cargo
+    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/rust/_cargo
 
 zinit wait lucid light-mode for \
   blockf atinit"zicompinit; source $ZDOTDIR/zshrc.zsh" \
