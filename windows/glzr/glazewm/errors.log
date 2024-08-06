@@ -1,0 +1,3 @@
+[2m2024-08-06T04:50:28.243084Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m keybindings[4].commands: unexpected argument found
+ at line 133 column 15
+[2m2024-08-06T05:19:13.938929Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Another instance of the application is already running.

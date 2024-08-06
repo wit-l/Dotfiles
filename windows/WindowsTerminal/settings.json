@@ -6,15 +6,6 @@
         {
             "command": 
             {
-                "action": "copy",
-                "singleLine": false
-            },
-            "id": "User.copy.644BA8F2",
-            "keys": "ctrl+c"
-        },
-        {
-            "command": 
-            {
                 "action": "moveTab",
                 "direction": "forward"
             },
@@ -22,9 +13,13 @@
             "keys": "ctrl+shift+l"
         },
         {
-            "command": "paste",
-            "id": "User.paste",
-            "keys": "ctrl+v"
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
         },
         {
             "command": 
@@ -36,13 +31,17 @@
             "keys": "alt+shift+k"
         },
         {
+            "command": "paste",
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "left"
+                "action": "scrollDown"
             },
-            "id": "User.resizePane.2A0DA8E0",
-            "keys": "alt+shift+h"
+            "id": "User.scrollDown.0",
+            "keys": "ctrl+shift+j"
         },
         {
             "command": "find",
@@ -52,10 +51,11 @@
         {
             "command": 
             {
-                "action": "scrollDown"
+                "action": "resizePane",
+                "direction": "left"
             },
-            "id": "User.scrollDown.0",
-            "keys": "ctrl+shift+j"
+            "id": "User.resizePane.2A0DA8E0",
+            "keys": "alt+shift+h"
         },
         {
             "command": 
@@ -75,19 +75,19 @@
         {
             "command": 
             {
-                "action": "scrollUp"
-            },
-            "id": "User.scrollUp.0",
-            "keys": "ctrl+shift+k"
-        },
-        {
-            "command": 
-            {
                 "action": "moveTab",
                 "direction": "backward"
             },
             "id": "User.moveTab.EF07D31B",
             "keys": "ctrl+shift+h"
+        },
+        {
+            "command": 
+            {
+                "action": "scrollUp"
+            },
+            "id": "User.scrollUp.0",
+            "keys": "ctrl+shift+k"
         },
         {
             "command": 
@@ -168,6 +168,8 @@
         {
             "adjustIndistinguishableColors": "never",
             "colorScheme": "One Half Dark",
+            "experimental.repositionCursorWithMouse": false,
+            "experimental.rightClickContextMenu": true,
             "font": 
             {
                 "face": "Maple Mono NF CN",
@@ -188,7 +190,7 @@
                 "startingDirectory": "%USERPROFILE%"
             },
             {
-                "commandline": "pwsh -ExecutionPolicy ByPass -NoExit -Command \"& 'D:\\Software\\anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate sklearn\"",
+                "commandline": "pwsh -ExecutionPolicy ByPass -NoExit -Command \"& 'D:\\Software\\anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate base\"",
                 "guid": "{71970a5a-81b5-485d-ac00-0e8741757c1b}",
                 "hidden": false,
                 "icon": "D:\\Users\\witty\\OneDrive - GiantHard\\\u56fe\u7247\\pwsh-icons\\black-transparent-32.ico",
@@ -211,7 +213,7 @@
             {
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": true,
+                "hidden": false,
                 "name": "Command Prompt"
             },
             {
@@ -253,14 +255,15 @@
                 "startingDirectory": "D:/msys64/home/%USERNAME%"
             },
             {
-                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
-                "name": "Git Bash",
-                "source": "Git"
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore"
             }
         ]
     },
     "schemes": [],
+    "theme": "system",
     "themes": [],
     "useAcrylicInTabRow": true,
     "windowingBehavior": "useNew"
