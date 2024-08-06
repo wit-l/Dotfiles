@@ -1,5 +1,4 @@
 New-Alias -Name "vi" -Value "nvim"
-New-Alias -Name "vim" -Value "nvim"
 New-Alias -Name "ghl" -Value "Get-Help"
 
 function grv {
