@@ -12,6 +12,7 @@ export PYTHONUSERBASE="$XDG_DATA_HOME"
 export PYTHONPATH="$PYTHONUSERBASE/lib/python$(python --version 2>&1 | awk '{print $2}' | tr -d .)/site-packages:$PYTHONPATH"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/.npmrc"
 export NPM_CONFIG_USERDIR="$XDG_CONFIG_HOME/.npm"
+export PNPM_HOME="$XDG_CONFIG_HOME/.local/pnpm"
 export RUSTUP_HOME="$XDG_CONFIG_HOME/.rustup"
 export CARGO_HOME="$XDG_CONFIG_HOME/.cargo"
 export BOB_CONFIG="$XDG_DATA_HOME/bob/config.json"
@@ -33,7 +34,7 @@ export FZF_CTRL_R_COMMAND="fd"
 ## 给manual加上语法高亮
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
-export PATH="/opt/cmake/bin:$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PATH"
+export PATH="/opt/cmake/bin:$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$PATH"
 DOTDIR='/home/witty/.config/dotfiles'
 export EZA_ICONS_AUTO=1
 export http_proxy=127.0.0.1:7890
