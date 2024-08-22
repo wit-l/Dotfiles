@@ -17,7 +17,7 @@ general:
     # Trigger for cursor jump:
     # - 'monitor_focus': Jump when focus changes between monitors.
     # - 'window_focus': Jump when focus changes between windows.
-    trigger: "monitor_focus"
+    trigger: "window_focus"
 
 gaps:
   # Gap between adjacent windows.
@@ -94,22 +94,27 @@ window_rules:
       - window_process: { equals: "PowerToys.PowerAccent" }
       - window_process: { equals: "Lively" }
         window_class: { regex: "HwndWrapper*" }
-
+  - commands: ["set-floating"]
+    match:
       # Ignore some software
-      - window_process: { regex: "rubic.*" }
+      - window_process: { regex: "uTools.*" }
+      - window_process: { regex: "QQ.*" }
+      - window_process: { regex: "Wechat.*" }
+      - window_process: { equals: "QuickLook" }
+      - window_process: { equals: "Clash Verge" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
   - name: "resize"
     keybindings:
       - commands: ["resize --width -1%"]
-        bindings: ["h", "left"]
+        bindings: ["h"]
       - commands: ["resize --width +1%"]
-        bindings: ["l", "right"]
+        bindings: ["l"]
       - commands: ["resize --height +1%"]
-        bindings: ["k", "up"]
+        bindings: ["k"]
       - commands: ["resize --height -1%"]
-        bindings: ["j", "down"]
+        bindings: ["j"]
       # Press enter/escape to return to default keybindings.
       - commands: ["wm-disable-binding-mode --name resize"]
         bindings: ["escape", "enter"]
