@@ -1,69 +1,254 @@
-###-begin-npm-completion-###
-#
-# npm command completion script
-#
-# Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
-# Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
-#
+#compdef npm
+#autoload
 
-if type complete &>/dev/null; then
-  _npm_completion () {
-    local words cword
-    if type _get_comp_words_by_ref &>/dev/null; then
-      _get_comp_words_by_ref -n = -n @ -n : -w words -i cword
-    else
-      cword="$COMP_CWORD"
-      words=("${COMP_WORDS[@]}")
-    fi
+JQ=$(command -v gojq || command -v jq)
 
-    local si="$IFS"
-    if ! IFS=$'\n' COMPREPLY=($(COMP_CWORD="$cword" \
-                           COMP_LINE="$COMP_LINE" \
-                           COMP_POINT="$COMP_POINT" \
-                           npm completion -- "${words[@]}" \
-                           2>/dev/null)); then
-      local ret=$?
-      IFS="$si"
-      return $ret
-    fi
-    IFS="$si"
-    if type __ltrim_colon_completions &>/dev/null; then
-      __ltrim_colon_completions "${words[cword]}"
-    fi
-  }
-  complete -o default -F _npm_completion npm
-elif type compdef &>/dev/null; then
-  _npm_completion() {
-    local si=$IFS
-    compadd -- $(COMP_CWORD=$((CURRENT-1)) \
-                 COMP_LINE=$BUFFER \
-                 COMP_POINT=0 \
-                 npm completion -- "${words[@]}" \
-                 2>/dev/null)
-    IFS=$si
-  }
-  compdef _npm_completion npm
-elif type compctl &>/dev/null; then
-  _npm_completion () {
-    local cword line point words si
-    read -Ac words
-    read -cn cword
-    let cword-=1
-    read -l line
-    read -ln point
-    si="$IFS"
-    if ! IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                       COMP_LINE="$line" \
-                       COMP_POINT="$point" \
-                       npm completion -- "${words[@]}" \
-                       2>/dev/null)); then
+local -a _1st_arguments
+_1st_arguments=(
+	'run'
+	'access'
+	'adduser'
+	'audit'
+	'bin'
+	'bugs'
+	'cache'
+	'ci'
+	'completion'
+	'config'
+	'dedupe'
+	'deprecate'
+	'diff'
+	'dist-tag'
+	'docs'
+	'doctor'
+	'edit'
+	'exec'
+	'explain'
+	'explore'
+	'find-dupes'
+	'fund'
+	'help'
+	'help-search'
+	'hook'
+	'init'
+	'install'
+	'install-ci-test'
+	'install-test'
+	'link'
+	'logout'
+	'ls'
+	'org'
+	'outdated'
+	'owner'
+	'pack'
+	'ping'
+	'pkg'
+	'prefix'
+	'profile'
+	'prune'
+	'publish'
+	'rebuild'
+	'repo'
+	'restart'
+	'root'
+	'run-script'
+	'search'
+	'set-script'
+	'shrinkwrap'
+	'star'
+	'stars'
+	'start'
+	'stop'
+	'team'
+	'test'
+	'token'
+	'uninstall'
+	'unpublish'
+	'unstar'
+	'update'
+	'version'
+	'view'
+	'whoami'
+)
 
-      local ret=$?
-      IFS="$si"
-      return $ret
-    fi
-    IFS="$si"
-  }
-  compctl -K _npm_completion npm
+local -a _npm_cache_arguments
+
+_npm_cache_arguments=(
+	'clean'
+	'add'
+	'ls'
+	'verify'
+)
+
+_npm_version_arguments=(
+	'major'
+	'minor'
+	'patch'
+	'premajor'
+	'preminor'
+	'prepatch'
+	'prerelease'
+	'from-git'
+)
+
+_npm_install_strategies=(
+  'hoisted'
+  'nested'
+  'shallow'
+  'linked'
+)
+
+_npm_get_package_json_path() {
+	local package_json_path
+	package_json_path="$PWD"
+	while [ ! -f "$package_json_path/package.json" ]
+	do
+		if [ "$package_json_path" = "/" ]
+		then
+			return 1
+		fi
+
+		package_json_path="$(dirname "$package_json_path")"
+	done
+
+	echo "$package_json_path/package.json"
+	return 0
+}
+
+_npm_get_scripts() {
+	local package_json_path
+	package_json_path=$(_npm_get_package_json_path)
+	if [ -z "$package_json_path" ]
+	then
+		return 1
+	fi
+	compadd $($JQ -r '.scripts | keys[]' < "$package_json_path")
+}
+
+_npm_get_packages() {
+	local package_json_path
+	package_json_path=$(_npm_get_package_json_path)
+	if [ -z "$package_json_path" ]
+	then
+		return 1
+	fi
+
+	compadd $($JQ -r '.dependencies * .devDependencies | keys | .[]' < "$package_json_path")
+}
+
+_npm_subcommand() {
+	case "$words[1]" in
+		'run'|'run-script')
+			_alternative "runscripts:npm runscripts:_npm_get_scripts"
+			return
+			;;
+		'publish')
+			_arguments \
+			'(--tag)--tag[Registers the published package with the given tag]:npmtag:' \
+			'(--access)--access[Tells the registry whether this package should be published as public or restricted]:npm access:(public restricted)' \
+			'(--otp)--otp:one time password:' \
+			'(--dry-run)--dry-run[Does everything publish would do except actually publishing to the registry]' \
+			'(--workspaces)--workspaces[Enables workspace context while publishing.]:workspaces:' \
+			'(--workspace)--workspace[Enables workspaces context and limits results to only those specified by this config item]:workspace:' \
+			&& return 0
+			;;
+		'install'|'i'|'add')
+			_arguments \
+			'(-P --save-prod)'{-P,--save-prod}'[Package will appear in your dependencies]' \
+			'(-D --save-dev)'{-D,--save-dev}'[Package will appear in your devDependencies]' \
+			'(-O --save-optional)'{-O,--save-optional}'[Package will appear in your optionalDependencies]' \
+			'(--no-save)--no-save[Prevents saving to dependencies]' \
+			'(-E --save-exact)'{-E,--save-exact}'[Saved dependencies will be configured with an exact version]' \
+			'(-B --save-bundle)'{-B,--save-bundle}'[Saved dependencies will also be added to your bundleDependencies list]' \
+			'(--save-peer)--save-peer' \
+			'(--force -f)'{--force,-f}'[force npm to fetch remote resources even if a local copy exists on disk.]' \
+			'(--package-lock-only)--package-lock-only[only update the package-lock.json]' \
+			'(--dry-run)--dry-run' \
+			'(--no-save)--no-save' \
+			'(--tag)--tag' \
+			'(--no-audit)--no-audit' \
+			'(--no-fund)--no-fund' \
+			'(--legacy-peer-deps)--legacy-peer-deps' \
+			&& return 0
+			;;
+    'up'|'update'|'upgrade')
+      _arguments \
+        '(-S --save)'{-S,--save}'[Save installed packages to a package.json file as dependencies.]' \
+        '(--no-save)--no-save' \
+        '(--save-prod)--save-prod' \
+        '(--save-dev)--save-dev' \
+        '(--save-optional)--save-optional' \
+        '(--save-peer)--save-peer' \
+        '(--save-bundle)--save-bundle' \
+        '(-g --global)'{-g,--global}'[Operates in "global" mode, so that packages are installed into the prefix folder instead of the current working directory.]' \
+        '(--install-strategy)--install-strategy:install_strategy:(hoisted nested shallow linked)' \
+        '(--legacy-peer-deps)--legacy-peer-deps' \
+        '(--legacy-bundling)--legacy-bundling[Causes npm to install the package such that versions of npm prior to 1.4, such as the one included with node 0.8, can install the package. ]' \
+        '(--global-style)--global-style[Causes npm to install the package into your local node_modules folder with the same layout it uses with the global node_modules folder.]' \
+        '(--omit)--omit[Dependency types to omit from the installation tree on disk.]:omit-dep:(dev optional peer)' \
+        '(--strict-peer-deps)--strict-peer-deps[If set to true, and --legacy-peer-deps is not set, then any conflicting peerDependencies will be treated as an install failure, even if npm could reasonably guess the appropriate resolution based on non-peer dependency relationships.]' \
+        '(--no-package-lock)--no-package-lock' \
+        '(--foreground-scripts)--foreground-scripts[Run all build scripts (ie, preinstall, install, and postinstall) scripts for installed packages in the foreground process, sharing standard input, output, and error with the main npm process.]' \
+        '(--ignore-scripts)--ignore-scripts[If true, npm does not run scripts specified in package.json files.]' \
+        '(--no-audit)--no-audit[When "true" submit audit reports alongside the current npm command to the default registry and all registries configured for scopes.]' \
+        '(--no-bin-links)--no-bin-links[Tells npm to create symlinks (or .cmd shims on Windows) for package executables.]' \
+        '(--no-fund)--no-fund' \
+        '(--dry-run)--dry-run[Indicates that you do not want npm to make any changes and that it should only report what it would have done.]' \
+        '(-w --workspace)'{-w,--workspace}'[Enable running a command in the context of the configured workspaces of the current project while filtering by running only the workspaces defined by this configuration option.]:workspace:' \
+        '(-ws --workspaces)'{-ws,--workspaces}'[Set to true to run the command in the context of all configured workspaces.]' \
+        '(--include-workspace-root)--include-workspace-root[Include the workspace root when workspaces are enabled for a command.]' \
+        '(--install-links)--install-links[When set file: protocol dependencies that exist outside of the project root will be packed and installed as regular dependencies instead of creating a symlink. This option has no effect on workspaces.]' \
+        && return 0
+        ;;
+
+		'uninstallun'|'un')
+			_alternative "packages:npm packages:_npm_get_packages"
+			return
+			;;
+		'link')
+			_files
+			return
+			;;
+		'ci'|'ic'|'clean-install'|'install-clean'|'isntall-clean')
+			_arguments \
+			'(--no-audit)--no-audit' \
+			'(--no-fund)--no-fund' \
+			'(--legacy-peer-deps)--legacy-peer-deps' \
+			'(--legacy-bundling)--legacy-bundling' \
+			'(--global-style)--global-style' \
+			'(--strict-peer-deps)--strict-peer-deps' \
+			'(--no-package-lock)--no-package-lock' \
+			'(--foreground-scripts)--foreground-scripts[Run all build scripts (ie, preinstall, install, and postinstall) scripts for installed packages in the foreground process, sharing standard input, output, and error with the main npm process.]' \
+			'(--ignore-scripts)--ignore-scripts[If true, npm does not run scripts specified in package.json files.]' \
+			'(--no-audit)--no-audit[When "true" submit audit reports alongside the current npm command to the default registry and all registries configured for scopes.]' \
+			'(--no-bin-links)--no-bin-links[Tells npm to create symlinks (or .cmd shims on Windows) for package executables.]' \
+			'(--no-fund)--no-fund' \
+			'(--dry-run)--dry-run[Indicates that you do not want npm to make any changes and that it should only report what it would have done.]' \
+			'(--include-workspace-root)--include-workspace-root' \
+			'(--install-links)--install-links' \
+			'(-ws --workspaces)'{-ws,--workspaces} \
+			'(--omit)--omit[Dependency types to omit from the installation tree on disk.]:omit-dep:(dev optional peer)' \
+			'(--install-strategy)--install-strategy:install_strategy:(hoisted nested shallow linked)' \
+			'(-ws --workspaces)'{-ws,--workspaces}'[Set to true to run the command in the context of all configured workspaces.]' \
+			;;
+		'cache')
+			_describe -t commands "npm clean commands" _npm_cache_arguments
+			return
+			;;
+		'version')
+			_describe -t commands "npm version commands" _npm_version_arguments
+			return
+			;;
+	esac
+
+	return 1
+}
+
+_arguments -C '*:: :->subcmds'
+if (( CURRENT == 1 ))
+then
+	_describe -t commands "npm command" _1st_arguments
+	return
 fi
-###-end-npm-completion-###
+
+_npm_subcommand
