@@ -91,7 +91,9 @@ zinit wait lucid light-mode as"completion" blockf for \
   has'rustup' id-as'_rustup' \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/rust/_rustup \
   has'cargo' id-as'_cargo' \
-    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/rust/_cargo
+    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/rust/_cargo \
+  has'pnpm' id-as'_pnpm' \
+    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/node/_npm
 
 zinit wait lucid light-mode for \
   blockf atinit"zicompinit; source $ZDOTDIR/zshrc.zsh" \
