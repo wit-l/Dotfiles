@@ -93,6 +93,8 @@ zinit wait lucid light-mode as"completion" blockf for \
   has'cargo' id-as'_cargo' \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/rust/_cargo \
   has'pnpm' id-as'_pnpm' \
+    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/node/_pnpm \
+  has'npm' id-as'_npm' \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/node/_npm
 
 zinit wait lucid light-mode for \
