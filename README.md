@@ -33,3 +33,8 @@ $ZDOTDIR(~/.config/zsh) be defined in common_env
 user-wide
 
 Be placed in $ZDOTDIR
+
+## Priority
+
+Loading order of zsh configuration files: `/etc/zsh/zshenv`[->/etc/common_env]->`~/.zshenv`[->~/.config/.common_env]->`/etc/zsh/zprofile`->`/etc/zsh/zshrc`->`~/.zshrc`->`/etc/zsh/zlogin`
+The later the files, the higher the priority.
