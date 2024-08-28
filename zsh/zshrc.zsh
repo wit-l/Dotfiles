@@ -19,4 +19,8 @@ if [ -f "/opt/anaconda3/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 export MANPATH=/home/witty/.config/nvm/versions/node/v*/share/man:$MANPATH
+if [[ ":$PATH:" != *":$PNPM_HOME:"* ]]; then
+  export PATH="/opt/cmake/bin:$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$PATH"
+fi
+DOTDIR='/home/witty/.config/dotfiles'
 TZ='Asia/Shanghai'; export TZ
