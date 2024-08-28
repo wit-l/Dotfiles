@@ -11,7 +11,7 @@ setopt prompt_subst histignorealldups sharehistory HIST_SAVE_NO_DUPS # Do not wr
 setopt AUTO_PUSHD           # Push the current directory visited on the stack.
 setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
 setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
-# Don't activate the base if zsh is started in nvim.
+# Don't reactivate the base if zsh is started in nvim.
 if [ -n "$NVIM" ]; then
     export CONDA_AUTO_ACTIVATE_BASE=false
 fi
