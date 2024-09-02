@@ -5,3 +5,5 @@
 	defaultBranch = main
 [pull]
 	rebase = true
+[advice]
+	mergeConflict = false
