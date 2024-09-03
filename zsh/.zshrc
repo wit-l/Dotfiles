@@ -22,7 +22,7 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "$ZINIT_HOME/zinit.zsh" # 加载zinit的初始化脚本
 
 zinit depth'1' light-mode for \
-  atload'source $ZDOTDIR/p10k-robbyrussell.zsh' \
+  atload'source $ZDOTDIR/p10k.zsh' \
     romkatv/powerlevel10k \
   lucid \
     zdharma-continuum/zinit-annex-bin-gem-node
@@ -168,9 +168,4 @@ zstyle ':fzf-tab:*' switch-group '<' '>'
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 
 [ -f $XDG_CONFIG_HOME/.aliases ] && source $XDG_CONFIG_HOME/.aliases
-# make instant prompt quiet if console output during zsh initialization
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-# Anaconda environment color.
-typeset -g POWERLEVEL9K_ANACONDA_FOREGROUND=37 # NOTE: This also require adding anaconda to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS in p10k.zsh
-typeset -g POWERLEVEL9K_ANACONDA_CONTENT_EXPANSION='${${${${CONDA_PROMPT_MODIFIER#\(}% }%\)}:-${CONDA_PREFIX:t}}'
 # zprof
