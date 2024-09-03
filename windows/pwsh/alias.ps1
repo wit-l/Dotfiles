@@ -1,4 +1,5 @@
 New-Alias -Name "vi" -Value "nvim"
+New-Alias -Name "v" -Value "nvim"
 New-Alias -Name "ghl" -Value "Get-Help"
 New-Alias -Name "lg" -Value "lazygit"
 
