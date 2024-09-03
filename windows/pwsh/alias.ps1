@@ -1,5 +1,6 @@
 New-Alias -Name "vi" -Value "nvim"
 New-Alias -Name "ghl" -Value "Get-Help"
+New-Alias -Name "lg" -Value "lazygit"
 
 function grv {
     git remote -v @args
@@ -7,6 +8,14 @@ function grv {
 
 function gs {
     git status @args
+}
+
+function gp {
+    git push @args
+}
+
+function gpl {
+    git pull @args
 }
 
 function ga {
