@@ -6,6 +6,15 @@
         {
             "command": 
             {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "command": 
+            {
                 "action": "moveTab",
                 "direction": "forward"
             },
@@ -13,13 +22,9 @@
             "keys": "ctrl+shift+l"
         },
         {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "id": "User.copy.644BA8F2",
-            "keys": "ctrl+c"
+            "command": "paste",
+            "id": "User.paste",
+            "keys": "ctrl+v"
         },
         {
             "command": 
@@ -31,9 +36,18 @@
             "keys": "alt+shift+k"
         },
         {
-            "command": "paste",
-            "id": "User.paste",
-            "keys": "ctrl+v"
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "left"
+            },
+            "id": "User.resizePane.2A0DA8E0",
+            "keys": "alt+shift+h"
+        },
+        {
+            "command": "find",
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": 
@@ -44,18 +58,9 @@
             "keys": "ctrl+shift+j"
         },
         {
-            "command": "find",
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "left"
-            },
-            "id": "User.resizePane.2A0DA8E0",
-            "keys": "alt+shift+h"
+            "command": "openNewTabDropdown",
+            "id": "User.openNewTabDropdown",
+            "keys": "ctrl+alt+;"
         },
         {
             "command": 
@@ -68,9 +73,12 @@
             "keys": "alt+shift+d"
         },
         {
-            "command": "openNewTabDropdown",
-            "id": "User.openNewTabDropdown",
-            "keys": "ctrl+alt+p"
+            "command": 
+            {
+                "action": "scrollUp"
+            },
+            "id": "User.scrollUp.0",
+            "keys": "ctrl+shift+k"
         },
         {
             "command": 
@@ -80,14 +88,6 @@
             },
             "id": "User.moveTab.EF07D31B",
             "keys": "ctrl+shift+h"
-        },
-        {
-            "command": 
-            {
-                "action": "scrollUp"
-            },
-            "id": "User.scrollUp.0",
-            "keys": "ctrl+shift+k"
         },
         {
             "command": 
@@ -262,6 +262,8 @@
             }
         ]
     },
+    "rendering.graphicsAPI": "direct3d11",
+    "rendering.software": true,
     "schemes": [],
     "theme": "system",
     "themes": [],

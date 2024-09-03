@@ -99,9 +99,14 @@ window_rules:
       # Ignore some software
       - window_process: { regex: "uTools.*" }
       - window_process: { regex: "QQ.*" }
-      - window_process: { regex: "Wechat.*" }
+      - window_process: { regex: "WeChat.*" }
+      - window_process: { equals: "SystemSettings" }
       - window_process: { equals: "QuickLook" }
       - window_process: { equals: "Clash Verge" }
+      - window_process: { equals: "Taskmgr" }
+      - window_process: { equals: "Notepad" }
+      - window_process: { equals: "explorer" }
+      - window_process: { equals: "ScreenClippingHost" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
