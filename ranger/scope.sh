@@ -118,7 +118,7 @@ handle_extension() {
     ;;
 
   ## JavaScript, TypeScript, JSX, TSX file preview
-  js | mjs | ts | jsx | tsx)
+  js | mjs | ts | mts | jsx | tsx)
     bat --style=numbers --color=always --line-range=:500 "${FILE_PATH}" && exit 5
     cat "${FILE_PATH}" && exit 5
     ;;
@@ -135,6 +135,11 @@ handle_extension() {
     mediainfo "${FILE_PATH}" && exit 5
     exiftool "${FILE_PATH}" && exit 5
     ;; # Continue with next handler on failure
+
+  ## Others
+  *)
+    bat --style=numbers --color=always --line-range=:500 "${FILE_PATH}" && exit 5
+    ;;
   esac
 }
 
