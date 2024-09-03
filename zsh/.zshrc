@@ -97,7 +97,9 @@ zinit wait lucid light-mode as"completion" blockf for \
   has'pnpm' \
     baliestri/pnpm.plugin.zsh \
   has'joshuto' \
-    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/joshuto/_joshuto
+    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/joshuto/_joshuto \
+  has'yq' \
+    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/yq/_yq
 
 zinit wait lucid light-mode for \
   blockf atinit"zicompinit; source $ZDOTDIR/zshrc.zsh" \
