@@ -11,7 +11,7 @@ function gs {
     git status @args
 }
 
-function gp {
+function gpo {
     git push @args
 }
 
