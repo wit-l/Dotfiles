@@ -4,6 +4,7 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+# For testing plugin performance with zsh/zprof
 # zmodload zsh/zprof
 module_path+=( "$XDG_DATA_HOME/zinit/module/Src" )
 zmodload zdharma_continuum/zinit
@@ -26,6 +27,13 @@ zinit depth'1' light-mode for \
     romkatv/powerlevel10k \
   lucid \
     zdharma-continuum/zinit-annex-bin-gem-node
+
+# zi ice wait lucid if"[[ -f /home/witty/.config/.cargo/env ]]" id-as"cargo_env"
+# zi snippet "${XDG_CONFIG_HOME}/.cargo/env"
+# zi ice wait lucid if"[[ -f ${XDG_CONFIG_HOME}/.aliases ]]" id-as"aliases"
+# zi snippet "${XDG_CONFIG_HOME}/.aliases"
+[[ -f ${XDG_CONFIG_HOME}/.cargo/env ]] && . ${XDG_CONFIG_HOME}/.cargo/env
+[[ -f ${XDG_CONFIG_HOME}/.aliases ]] && . ${XDG_CONFIG_HOME}/.aliases
 
 export NVM_LAZY=1
 zinit wait lucid light-mode for \
@@ -60,7 +68,6 @@ zinit wait lucid light-mode from"gh-r" completions blockf for \
     sbin"tree-sitter"       tree-sitter/tree-sitter \
   mv"viu* -> viu" \
     sbin"viu"               @atanunq/viu
-. "/home/witty/.config/.cargo/env"
 # install manual and scripts
 zinit wait lucid as"null" light-mode for \
   mv"fzf.1 -> $ZINIT[MAN_DIR]/man1/" id-as"fzf.1" \
@@ -125,47 +132,4 @@ bindkey '^k' kill-line
 bindkey '\eb' backward-word
 bindkey '^b' backward-char
 bindkey '\ef' forward-word
-
-# 根据不同的 vi 模式更改光标形状
-function zle-keymap-select {
-  if [[ $KEYMAP == vicmd ]] || [[ $1 == 'block' ]]; then
-    echo -ne '\e[1 q'  # 使用 Filled box 形状
-  elif [[ $KEYMAP == main ]] || [[ $KEYMAP == viins ]] || [[ $KEYMAP == '' ]] || [[ $1 == 'beam' ]]; then
-    echo -ne '\e[5 q'  # 使用 bar 形状
-  fi
-}
-zle -N zle-keymap-select
-# 在启动时使用 bar 形状的光标
-echo -ne '\e[5 q'
-
-# == fzf-tab
-zstyle ':fzf-tab:complete:_zlua:*' query-string input
-zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm,cmd -w -w"
-zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
-zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3:wrap'
-zstyle ':fzf-tab:complete:kill:*' popup-pad 0 3
-zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
-zstyle ":fzf-tab:*" fzf-flags --color=bg+:23
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
-zstyle ':completion:*' file-sort modification
-zstyle ':completion:*:eza' sort false
-zstyle ':completion:files' sort false
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
-# set descriptions format to enable group support
-# NOTE: don't use escape sequences here, fzf-tab will ignore them
-zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
-zstyle ':completion:*' menu no
-# preview directory's content with eza when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 -a --color=always $realpath'
-# switch group using `<` and `>`
-zstyle ':fzf-tab:*' switch-group '<' '>'
-
-# set case insensitive when change directory with cd
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
-
-[ -f $XDG_CONFIG_HOME/.aliases ] && source $XDG_CONFIG_HOME/.aliases
 # zprof
