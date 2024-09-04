@@ -1,3 +1,4 @@
+# 此文件优先级最高（最后应用，将覆盖前面所应用的所有重复配置）
 # 根据不同的 vi 模式更改光标形状
 function zle-keymap-select {
   if [[ $KEYMAP == vicmd ]] || [[ $1 == 'block' ]]; then
@@ -64,3 +65,11 @@ if [[ ":$PATH:" != *":$PNPM_HOME:"* ]]; then
 fi
 DOTDIR='/home/witty/.config/dotfiles'
 TZ='Asia/Shanghai'; export TZ
+## 用于从ranger退出时自动跳转到ranger所处位置
+function ranger_cd {
+    temp_file="$(mktemp)"
+    ranger --choosedir="$temp_file" "$@"
+    test -f "$temp_file" && [ "$(cat -- "$temp_file")" != "$(pwd)" ] && cd -- "$(cat -- "$temp_file")"
+    rm -f -- "$temp_file"
+}
+alias ranger='ranger_cd'
