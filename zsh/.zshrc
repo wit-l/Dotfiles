@@ -28,10 +28,6 @@ zinit depth'1' light-mode for \
   lucid \
     zdharma-continuum/zinit-annex-bin-gem-node
 
-# zi ice wait lucid if"[[ -f /home/witty/.config/.cargo/env ]]" id-as"cargo_env"
-# zi snippet "${XDG_CONFIG_HOME}/.cargo/env"
-# zi ice wait lucid if"[[ -f ${XDG_CONFIG_HOME}/.aliases ]]" id-as"aliases"
-# zi snippet "${XDG_CONFIG_HOME}/.aliases"
 [[ -f ${XDG_CONFIG_HOME}/.cargo/env ]] && . ${XDG_CONFIG_HOME}/.cargo/env
 [[ -f ${XDG_CONFIG_HOME}/.aliases ]] && . ${XDG_CONFIG_HOME}/.aliases
 
