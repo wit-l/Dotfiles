@@ -101,7 +101,7 @@ zinit wait lucid light-mode as"completion" blockf for \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/yq/_yq \
   has'npm' compile'_npm' \
     Ajnasz/zsh-npm-completion \
-  has'pnpm' \
+  has'pnpm' compile'_pnpm' \
     baliestri/pnpm.plugin.zsh
 
 zinit wait lucid light-mode for \
