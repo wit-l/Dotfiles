@@ -63,7 +63,8 @@ zinit wait lucid light-mode from"gh-r" completions blockf for \
   mv"tree-sitter* -> tree-sitter" \
     sbin"tree-sitter"       tree-sitter/tree-sitter \
   mv"viu* -> viu" \
-    sbin"viu"               @atanunq/viu
+    sbin"viu"               @atanunq/viu \
+  sbin"delta"             dandavison/delta
 # install manual and scripts
 zinit wait lucid as"null" light-mode for \
   mv"fzf.1 -> $ZINIT[MAN_DIR]/man1/" id-as"fzf.1" \
@@ -99,6 +100,8 @@ zinit wait lucid light-mode as"completion" blockf for \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/joshuto/_joshuto \
   has'yq' id-as'_yq'\
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/yq/_yq \
+  has'delta' id-as'_delta'\
+    https://cdn.jsdelivr.net/gh/dandavison/delta@main/etc/completion/completion.zsh \
   has'npm' compile'_npm' \
     Ajnasz/zsh-npm-completion \
   has'pnpm' compile'_pnpm' \
