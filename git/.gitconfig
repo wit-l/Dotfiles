@@ -7,3 +7,6 @@
 	rebase = true
 [advice]
 	mergeConflict = false
+[credential]
+	helper = cache --timeout 7200
+	helper = oauth
