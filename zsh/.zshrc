@@ -64,7 +64,9 @@ zinit wait lucid light-mode from"gh-r" completions blockf for \
     sbin"tree-sitter"       tree-sitter/tree-sitter \
   mv"viu* -> viu" \
     sbin"viu"               @atanunq/viu \
-  sbin"delta"             dandavison/delta
+  sbin"delta"               dandavison/delta \
+  bpick"chezmoi_*_linux_amd64.tar.gz" mv"completions/chezmoi.zsh -> _chezmoi" compile"_chezmoi" \
+    sbin"chezmoi"  twpayne/chezmoi
 # install manual and scripts
 zinit wait lucid as"null" light-mode for \
   mv"fzf.1 -> $ZINIT[MAN_DIR]/man1/" id-as"fzf.1" \
