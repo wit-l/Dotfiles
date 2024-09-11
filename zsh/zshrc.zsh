@@ -72,4 +72,5 @@ function ranger_cd {
     test -f "$temp_file" && [ "$(cat -- "$temp_file")" != "$(pwd)" ] && cd -- "$(cat -- "$temp_file")"
     rm -f -- "$temp_file"
 }
-alias ranger='ranger_cd'
+alias ra='ranger_cd'
+export NVM_NODEJS_ORG_MIRROR=https://npmmirror.com/mirrors/node/
