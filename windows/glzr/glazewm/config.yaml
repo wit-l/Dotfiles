@@ -97,9 +97,9 @@ window_rules:
   - commands: ["set-floating"]
     match:
       # Ignore some software
-      - window_process: { regex: "uTools.*" }
-      - window_process: { regex: "QQ.*" }
-      - window_process: { regex: "WeChat.*" }
+      - window_process: { regex: "uTools*" }
+      - window_process: { regex: "QQ*" }
+      - window_process: { regex: "WeChat*" }
       - window_process: { equals: "SystemSettings" }
       - window_process: { equals: "QuickLook" }
       - window_process: { equals: "Clash Verge" }
