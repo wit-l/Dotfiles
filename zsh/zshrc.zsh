@@ -61,7 +61,7 @@ fi
 # <<< conda initialize <<<
 export MANPATH=/home/witty/.config/nvm/versions/node/v*/share/man:$MANPATH
 if [[ ":$PATH:" != *":$PNPM_HOME:"* ]]; then
-  export PATH="/opt/cmake/bin:$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$PATH"
+  export PATH="/opt/cmake/bin:$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$XDG_DATA_HOME/nvim/mason/packages/gitui:$PATH"
 fi
 DOTDIR='/home/witty/.config/dotfiles'
 TZ='Asia/Shanghai'; export TZ
