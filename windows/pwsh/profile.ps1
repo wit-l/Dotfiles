@@ -21,15 +21,14 @@ Remove-Variable -Name cmp_paths,cmp_path
 #------------------------------- Import Modules BEGIN -------------------------------
 # Import-Module PSCompletions
 #------------------------------- Import Modules END -------------------------------
+# Oh My Posh Prompt(too slow)
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/montys.omp.json" | Invoke-Expression
 # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/robbyrussell.omp.json" | Invoke-Expression
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/multiverse-neon.omp.json" | Invoke-Expression
-# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/huvix.omp.json" | Invoke-Expression
-# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/honukai.omp.json" | Invoke-Expression
-# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/atomicBit.omp.json" | Invoke-Expression
-
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
-# Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
-# replace 'Ctrl+t' and 'Ctrl+r' with your preferred bindings:
+# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/multiverse-neon.omp.json" | Invoke-Expression
+# Starship(faster)
+starship init powershell | Invoke-Expression
+# 初始化zoxide
+zoxide init powershell | Out-String | Invoke-Expression
+# replace 'Ctrl+t' and 'Ctrl+r' with your preferred bindings:(too slow)
 # Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 # Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
