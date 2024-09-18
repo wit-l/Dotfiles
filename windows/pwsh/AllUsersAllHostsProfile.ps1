@@ -4,18 +4,6 @@ $PSStyle.FileInfo.Directory="`e[34;1m"
 #------------------------------- Set Hot-keys BEGIN -------------------------------
 # 设置预测文本来源为历史记录
 Set-PSReadLineOption -PredictionSource History -HistorySearchCursorMovesToEnd -EditMode Vi -PredictionViewStyle InlineView -BellStyle None 
-# 根据不同的 Vi 模式更改光标形状
-function OnViModeChange {
-    if ($args[0] -eq 'Command') {
-        # 设置光标为竖线（bar）形状
-        Write-Host -NoNewLine "`e[1 q"
-    } else {
-        # 设置光标为实心方块（filled box）形状
-        Write-Host -NoNewLine "`e[5 q"
-    }
-}
-
-Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnViModeChange
 Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
 
 # 退出到Normal模式

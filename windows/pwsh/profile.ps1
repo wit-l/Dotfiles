@@ -21,10 +21,6 @@ Remove-Variable -Name cmp_paths,cmp_path
 #------------------------------- Import Modules BEGIN -------------------------------
 # Import-Module PSCompletions
 #------------------------------- Import Modules END -------------------------------
-# Oh My Posh Prompt(too slow)
-# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/montys.omp.json" | Invoke-Expression
-# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/robbyrussell.omp.json" | Invoke-Expression
-# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/multiverse-neon.omp.json" | Invoke-Expression
 # Starship(faster)
 starship init powershell | Invoke-Expression
 # 初始化zoxide
@@ -32,3 +28,14 @@ zoxide init powershell | Out-String | Invoke-Expression
 # replace 'Ctrl+t' and 'Ctrl+r' with your preferred bindings:(too slow)
 # Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 # Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
+# 根据不同的 Vi 模式更改光标形状
+function OnViModeChange {
+    if ($args[0] -eq 'Command') {
+        # 设置光标为竖线（bar）形状
+        Write-Host -NoNewLine "`e[1 q"
+    } else {
+        # 设置光标为实心方块（filled box）形状
+        Write-Host -NoNewLine "`e[5 q"
+    }
+}
+Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnViModeChange
