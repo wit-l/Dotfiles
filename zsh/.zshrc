@@ -37,6 +37,7 @@ zinit wait lucid light-mode for \
   OMZL::git.zsh \
   OMZP::git/git.plugin.zsh \
   OMZP::nvm/nvm.plugin.zsh \
+  OMZP::docker/docker.plugin.zsh \
   atclone"sed -i '105,108s/\\\e\\\e/\\^o/g' sudo.plugin.zsh" \
   nocompile"!" atpull"%atclone" \
     OMZP::sudo/sudo.plugin.zsh \
@@ -94,6 +95,8 @@ zinit wait lucid light-mode as"completion" blockf for \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/bob/_bob \
   has'rustc' id-as'_rustc' \
     OMZP::/rust/_rustc \
+  has'docker' id-as'_docker' \
+    OMZP::/docker/completions/_docker \
   has'rustup' id-as'_rustup' \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/rust/_rustup \
   has'cargo' id-as'_cargo' \
