@@ -5,14 +5,13 @@
 @import "https://www.nerdfonts.com/assets/css/webfont.css";
 
 i {
-  /* color: rgb(115 130 175 / 95%); */
-  color: rgb(0 0 0 / 90%);
+  color: rgb(115 130 175 / 95%);
   margin-right: 7px;
 }
 
 body {
-  color: rgb(0 0 0 / 90%);
-  font-family: ui-monospace, monospace;
+  color: rgb(255 255 255 / 90%);
+  font-family: "Maple Mono NF CN", ui-monospace, monospace;
   font-size: 12px;
   overflow: hidden;
 }
@@ -36,9 +35,9 @@ body,
   margin: 0 0.8vw;
   border-radius: 10px;
   background: linear-gradient(
-    180deg,
-    rgb(101 121 155 / 80%),
-    rgb(94 37 99 / 75%)
+    0deg,
+    rgb(101 121 155 / 75%),
+    rgb(94 37 99 / 68%)
   );
 }
 
