@@ -123,7 +123,8 @@ zinit wait lucid light-mode for \
 bindkey -v # CLI可使用vim模式
 export KEYTIMEOUT=1
 # Emacs
-bindkey '^F' forward-char
+bindkey '^f' forward-char
+bindkey '^b' backward-char
 bindkey '^p' up-line-or-search
 bindkey '^n' down-line-or-search
 bindkey '^w' backward-kill-word
@@ -133,7 +134,6 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 bindkey '^q' push-line-or-edit
 bindkey '^k' kill-line
-bindkey '\eb' backward-word
-bindkey '^b' backward-char
-bindkey '\ef' forward-word
+bindkey '^[f' forward-word
+bindkey '^[b' backward-word
 # zprof
