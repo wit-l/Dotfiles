@@ -18,8 +18,8 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "backgroundCover.imagePath": "d:\\Users\\witty\\OneDrive - GiantHard\\图片\\Saved Pictures\\7 (2).jpg",
-  "backgroundCover.randomImageFolder": "d:\\Users\\witty\\OneDrive - GiantHard\\图片\\Saved Pictures",
+  "backgroundCover.imagePath": "d:\\Users\\witty\\OneDrive - GiantHard\\图片\\Saved Pictures\\SFW\\7 (2).jpg",
+  "backgroundCover.randomImageFolder": "d:\\Users\\witty\\OneDrive - GiantHard\\图片\\Saved Pictures\\SFW",
   "c-cpp-compile-run.c-flags": "-Wall -Wextra -g3 -fexec-charset=GBK",
   "c-cpp-compile-run.cpp-flags": "-Wall -Wextra -g3 -fexec-charset=GBK",
   "c-cpp-compile-run.run-in-external-terminal": true,
@@ -124,7 +124,6 @@
     "vscodevim.vim": 1
   },
   "extensions.ignoreRecommendations": true,
-  "files.autoSave": "afterDelay",
   "javascript.inlayHints.parameterNames.enabled": "all",
   "liveServer.settings.donotShowInfoMsg": true,
   "oneDarkPro.bold": true,
@@ -167,7 +166,8 @@
   "terminal.integrated.fontFamily": "'Maple Mono NF CN', Monaco",
   "terminal.integrated.profiles.windows": {
     "PowerShell7": {
-      "path": "D:\\Program Files\\PowerShell\\7\\pwsh.exe"
+      "path": "pwsh.exe",
+      "args": ["-ExecutionPolicy", "ByPass"]
     }
   },
   "terminal.integrated.smoothScrolling": true,
@@ -176,14 +176,14 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vim.foldfix": true,
   "vim.handleKeys": {
-    "<C-a>": false
-    // "<C-f>": false
+    "<C-f>": false,
+    "<C-s>": false
   },
-  "vim.highlightedyank.color": "rgba(230, 97, 89, 0.7)",
+  "vim.highlightedyank.color": "rgba(230, 97, 90, 0.7)",
   "vim.highlightedyank.enable": true,
   "vim.highlightedyank.textColor": "white",
   "vim.hlsearch": true,
-  // "vim.easymotion": true,
+  "vim.easymotion": true,
   "vim.incsearch": true,
   "vim.insertModeKeyBindings": [
     {
@@ -196,6 +196,10 @@
     {
       "before": ["z", "a"],
       "commands": ["editor.toggleFold"]
+    },
+    {
+      "before": ["leader", "r", "n"],
+      "commands": ["editor.action.rename"]
     },
     {
       "before": ["leader", "i"],
@@ -238,7 +242,7 @@
       "commands": [":w!"]
     },
     {
-      "before": ["leader", "x"],
+      "before": ["leader", "q"],
       "commands": [":q!"]
     },
     {
@@ -285,5 +289,19 @@
   "C_Cpp.clang_format_fallbackStyle": "LLVM",
   "C_Cpp.clang_format_style": "LLVM",
   "git.autofetch": true,
-  "python.defaultInterpreterPath": "D:\\Software\\anaconda3\\envs\\sklearn\\python.exe"
+  "python.defaultInterpreterPath": "D:\\Software\\anaconda3\\envs\\sklearn\\python.exe",
+  "editor.tabSize": 2,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "markdown-preview-enhanced.codeBlockTheme": "solarized-dark.css",
+  "markdown-preview-enhanced.enablePreviewZenMode": false,
+  "markdown-preview-enhanced.previewTheme": "solarized-dark.css",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "remote.SSH.remotePlatform": {
+    "m1": "linux"
+  },
+  "terminal.integrated.suggest.enabled": true
 }
