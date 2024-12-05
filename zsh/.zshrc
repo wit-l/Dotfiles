@@ -108,7 +108,9 @@ zinit wait lucid light-mode as"completion" blockf for \
   has'npm' compile'_npm' \
     Ajnasz/zsh-npm-completion \
   has'pnpm' compile'_pnpm' \
-    baliestri/pnpm.plugin.zsh
+    baliestri/pnpm.plugin.zsh \
+  has'fnm' id-as'_fnm' \
+    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/fnm/_fnm
 
 zinit wait lucid light-mode for \
   blockf atinit"zicompinit; source $ZDOTDIR/zshrc.zsh" \
