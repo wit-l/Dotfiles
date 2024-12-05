@@ -59,7 +59,6 @@ if [ -f "/opt/anaconda3/etc/profile.d/mamba.sh" ]; then
     . "/opt/anaconda3/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
-export MANPATH=/home/witty/.config/nvm/versions/node/v*/share/man:$MANPATH
 if [[ ":$PATH:" != *":$PNPM_HOME:"* ]]; then
   export PATH="/opt/cmake/bin:$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$XDG_DATA_HOME/nvim/mason/packages/gitui:$PATH"
 fi
@@ -73,4 +72,3 @@ function ranger_cd {
     rm -f -- "$temp_file"
 }
 alias ra='ranger_cd'
-export NVM_NODEJS_ORG_MIRROR=https://npmmirror.com/mirrors/node/

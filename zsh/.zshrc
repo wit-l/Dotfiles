@@ -31,12 +31,10 @@ zinit depth'1' light-mode for \
 [[ -f ${XDG_CONFIG_HOME}/.cargo/env ]] && . ${XDG_CONFIG_HOME}/.cargo/env
 [[ -f ${XDG_CONFIG_HOME}/.aliases ]] && . ${XDG_CONFIG_HOME}/.aliases
 
-export NVM_LAZY=1
 zinit wait lucid light-mode for \
   OMZL::history.zsh \
   OMZL::git.zsh \
   OMZP::git/git.plugin.zsh \
-  OMZP::nvm/nvm.plugin.zsh \
   OMZP::docker/docker.plugin.zsh \
   atclone"sed -i '105,108s/\\\e\\\e/\\^o/g' sudo.plugin.zsh" \
   nocompile"!" atpull"%atclone" \
