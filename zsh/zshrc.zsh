@@ -60,15 +60,9 @@ if [ -f "/opt/anaconda3/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 if [[ ":$PATH:" != *":$PNPM_HOME:"* ]]; then
-  export PATH="/opt/cmake/bin:$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$XDG_DATA_HOME/nvim/mason/packages/gitui:$PATH"
-fi
-# fnm
-FNM_PATH="${XDG_DATA_HOME}/fnm"
-if [ -d "${FNM_PATH}" ]; then
-  export PATH="${XDG_DATA_HOME}/fnm:$PATH"
+  export PATH="/opt/cmake/bin:$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$XDG_DATA_HOME/nvim/mason/packages/gitui:$XDG_DATA_HOME/fnm:$PATH"
   eval "$(fnm env --use-on-cd --shell zsh)"
 fi
-
 DOTDIR='/home/witty/.config/dotfiles'
 TZ='Asia/Shanghai'; export TZ
 ## 用于从ranger退出时自动跳转到ranger所处位置
