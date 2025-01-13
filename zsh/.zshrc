@@ -107,8 +107,8 @@ zinit wait lucid light-mode as"completion" blockf for \
     https://cdn.jsdelivr.net/gh/dandavison/delta@main/etc/completion/completion.zsh \
   has'npm' compile'_npm' \
     Ajnasz/zsh-npm-completion \
-  has'pnpm' compile'_pnpm' \
-    baliestri/pnpm.plugin.zsh \
+  has'pnpm' compile'completions/_pnpm' \
+    empresslabs/pnpm.plugin.zsh \
   has'fnm' id-as'_fnm' \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/fnm/_fnm
 
