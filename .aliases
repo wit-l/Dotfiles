@@ -48,7 +48,7 @@ alias tc='tmux attach -t'
 alias tkill='pkill -f tmux'
 alias tl='tmux ls'
 alias tn='tmux new -s'
-alias treload='tmux source-file $XDG_CONFIG_HOME/Dotfiles/tmux/.tmux.conf'
+alias treload='tmux source-file $XDG_CONFIG_HOME/dotfiles/tmux/tmux.conf'
 function mkcd() {
     mkdir -p "$1" && cd "$1" || return $?
 }
