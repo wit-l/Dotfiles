@@ -92,9 +92,9 @@ zinit wait lucid light-mode as"completion" blockf for \
   has'bob' id-as'_bob' \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/bob/_bob \
   has'rustc' id-as'_rustc' \
-    OMZP::/rust/_rustc \
+    OMZP::rust/_rustc \
   has'docker' id-as'_docker' \
-    OMZP::/docker/completions/_docker \
+    OMZP::docker/completions/_docker \
   has'rustup' id-as'_rustup' \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/rust/_rustup \
   has'cargo' id-as'_cargo' \
