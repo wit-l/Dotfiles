@@ -6,22 +6,18 @@
         {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "up"
-            },
-            "id": "User.resizePane.6CD791B"
-        },
-        {
-            "command": 
-            {
                 "action": "copy",
                 "singleLine": false
             },
             "id": "User.copy.644BA8F2"
         },
         {
-            "command": "openNewTabDropdown",
-            "id": "User.openNewTabDropdown"
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "up"
+            },
+            "id": "User.resizePane.6CD791B"
         },
         {
             "command": 
@@ -32,12 +28,12 @@
             "id": "User.moveTab.793E2350"
         },
         {
-            "command": "paste",
-            "id": "User.paste"
+            "command": "openNewTabDropdown",
+            "id": "User.openNewTabDropdown"
         },
         {
-            "command": "find",
-            "id": "User.find"
+            "command": "paste",
+            "id": "User.paste"
         },
         {
             "command": 
@@ -54,6 +50,10 @@
                 "direction": "down"
             },
             "id": "User.moveFocus.F747588A"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
         },
         {
             "command": 
@@ -74,14 +74,6 @@
         {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "right"
-            },
-            "id": "User.resizePane.87C324ED"
-        },
-        {
-            "command": 
-            {
                 "action": "scrollUp"
             },
             "id": "User.scrollUp.0"
@@ -89,10 +81,10 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "left"
+                "action": "resizePane",
+                "direction": "right"
             },
-            "id": "User.moveFocus.2A0DA8E0"
+            "id": "User.resizePane.87C324ED"
         },
         {
             "command": 
@@ -109,6 +101,14 @@
                 "direction": "down"
             },
             "id": "User.resizePane.F747588A"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "id": "User.moveFocus.2A0DA8E0"
         },
         {
             "command": 
@@ -139,24 +139,24 @@
     "keybindings": 
     [
         {
-            "id": "User.copy.644BA8F2",
-            "keys": "ctrl+c"
-        },
-        {
             "id": "User.scrollUp.0",
             "keys": "ctrl+shift+k"
+        },
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
         },
         {
             "id": "User.moveTab.793E2350",
             "keys": "ctrl+shift+l"
         },
         {
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
-        },
-        {
             "id": "User.paste",
             "keys": "ctrl+v"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
         },
         {
             "id": "User.resizePane.6CD791B",
@@ -211,7 +211,6 @@
             "keys": "alt+z"
         }
     ],
-    "language": "en-US",
     "launchMode": "focus",
     "newTabMenu": 
     [
@@ -226,30 +225,33 @@
         {
             "adjustIndistinguishableColors": "never",
             "antialiasingMode": "cleartype",
-            "autoMarkPrompts": false,
+            "autoMarkPrompts": true,
             "colorScheme": "One Half Dark",
+            "cursorColor": "#61AFEF",
             "cursorShape": "bar",
             "experimental.repositionCursorWithMouse": true,
-            "experimental.rightClickContextMenu": true,
             "font": 
             {
                 "cellHeight": "1.2",
-                "face": "Maple Mono NF CN",
+                "face": "Maple Mono Normal NF CN",
                 "features": 
                 {
                     "aalt": 0
                 },
                 "size": 14
             },
-            "opacity": 65,
+            "opacity": 48,
             "padding": "6",
-            "showMarksOnScrollbar": false,
+            "pathTranslationStyle": "wsl",
+            "rightClickContextMenu": true,
+            "scrollbarState": "visible",
+            "showMarksOnScrollbar": true,
             "useAcrylic": true
         },
         "list": 
         [
             {
-                "commandline": "pwsh -ExecutionPolicy ByPass",
+                "commandline": "D:\\Program Files\\PowerShell\\7\\pwsh.exe -ExecutionPolicy ByPass",
                 "guid": "{e00e127c-3aa0-47e2-a80c-a63c22fb31a3}",
                 "hidden": false,
                 "icon": "D:\\Users\\witty\\OneDrive - GiantHard\\\u56fe\u7247\\pwsh-icons\\black-transparent-32.ico",
@@ -257,7 +259,7 @@
                 "startingDirectory": "%USERPROFILE%"
             },
             {
-                "commandline": "pwsh -ExecutionPolicy ByPass -NoExit -Command \"& 'D:\\Software\\anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate base\"",
+                "commandline": "D:\\Program Files\\PowerShell\\7\\pwsh.exe -ExecutionPolicy ByPass -NoExit -Command \"& 'D:\\Software\\anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate base\"",
                 "guid": "{71970a5a-81b5-485d-ac00-0e8741757c1b}",
                 "hidden": false,
                 "icon": "D:\\Users\\witty\\OneDrive - GiantHard\\\u56fe\u7247\\pwsh-icons\\black-transparent-32.ico",
@@ -322,6 +324,7 @@
                 "startingDirectory": "D:/msys64/home/%USERNAME%"
             },
             {
+                "commandline": "\"D:/Software/Git/bin/bash.exe\" -i -l",
                 "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
                 "hidden": false,
                 "name": "Git Bash",
@@ -329,8 +332,9 @@
             }
         ]
     },
-    "rendering.software": true,
+    "rendering.graphicsAPI": "direct3d11",
     "schemes": [],
+    "tabWidthMode": "titleLength",
     "theme": "dark",
     "themes": [],
     "useAcrylicInTabRow": true,
