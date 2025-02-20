@@ -94,7 +94,7 @@
     "source.removeUnused": "explicit"
   },
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "'Maple Mono Normal NF CN', Monaco, Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "'Maple Mono NF CN', Monaco, Consolas, 'Courier New', monospace",
   "editor.fontSize": 18,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
@@ -163,7 +163,7 @@
   "terminal.integrated.cursorStyleInactive": "block",
   "terminal.integrated.defaultProfile.windows": "PowerShell7",
   "terminal.integrated.defaultProfile.linux": "zsh",
-  "terminal.integrated.fontFamily": "'Maple Mono Normal NF CN', Monaco",
+  "terminal.integrated.fontFamily": "'Maple Mono NF CN', Monaco",
   "terminal.integrated.profiles.windows": {
     "PowerShell7": {
       "path": "pwsh.exe",

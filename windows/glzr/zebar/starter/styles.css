@@ -11,7 +11,7 @@ i {
 
 body {
   color: rgb(255 255 255 / 90%);
-  font-family: "Maple Mono Normal NF CN", ui-monospace, monospace;
+  font-family: "Maple Mono NF CN", ui-monospace, monospace;
   font-size: 12px;
   overflow: hidden;
 }
