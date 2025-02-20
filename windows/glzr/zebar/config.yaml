@@ -36,7 +36,7 @@ window/bar:
     align-items: center;
     height: 100%;
     color: rgb(255 255 255 / 90%);
-    font-family: 'Maple Mono NF CN', ui-monospace, monospace;
+    font-family: 'Maple Mono Normal NF CN', ui-monospace, monospace;
     font-size: 12px;
     margin: 0 7px;
     padding: 4px 15px;
