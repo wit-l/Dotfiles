@@ -2,7 +2,7 @@
 local wezterm = require("wezterm")
 local config = {
 	font_size = 14,
-	font = wezterm.font("Maple Mono SC NF", { weight = "Regular" }),
+	font = wezterm.font("Maple Mono Normal NF CN", { weight = "Regular" }),
 	color_scheme = "Catppuccin Mocha",
 
 	use_fancy_tab_bar = false,
