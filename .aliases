@@ -9,10 +9,12 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+if command -v eza >/dev/null 2>&1; then
+    alias ls='eza -g -F auto'
+fi
 alias sudo='sudo '
 alias man='man '
 alias wget='wget --hsts-file $XDG_CONFIG_HOME/.wget-hsts'
-alias vi='nvim'
 alias v='nvim'
 alias l='ls -l'
 alias ll='ls -lF'
@@ -20,7 +22,7 @@ alias lls='ls -lahtrF'
 alias lla='ls -laF'
 alias la='ls -A'
 alias cls='clear'
-alias zshconfig='vi $ZDOTDIR/.zshrc'
+alias zshconfig='v $ZDOTDIR/.zshrc'
 alias shutdown='sudo shutdown now'
 alias restart='sudo reboot'
 alias d='dirs -v'

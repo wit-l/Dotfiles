@@ -11,6 +11,23 @@ zle -N zle-keymap-select
 # 在启动时使用 bar 形状的光标
 echo -ne '\e[5 q'
 
+bindkey -v # CLI可使用vim模式
+export KEYTIMEOUT=1
+# Emacs
+bindkey '^f' forward-char
+bindkey '^b' backward-char
+bindkey '^p' up-line-or-search
+bindkey '^n' down-line-or-search
+bindkey '^w' backward-kill-word
+bindkey '^u' backward-kill-line
+bindkey '^y' yank
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+bindkey '^q' push-line-or-edit
+bindkey '^k' kill-line
+bindkey '^[f' forward-word
+bindkey '^[b' backward-word
+
 # == fzf-tab
 zstyle ':fzf-tab:complete:_zlua:*' query-string input
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm,cmd -w -w"
@@ -44,34 +61,32 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 compdef _mv advmv
 compdef _cp advcp
 # >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-if [ -f "/opt/anaconda3/etc/profile.d/mamba.sh" ]; then
-    . "/opt/anaconda3/etc/profile.d/mamba.sh"
-fi
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 # <<< conda initialize <<<
-if [[ ":$PATH:" != *":$PNPM_HOME:"* ]]; then
-  export PATH="/opt/cmake/bin:$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$XDG_DATA_HOME/nvim/mason/packages/gitui:$XDG_DATA_HOME/fnm:$PATH"
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/opt/miniconda3/bin/mamba';
+export MAMBA_ROOT_PREFIX='$XDG_DATA_HOME/mamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
 fi
-eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines --shell zsh)"
+unset __mamba_setup
+# <<< mamba initialize <<<
+
+# 防止重复插入PATH
+if [[ ":$PATH:" != *":$PNPM_HOME:"* ]]; then
+  export PATH="$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$PATH"
+fi
+# 仅首次执行
+if ! command -v node &>/dev/null; then
+  eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines --shell zsh)"
+fi
+[[ -f ${XDG_CONFIG_HOME}/.aliases ]] && . ${XDG_CONFIG_HOME}/.aliases
+[[ -f ${XDG_CONFIG_HOME}/.fzf.zsh ]] && . ${XDG_CONFIG_HOME}/.fzf.zsh
+[[ -f ${XDG_CONFIG_HOME}/.cargo/env ]] && . ${XDG_CONFIG_HOME}/.cargo/env
 DOTDIR='/home/witty/.config/dotfiles'
 TZ='Asia/Shanghai'; export TZ
-## 用于从ranger退出时自动跳转到ranger所处位置
-function ranger_cd {
-    temp_file="$(mktemp)"
-    ranger --choosedir="$temp_file" "$@"
-    test -f "$temp_file" && [ "$(cat -- "$temp_file")" != "$(pwd)" ] && cd -- "$(cat -- "$temp_file")"
-    rm -f -- "$temp_file"
-}
-alias ra='ranger_cd'
