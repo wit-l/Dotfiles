@@ -1,4 +1,4 @@
-source $XDG_CONFIG_HOME/.common_env
+source $DOTDIR/common_shell_env/.common_env
 export HISTFILE="$XDG_CONFIG_HOME/.zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=10000

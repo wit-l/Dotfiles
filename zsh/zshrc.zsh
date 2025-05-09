@@ -67,7 +67,7 @@ compdef _cp advcp
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba shell init' !!
 export MAMBA_EXE='/opt/miniconda3/bin/mamba';
-export MAMBA_ROOT_PREFIX='$XDG_DATA_HOME/mamba';
+export MAMBA_ROOT_PREFIX='/opt/miniconda3'
 __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"
@@ -85,8 +85,6 @@ fi
 if ! command -v node &>/dev/null; then
   eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines --shell zsh)"
 fi
-[[ -f ${XDG_CONFIG_HOME}/.aliases ]] && . ${XDG_CONFIG_HOME}/.aliases
-[[ -f ${XDG_CONFIG_HOME}/.fzf.zsh ]] && . ${XDG_CONFIG_HOME}/.fzf.zsh
-[[ -f ${XDG_CONFIG_HOME}/.cargo/env ]] && . ${XDG_CONFIG_HOME}/.cargo/env
-DOTDIR='/home/witty/.config/dotfiles'
-TZ='Asia/Shanghai'; export TZ
+[[ -f $XDG_CONFIG_HOME/.aliases ]] && . $XDG_CONFIG_HOME/.aliases
+[[ -f $XDG_CONFIG_HOME/.fzf.zsh ]] && . $XDG_CONFIG_HOME/.fzf.zsh
+[[ -f $XDG_CONFIG_HOME/.cargo/env ]] && . $XDG_CONFIG_HOME/.cargo/env
