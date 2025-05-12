@@ -57,3 +57,4 @@ function mkcd() {
 alias mvg='/usr/local/bin/advmv -g'
 alias cpg='/usr/local/bin/advcp -g'
 alias lg="lazygit"
+alias open='wslview'
