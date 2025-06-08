@@ -58,3 +58,11 @@ alias mvg='/usr/local/bin/advmv -g'
 alias cpg='/usr/local/bin/advcp -g'
 alias lg="lazygit"
 alias open='wslview'
+## 用于从ranger退出时自动跳转到ranger所处位置
+function ranger_cd {
+    temp_file="$(mktemp)"
+    ranger --choosedir="$temp_file" "$@"
+    test -f "$temp_file" && [ "$(cat -- "$temp_file")" != "$(pwd)" ] && cd -- "$(cat -- "$temp_file")"
+    rm -f -- "$temp_file"
+}
+alias ra='ranger_cd'
