@@ -1,0 +1,75 @@
+numbered_command = true
+
+mouse_support = true
+focus_on_create = true
+use_trash = true
+watch_files = true
+xdg_open = true
+xdg_open_fork = false
+case_insensitive_ext = false
+# The maximum file size to show a preview for, it can be "2 MB", "2 Mb" or "2097152"
+max_preview_size = "2 MB"
+zoxide_update = true
+
+custom_commands = []
+
+[display]
+# default, minimal, hsplit
+mode = "default"
+
+automatically_count_files = true
+collapse_preview = true
+# ratios for parent view (optional), current view and preview
+column_ratio = [1, 4, 4]
+scroll_offset = 6
+show_borders = false
+show_hidden = true
+show_icons = true
+# none, absolute, relative
+line_number_style = "relative"
+
+# size, mtime, user, gourp, perm. can be combined with |.
+# `none` to disable, `all` to enable all
+# all and none can't be combined with other options
+linemode = "size | perm"
+
+[display.sort]
+# lexical, mtime, natural, size, ext
+sort_method = "natural"
+case_sensitive = false
+directories_first = true
+reverse = false
+
+[preview]
+# Maximum preview file size in bytes
+max_preview_size = 2097152 # 2MB
+# Executable script for previews
+preview_script = "~/.config/joshuto/preview_file.sh" # make sure it's marked as executable
+
+# Use thumbnail images according to the freedesktop.org (XDG) standard.
+# (https://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html)
+# This only affects Joshuto's internal image-thumbnail feature.
+# It does not affect the hook-script based previews.
+use_xdg_thumbs = true
+
+# The XDG thumb size used for the preview.
+# Allowed values are 'normal', 'large', 'xlarge', and 'xxlarge' with maximum edge lengths
+# of 128 px, 256 px, 512 px, and 1024 px respectively.
+xdg_thumb_size = "xlarge"
+
+# preview_shown_hook_script = "~/.config/joshuto/on_preview_shown"
+# preview_removed_hook_script = "~/.config/joshuto/on_preview_removed"
+
+[search]
+# insensitive, sensitive, smart
+string_case_sensitivity = "insensitive"
+# see above
+glob_case_sensitivity = "sensitive"
+# see above
+regex_case_sensitivity = "sensitive"
+# see above
+fzf_case_sensitivity = "insensitive"
+
+[tab]
+# inherit, home, root
+home_page = "home"
