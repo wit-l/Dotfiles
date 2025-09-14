@@ -6,18 +6,18 @@
         {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "up"
-            },
-            "id": "User.resizePane.6CD791B"
-        },
-        {
-            "command": 
-            {
                 "action": "copy",
                 "singleLine": false
             },
             "id": "User.copy.644BA8F2"
+        },
+        {
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "up"
+            },
+            "id": "User.resizePane.6CD791B"
         },
         {
             "command": "openNewTabDropdown",
@@ -36,8 +36,12 @@
             "id": "User.paste"
         },
         {
-            "command": "find",
-            "id": "User.find"
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "id": "User.moveFocus.F747588A"
         },
         {
             "command": 
@@ -48,12 +52,8 @@
             "id": "User.resizePane.2A0DA8E0"
         },
         {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "down"
-            },
-            "id": "User.moveFocus.F747588A"
+            "command": "find",
+            "id": "User.find"
         },
         {
             "command": 
@@ -97,18 +97,18 @@
         {
             "command": 
             {
-                "action": "moveTab",
-                "direction": "backward"
-            },
-            "id": "User.moveTab.EF07D31B"
-        },
-        {
-            "command": 
-            {
                 "action": "resizePane",
                 "direction": "down"
             },
             "id": "User.resizePane.F747588A"
+        },
+        {
+            "command": 
+            {
+                "action": "moveTab",
+                "direction": "backward"
+            },
+            "id": "User.moveTab.EF07D31B"
         },
         {
             "command": 
@@ -195,12 +195,12 @@
             "keys": "alt+shift+l"
         },
         {
-            "id": "User.moveFocus.6CD791B",
-            "keys": "ctrl+alt+k"
-        },
-        {
             "id": "User.moveFocus.87C324ED",
             "keys": "ctrl+alt+l"
+        },
+        {
+            "id": "User.moveFocus.6CD791B",
+            "keys": "ctrl+alt+k"
         },
         {
             "id": "User.moveFocus.F747588A",
@@ -216,6 +216,22 @@
     [
         {
             "type": "remainingProfiles"
+        },
+        {
+            "allowEmpty": false,
+            "entries": 
+            [
+                {
+                    "commandline": null,
+                    "name": null,
+                    "source": "Windows.Terminal.SSH",
+                    "type": "matchProfiles"
+                }
+            ],
+            "icon": "\ue969",
+            "inline": "auto",
+            "name": "SSH",
+            "type": "folder"
         }
     ],
     "newTabPosition": "afterCurrentTab",
@@ -223,12 +239,17 @@
     {
         "defaults": 
         {
-            "adjustIndistinguishableColors": "never",
+            "adjustIndistinguishableColors": "indexed",
             "antialiasingMode": "cleartype",
             "autoMarkPrompts": true,
+            "backgroundImage": null,
+            "backgroundImageOpacity": 0.08,
+            "backgroundImageStretchMode": "uniformToFill",
             "colorScheme": "One Half Dark",
+            "compatibility.allowDECRQCRA": true,
             "cursorColor": "#61AFEF",
-            "cursorShape": "bar",
+            "cursorShape": "filledBox",
+            "experimental.rainbowSuggestions": true,
             "experimental.repositionCursorWithMouse": true,
             "font": 
             {
@@ -240,13 +261,15 @@
                 },
                 "size": 14
             },
-            "opacity": 48,
+            "icon": "\ue7f8",
+            "opacity": 88,
             "padding": "6",
             "pathTranslationStyle": "wsl",
             "rightClickContextMenu": true,
             "scrollbarState": "visible",
+            "selectionBackground": "#C678DD",
             "showMarksOnScrollbar": true,
-            "useAcrylic": true
+            "useAcrylic": false
         },
         "list": 
         [
@@ -254,22 +277,30 @@
                 "commandline": "D:\\Program Files\\PowerShell\\7\\pwsh.exe -ExecutionPolicy ByPass",
                 "guid": "{e00e127c-3aa0-47e2-a80c-a63c22fb31a3}",
                 "hidden": false,
-                "icon": "D:\\Users\\witty\\OneDrive - GiantHard\\\u56fe\u7247\\pwsh-icons\\black-transparent-32.ico",
+                "icon": "D:\\Users\\witty\\OneDrive\\Pictures\\pwsh-icons\\black-transparent-32.ico",
                 "name": "PowerShell7",
                 "startingDirectory": "%USERPROFILE%"
             },
             {
-                "commandline": "D:\\Program Files\\PowerShell\\7\\pwsh.exe -ExecutionPolicy ByPass -NoExit -Command \"& 'D:\\Software\\anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate base\"",
+                "commandline": "powershell.exe -ExecutionPolicy ByPass -NoExit -c \"& 'D:\\Software\\anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'D:\\Software\\anaconda3' \"",
                 "guid": "{71970a5a-81b5-485d-ac00-0e8741757c1b}",
                 "hidden": false,
-                "icon": "D:\\Users\\witty\\OneDrive - GiantHard\\\u56fe\u7247\\pwsh-icons\\black-transparent-32.ico",
+                "icon": "D:\\Users\\witty\\OneDrive\\Pictures\\pwsh-icons\\black-transparent-32.ico",
                 "name": "PowerShell7(conda)",
                 "startingDirectory": "%USERPROFILE%"
             },
             {
+                "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Arch",
+                "guid": "{c6dcb63b-de3f-46e7-bb63-5749eb017b97}",
+                "hidden": false,
+                "icon": "E:\\WSL2\\Arch\\shortcut.ico",
+                "name": "Arch",
+                "startingDirectory": "~"
+            },
+            {
                 "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
                 "hidden": false,
-                "icon": "D:\\Users\\witty\\OneDrive - GiantHard\\\u56fe\u7247\\pwsh-icons\\debian.ico",
+                "icon": "D:\\Users\\witty\\OneDrive\\Pictures\\pwsh-icons\\debian.ico",
                 "name": "Debian",
                 "source": "Windows.Terminal.Wsl"
             },
@@ -329,11 +360,23 @@
                 "hidden": false,
                 "name": "Git Bash",
                 "source": "Git"
+            },
+            {
+                "guid": "{8ba14d01-e9b6-5506-8575-662a5bbf779b}",
+                "hidden": false,
+                "name": "SSH - m1",
+                "source": "Windows.Terminal.SSH"
+            },
+            {
+                "guid": "{d83b884d-8731-575a-83d6-c6554ff098e6}",
+                "hidden": false,
+                "name": "SSH - github.com",
+                "source": "Windows.Terminal.SSH"
             }
         ]
     },
-    "rendering.graphicsAPI": "direct3d11",
     "schemes": [],
+    "showTabsFullscreen": true,
     "tabWidthMode": "titleLength",
     "theme": "dark",
     "themes": [],
