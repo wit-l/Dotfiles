@@ -23,14 +23,15 @@ export CARGO_HOME="$XDG_CONFIG_HOME/.cargo"
 export BOB_CONFIG="$XDG_DATA_HOME/bob/config.json"
 export SVN_CONFIG_DIR="$XDG_CONFIG_HOME/.subversion"
 export TZ="Asia/Shanghai"
+
 ## fzf相关配置
-export FZF_DEFAULT_OPTS="--height 80% -e --ansi --layout=reverse"
+export FZF_DEFAULT_OPTS="--height 80% -e --ansi --reverse --border=rounded --color=border:#cceeff"
 
 ## ctrl+t
 export FZF_CTRL_T_COMMAND='fd --follow -H --exclude .git --color=always'
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
-## alt+c用于寻找路径（文件夹）
+## alt+c用于切换路径
 export FZF_ALT_C_COMMAND="fd -t d --follow -H --color=always"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
