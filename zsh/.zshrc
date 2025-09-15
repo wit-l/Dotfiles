@@ -39,6 +39,11 @@ zinit wait lucid light-mode for \
     skywind3000/z.lua \
   hlissner/zsh-autopair
 
+# install manual and scripts
+zinit wait lucid as"null" light-mode for \
+  atclone"chmod a+x fzf-preview.sh;mkdir -p $ZPFX/bin;mv fzf-preview.sh $ZPFX/bin/" atpull"%atclone" id-as"fzf-preview.sh" \
+    https://cdn.jsdelivr.net/gh/junegunn/fzf/bin/fzf-preview.sh \
+
 # completions
 zinit wait lucid light-mode as"completion" blockf for \
   atpull'zinit creinstall -q .' \
