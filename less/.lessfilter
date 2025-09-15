@@ -6,7 +6,7 @@ kind=${mime##*/}
 if [ -d "$1" ]; then
   eza --git -ahl --color=always --icons "$1"
 elif [ "$category" = image ]; then
-  chafa "$1" -f sixel -s x15
+  chafa "$1" -f sixels -s x15
   exiftool "$1"
 elif [ "$kind" = vnd.openxmlformats-officedocument.spreadsheetml.sheet ] ||
   [ "$kind" = vnd.ms-excel ]; then
