@@ -11,3 +11,4 @@ export _ZL_HYPHEN=1
 export FZ_HISTORY_CD_CMD="_zlua"
 export RANGER_LOAD_DEFAULT_RC=false
 export W3M_DIR=$XDG_CONFIG_HOME/.w3m
+export LESSOPEN='|$DOTDIR/less/.lessfilter %s'

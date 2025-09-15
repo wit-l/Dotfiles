@@ -84,7 +84,6 @@ zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl
 # show file contents
 # zstyle ':fzf-tab:complete:*:*' fzf-preview 'bat --style=numbers --color=always ${(Q)realpath}'
 zstyle ':fzf-tab:complete:(cd|cat|v|vim|nvim|chafa|viu):*' fzf-preview 'less ${(Q)realpath}'
-export LESSOPEN='|~/.config/.lessfilter %s'
 # To disable or override preview for command options and subcommands, use
 zstyle ':fzf-tab:complete:*:options' fzf-preview
 zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
