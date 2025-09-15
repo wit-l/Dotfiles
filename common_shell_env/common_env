@@ -28,12 +28,13 @@ export TZ="Asia/Shanghai"
 export FZF_DEFAULT_OPTS="--height 80% -e --ansi --reverse --border=rounded --color=border:#cceeff"
 
 ## ctrl+t 用于搜索文件
-export FZF_CTRL_T_COMMAND='fd --follow -H -tf --exclude .git --color=always'
-export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range=:500 {}'"
+export FZF_CTRL_T_COMMAND='fd --follow -H --exclude .git --color=always'
+# export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range=:500 {}'"
+export FZF_CTRL_T_OPTS="--preview 'less {}'"
 
 ## alt+c用于搜索路径并切换过去
 export FZF_ALT_C_COMMAND="fd -td --follow -H --color=always"
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+export FZF_ALT_C_OPTS="--preview 'eza --git -hl --color=always --icons {}'"
 
 ## ctrl+r用于搜索历史命令
 export FZF_CTRL_R_COMMAND="fd"
