@@ -5,18 +5,17 @@ category=${mime%%/*}
 kind=${mime##*/}
 file=${1/#\~\//$HOME/}
 
-dim=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}
-if [[ $dim = x ]]; then
-  dim=$(stty size </dev/tty | awk '{print $2 "x" $1}')
-elif ! [[ $KITTY_WINDOW_ID ]] && ((FZF_PREVIEW_TOP + FZF_PREVIEW_LINES == $(stty size </dev/tty | awk '{print $1}'))); then
-  # Avoid scrolling issue when the Sixel image touches the bottom of the screen
-  # * https://github.com/junegunn/fzf/issues/2544
-  dim=${FZF_PREVIEW_COLUMNS}x$((FZF_PREVIEW_LINES - 1))
-fi
-
 if [ -d "$1" ]; then
   eza --git -ahl --color=always --icons "$file"
 elif [ "$category" = image ]; then
+  dim=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}
+  if [[ $dim = x ]]; then
+    dim=$(stty size </dev/tty | awk '{print $2 "x" $1}')
+  elif ! [[ $KITTY_WINDOW_ID ]] && ((FZF_PREVIEW_TOP + FZF_PREVIEW_LINES == $(stty size </dev/tty | awk '{print $1}'))); then
+    # Avoid scrolling issue when the Sixel image touches the bottom of the screen
+    # * https://github.com/junegunn/fzf/issues/2544
+    dim=${FZF_PREVIEW_COLUMNS}x$((FZF_PREVIEW_LINES - 1))
+  fi
   # img2sixel "$1" -w 600 -h 400
   chafa "$file" -f sixels -s "$dim" --stretch --clear
   exiftool "$file"
