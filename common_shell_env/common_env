@@ -31,7 +31,7 @@ export FZF_DEFAULT_OPTS="--height 80% -e --ansi --reverse --border=rounded --col
 ## ctrl+t 用于搜索文件/路径
 export FZF_CTRL_T_COMMAND='fd --follow -H --exclude .git --color=always'
 # export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range=:500 {}'"
-export FZF_CTRL_T_OPTS="--preview 'less {}'"
+export FZF_CTRL_T_OPTS="--preview 'less {}' --preview-window='65%'"
 
 ## alt+c用于搜索路径并切换过去
 export FZF_ALT_C_COMMAND="fd -td --follow -H --color=always"
