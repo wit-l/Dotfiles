@@ -47,7 +47,7 @@ zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 # set the lines number of fzf's prompt occupied
 zstyle ':fzf-tab:*' fzf-pad 4
 # bind <space> to accept the selected item
-zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
+# zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
 
 zstyle ':completion:*' file-sort modification
 zstyle ':completion:*:eza' sort false
