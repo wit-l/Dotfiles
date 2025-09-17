@@ -112,8 +112,7 @@ handle_extension() {
 
   ## JSON
   json)
-    bat --style=numbers --color=always --line-range=:500 "${FILE_PATH}" && exit 5
-    jq --color-output . "${FILE_PATH}" && exit 5
+    jq --color-output . "${FILE_PATH}" | bat --style=numbers --color=always --line-range=:500 "${FILE_PATH}" && exit 5
     python -m json.tool -- "${FILE_PATH}" && exit 5
     ;;
 
