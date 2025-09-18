@@ -158,10 +158,6 @@ handle_extension() {
     exiftool "${FILE_PATH}" && exit 0
     ;; # Continue with next handler on failure
 
-  ## Others
-  *)
-    bat --style=numbers --color=always --line-range=:500 "${FILE_PATH}" && exit 0
-    ;;
   esac
 }
 
