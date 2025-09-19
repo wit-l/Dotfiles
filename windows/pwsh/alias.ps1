@@ -11,6 +11,10 @@ function gs {
     git status @args
 }
 
+function gss {
+    git status --short @args
+}
+
 function gpo {
     git push @args
 }
