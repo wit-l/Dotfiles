@@ -1,0 +1,7 @@
+gui:
+  language: zh-CN
+  animateExplosion: true
+
+git:
+  paging:
+    pager: delta --dark --paging=never
