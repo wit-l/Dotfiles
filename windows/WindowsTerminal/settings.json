@@ -1,27 +1,23 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema-preview",
-    "actions": 
-    [
+    "actions": [
         {
-            "command": 
-            {
+            "command": {
                 "action": "resizePane",
                 "direction": "up"
             },
             "id": "User.resizePane.6CD791B"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "copy",
                 "singleLine": false
             },
             "id": "User.copy.644BA8F2"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "moveTab",
                 "direction": "forward"
             },
@@ -40,31 +36,27 @@
             "id": "User.find"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "moveFocus",
                 "direction": "down"
             },
             "id": "User.moveFocus.F747588A"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "resizePane",
                 "direction": "left"
             },
             "id": "User.resizePane.2A0DA8E0"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "scrollDown"
             },
             "id": "User.scrollDown.0"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -72,55 +64,48 @@
             "id": "User.splitPane.A6751878"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "scrollUp"
             },
             "id": "User.scrollUp.0"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "resizePane",
                 "direction": "right"
             },
             "id": "User.resizePane.87C324ED"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "resizePane",
                 "direction": "down"
             },
             "id": "User.resizePane.F747588A"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "moveTab",
                 "direction": "backward"
             },
             "id": "User.moveTab.EF07D31B"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "moveFocus",
                 "direction": "left"
             },
             "id": "User.moveFocus.2A0DA8E0"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "moveFocus",
                 "direction": "up"
             },
             "id": "User.moveFocus.6CD791B"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "moveFocus",
                 "direction": "right"
             },
@@ -136,8 +121,7 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{e00e127c-3aa0-47e2-a80c-a63c22fb31a3}",
-    "keybindings": 
-    [
+    "keybindings": [
         {
             "id": "User.scrollUp.0",
             "keys": "ctrl+shift+k"
@@ -212,15 +196,13 @@
         }
     ],
     "launchMode": "focus",
-    "newTabMenu": 
-    [
+    "newTabMenu": [
         {
             "type": "remainingProfiles"
         },
         {
             "allowEmpty": false,
-            "entries": 
-            [
+            "entries": [
                 {
                     "commandline": null,
                     "name": null,
@@ -235,10 +217,8 @@
         }
     ],
     "newTabPosition": "afterCurrentTab",
-    "profiles": 
-    {
-        "defaults": 
-        {
+    "profiles": {
+        "defaults": {
             "adjustIndistinguishableColors": "indexed",
             "antialiasingMode": "cleartype",
             "autoMarkPrompts": true,
@@ -251,12 +231,10 @@
             "cursorShape": "filledBox",
             "experimental.rainbowSuggestions": true,
             "experimental.repositionCursorWithMouse": true,
-            "font": 
-            {
+            "font": {
                 "cellHeight": "1.2",
                 "face": "Maple Mono NF CN",
-                "features": 
-                {
+                "features": {
                     "aalt": 0
                 },
                 "size": 14
@@ -271,8 +249,7 @@
             "showMarksOnScrollbar": true,
             "useAcrylic": true
         },
-        "list": 
-        [
+        "list": [
             {
                 "commandline": "D:\\Program Files\\PowerShell\\7\\pwsh.exe -ExecutionPolicy ByPass",
                 "guid": "{e00e127c-3aa0-47e2-a80c-a63c22fb31a3}",
@@ -282,11 +259,11 @@
                 "startingDirectory": "%USERPROFILE%"
             },
             {
-                "commandline": "powershell.exe -ExecutionPolicy ByPass -NoExit -c \"& 'D:\\Software\\anaconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'D:\\Software\\anaconda3' \"",
-                "guid": "{71970a5a-81b5-485d-ac00-0e8741757c1b}",
+                "commandline": "pwsh -ExecutionPolicy ByPass -NoExit -Command \"& 'D:\\Software\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'D:\\Software\\miniconda3' \"",
+                "guid": "{554b3d86-556f-4474-8db4-4de1f80f3175}",
                 "hidden": false,
                 "icon": "D:\\Users\\witty\\OneDrive\\Pictures\\pwsh-icons\\black-transparent-32.ico",
-                "name": "PowerShell7(conda)",
+                "name": "Anaconda PowerShell Prompt",
                 "startingDirectory": "%USERPROFILE%"
             },
             {
@@ -372,6 +349,18 @@
                 "hidden": false,
                 "name": "SSH - github.com",
                 "source": "Windows.Terminal.SSH"
+            },
+            {
+                "commandline": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy ByPass -NoExit -Command \"& 'D:\\Software\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'D:\\Software\\miniconda3' \"",
+                "name": "Anaconda PowerShell Prompt (miniconda3)",
+                "icon": "D:\\Software\\miniconda3\\Menu\\anaconda_powershell_prompt.ico",
+                "startingDirectory": "C:\\Users\\witty"
+            },
+            {
+                "commandline": "%WINDIR%\\System32\\cmd.exe \"/K\" D:\\Software\\miniconda3\\Scripts\\activate.bat D:\\Software\\miniconda3",
+                "name": "Anaconda Prompt (miniconda3)",
+                "icon": "D:\\Software\\miniconda3\\Menu\\anaconda_prompt.ico",
+                "startingDirectory": "C:\\Users\\witty"
             }
         ]
     },

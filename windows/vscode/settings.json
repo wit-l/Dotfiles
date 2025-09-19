@@ -18,7 +18,7 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "backgroundCover.imagePath": "d:\\Users\\witty\\OneDrive - GiantHard\\图片\\Saved Pictures\\SFW\\7 (2).jpg",
+  "backgroundCover.imagePath": "d:\\Users\\witty\\OneDrive - GiantHard\\图片\\Saved Pictures\\SFW\\blueHair.png",
   "backgroundCover.randomImageFolder": "d:\\Users\\witty\\OneDrive - GiantHard\\图片\\Saved Pictures\\SFW",
   "c-cpp-compile-run.c-flags": "-Wall -Wextra -g3 -fexec-charset=GBK",
   "c-cpp-compile-run.cpp-flags": "-Wall -Wextra -g3 -fexec-charset=GBK",
@@ -94,7 +94,7 @@
     "source.removeUnused": "explicit"
   },
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "'Maple Mono NF CN', Monaco, Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "'Maple Mono Normal NF CN', Monaco, Consolas, 'Courier New', monospace",
   "editor.fontSize": 18,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
@@ -161,9 +161,9 @@
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorStyleInactive": "block",
-  "terminal.integrated.defaultProfile.windows": "PowerShell7",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.fontFamily": "'Maple Mono NF CN', Monaco",
+  "terminal.integrated.defaultProfile.windows": "PowerShell7",
   "terminal.integrated.profiles.windows": {
     "PowerShell7": {
       "path": "pwsh.exe",
@@ -303,5 +303,7 @@
   "remote.SSH.remotePlatform": {
     "m1": "linux"
   },
-  "terminal.integrated.suggest.enabled": true
+  "terminal.integrated.suggest.enabled": true,
+  "terminal.integrated.env.windows": {},
+  "diffEditor.hideUnchangedRegions.enabled": true
 }
