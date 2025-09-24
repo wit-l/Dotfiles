@@ -36,6 +36,7 @@
         battery: { type: "battery" },
         memory: { type: "memory" },
         weather: { type: "weather" },
+        keyboard: { type: "keyboard" },
       });
 
       createRoot(document.getElementById("root")).render(<App />);
@@ -153,6 +154,10 @@
                     }
                   ></button>
                 </>
+              )}
+
+              {output.keyboard && (
+                <div className="keyboard">{output.keyboard.layout}</div>
               )}
 
               {output.network && (
