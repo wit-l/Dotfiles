@@ -15,9 +15,7 @@
       "focused": true,
       "resizable": false,
       "transparent": true,
-      "includeFiles": [
-        "**/**"
-      ],
+      "includeFiles": ["**/**"],
       "caching": {
         "defaultDuration": 604800,
         "rules": []
