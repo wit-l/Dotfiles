@@ -1,62 +1,70 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema-preview",
-    "actions": [
+    "actions": 
+    [
         {
-            "command": {
-                "action": "resizePane",
-                "direction": "up"
-            },
-            "id": "User.resizePane.6CD791B"
-        },
-        {
-            "command": {
+            "command": 
+            {
                 "action": "copy",
                 "singleLine": false
             },
             "id": "User.copy.644BA8F2"
         },
         {
-            "command": {
-                "action": "moveTab",
-                "direction": "forward"
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "up"
             },
-            "id": "User.moveTab.793E2350"
+            "id": "User.resizePane.6CD791B"
         },
         {
             "command": "openNewTabDropdown",
             "id": "User.openNewTabDropdown"
         },
         {
+            "command": 
+            {
+                "action": "moveTab",
+                "direction": "forward"
+            },
+            "id": "User.moveTab.793E2350"
+        },
+        {
             "command": "paste",
             "id": "User.paste"
         },
         {
-            "command": "find",
-            "id": "User.find"
-        },
-        {
-            "command": {
+            "command": 
+            {
                 "action": "moveFocus",
                 "direction": "down"
             },
             "id": "User.moveFocus.F747588A"
         },
         {
-            "command": {
+            "command": 
+            {
                 "action": "resizePane",
                 "direction": "left"
             },
             "id": "User.resizePane.2A0DA8E0"
         },
         {
-            "command": {
+            "command": "find",
+            "id": "User.find"
+        },
+        {
+            "command": 
+            {
                 "action": "scrollDown"
             },
             "id": "User.scrollDown.0"
         },
         {
-            "command": {
+            "command": 
+            {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -64,48 +72,55 @@
             "id": "User.splitPane.A6751878"
         },
         {
-            "command": {
-                "action": "scrollUp"
-            },
-            "id": "User.scrollUp.0"
-        },
-        {
-            "command": {
+            "command": 
+            {
                 "action": "resizePane",
                 "direction": "right"
             },
             "id": "User.resizePane.87C324ED"
         },
         {
-            "command": {
-                "action": "resizePane",
-                "direction": "down"
+            "command": 
+            {
+                "action": "scrollUp"
             },
-            "id": "User.resizePane.F747588A"
+            "id": "User.scrollUp.0"
         },
         {
-            "command": {
-                "action": "moveTab",
-                "direction": "backward"
-            },
-            "id": "User.moveTab.EF07D31B"
-        },
-        {
-            "command": {
+            "command": 
+            {
                 "action": "moveFocus",
                 "direction": "left"
             },
             "id": "User.moveFocus.2A0DA8E0"
         },
         {
-            "command": {
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "down"
+            },
+            "id": "User.resizePane.F747588A"
+        },
+        {
+            "command": 
+            {
+                "action": "moveTab",
+                "direction": "backward"
+            },
+            "id": "User.moveTab.EF07D31B"
+        },
+        {
+            "command": 
+            {
                 "action": "moveFocus",
                 "direction": "up"
             },
             "id": "User.moveFocus.6CD791B"
         },
         {
-            "command": {
+            "command": 
+            {
                 "action": "moveFocus",
                 "direction": "right"
             },
@@ -121,26 +136,27 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{e00e127c-3aa0-47e2-a80c-a63c22fb31a3}",
-    "keybindings": [
-        {
-            "id": "User.scrollUp.0",
-            "keys": "ctrl+shift+k"
-        },
+    "keybindings": 
+    [
         {
             "id": "User.copy.644BA8F2",
             "keys": "ctrl+c"
+        },
+        {
+            "id": "User.scrollUp.0",
+            "keys": "ctrl+shift+k"
         },
         {
             "id": "User.moveTab.793E2350",
             "keys": "ctrl+shift+l"
         },
         {
-            "id": "User.paste",
-            "keys": "ctrl+v"
-        },
-        {
             "id": "User.find",
             "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
         },
         {
             "id": "User.resizePane.6CD791B",
@@ -196,13 +212,15 @@
         }
     ],
     "launchMode": "focus",
-    "newTabMenu": [
+    "newTabMenu": 
+    [
         {
             "type": "remainingProfiles"
         },
         {
             "allowEmpty": false,
-            "entries": [
+            "entries": 
+            [
                 {
                     "commandline": null,
                     "name": null,
@@ -217,8 +235,10 @@
         }
     ],
     "newTabPosition": "afterCurrentTab",
-    "profiles": {
-        "defaults": {
+    "profiles": 
+    {
+        "defaults": 
+        {
             "adjustIndistinguishableColors": "indexed",
             "antialiasingMode": "cleartype",
             "autoMarkPrompts": true,
@@ -231,25 +251,28 @@
             "cursorShape": "filledBox",
             "experimental.rainbowSuggestions": true,
             "experimental.repositionCursorWithMouse": true,
-            "font": {
+            "font": 
+            {
                 "cellHeight": "1.2",
                 "face": "Maple Mono NF CN",
-                "features": {
+                "features": 
+                {
                     "aalt": 0
                 },
                 "size": 14
             },
             "icon": "\ue7f8",
-            "opacity": 30,
+            "opacity": 88,
             "padding": "6",
             "pathTranslationStyle": "wsl",
             "rightClickContextMenu": true,
             "scrollbarState": "visible",
             "selectionBackground": "#C678DD",
             "showMarksOnScrollbar": true,
-            "useAcrylic": true
+            "useAcrylic": false
         },
-        "list": [
+        "list": 
+        [
             {
                 "commandline": "D:\\Program Files\\PowerShell\\7\\pwsh.exe -ExecutionPolicy ByPass",
                 "guid": "{e00e127c-3aa0-47e2-a80c-a63c22fb31a3}",
@@ -300,7 +323,7 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start  -here -msys2",
+                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -msys2",
                 "guid": "{e9dcb44f-b0a9-4e54-8c34-a88e9bef1ec3}",
                 "hidden": false,
                 "icon": "D:\\msys64\\msys2.ico",
@@ -308,7 +331,7 @@
                 "startingDirectory": "D:/msys64/home/%USERNAME%"
             },
             {
-                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start  -here -ucrt64",
+                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -ucrt64",
                 "guid": "{bbd04805-282b-4697-91ab-ed20074c952f}",
                 "hidden": false,
                 "icon": "D:\\msys64\\ucrt64.ico",
@@ -316,7 +339,7 @@
                 "startingDirectory": "D:/msys64/home/%USERNAME%"
             },
             {
-                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start  -here -clang64",
+                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -clang64",
                 "guid": "{1a60ba25-9ff5-449d-a2b1-cf3a0e95f789}",
                 "hidden": false,
                 "icon": "D:\\msys64\\clang64.ico",
@@ -324,7 +347,7 @@
                 "startingDirectory": "D:/msys64/home/%USERNAME%"
             },
             {
-                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start  -here -mingw64",
+                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -mingw64",
                 "guid": "{e8af0abe-17fb-43e0-ad83-785ad9617236}",
                 "hidden": false,
                 "icon": "D:\\msys64\\mingw64.ico",
@@ -352,14 +375,16 @@
             },
             {
                 "commandline": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy ByPass -NoExit -Command \"& 'D:\\Software\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'D:\\Software\\miniconda3' \"",
-                "name": "Anaconda PowerShell Prompt (miniconda3)",
+                "guid": "{baef6041-a2f3-5472-b295-a7d7fb0ed62f}",
                 "icon": "D:\\Software\\miniconda3\\Menu\\anaconda_powershell_prompt.ico",
+                "name": "Anaconda PowerShell Prompt (miniconda3)",
                 "startingDirectory": "C:\\Users\\witty"
             },
             {
                 "commandline": "%WINDIR%\\System32\\cmd.exe \"/K\" D:\\Software\\miniconda3\\Scripts\\activate.bat D:\\Software\\miniconda3",
-                "name": "Anaconda Prompt (miniconda3)",
+                "guid": "{35427e1d-45ad-517a-8692-8d5e4093f90f}",
                 "icon": "D:\\Software\\miniconda3\\Menu\\anaconda_prompt.ico",
+                "name": "Anaconda Prompt (miniconda3)",
                 "startingDirectory": "C:\\Users\\witty"
             }
         ]
