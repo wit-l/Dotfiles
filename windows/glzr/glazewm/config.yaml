@@ -257,9 +257,9 @@ keybindings:
   - commands: ["move-workspace --direction right"]
     bindings: ["alt+shift+f"]
   - commands: ["move-workspace --direction up"]
-    bindings: ["alt+shift+d"]
+    bindings: ["alt+shift+u"]
   - commands: ["move-workspace --direction down"]
-    bindings: ["alt+shift+s"]
+    bindings: ["alt+shift+d"]
 
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ["move --workspace 1", "focus --workspace 1"]
