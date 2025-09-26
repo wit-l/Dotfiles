@@ -157,7 +157,9 @@
               )}
 
               {output.keyboard && (
-                <div className="keyboard">{output.keyboard.layout}</div>
+                <div className="keyboard">
+                  {output.keyboard.layout.split("-")[0]}
+                </div>
               )}
 
               {output.network && (
