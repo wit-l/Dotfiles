@@ -4,8 +4,7 @@ mime=$(file -bL --mime-type "$1")
 category=${mime%%/*}
 kind=${mime##*/}
 file=${1/#\~\//$HOME/}
-
-if [ -d "$1" ]; then
+if [ -d "$file" ]; then
   eza --git -ahl --color=always --icons "$file"
 elif [ "$category" = image ]; then
   dim=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}
@@ -22,9 +21,12 @@ elif [ "$category" = image ]; then
 elif [ "$kind" = vnd.openxmlformats-officedocument.spreadsheetml.sheet ] ||
   [ "$kind" = vnd.ms-excel ]; then
   in2csv "$file" | xsv table | bat -n -ltsv --color=always
-elif [ "$category" = text ]; then
+elif [[ "$category" = "text" || "$kind" == "javascript" ]]; then
   bat -n --color=always "$file"
+elif [[ "$kind" == "json" ]]; then
+  jq --color-output . "$file"
+  # bat -n --color=always "$file"
 else
-  lesspipe.sh "$file" | bat --color=always -n
+  lesspipe.sh "$file"
 fi
 # lesspipe.sh don't use eza, bat and chafa, it use ls and exiftool. so we create a lessfilter.
