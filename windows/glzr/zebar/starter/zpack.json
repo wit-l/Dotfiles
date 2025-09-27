@@ -15,9 +15,7 @@
       "focused": false,
       "resizable": false,
       "transparent": true,
-      "includeFiles": [
-        "**/**"
-      ],
+      "includeFiles": ["**/**"],
       "caching": {
         "defaultDuration": 604800,
         "rules": []
@@ -52,9 +50,7 @@
       "focused": true,
       "resizable": false,
       "transparent": true,
-      "includeFiles": [
-        "**/**"
-      ],
+      "includeFiles": ["**/**"],
       "caching": {
         "defaultDuration": 604800,
         "rules": []
@@ -86,12 +82,10 @@
       "htmlPath": "./with-komorebi.html",
       "zOrder": "normal",
       "shownInTaskbar": false,
-      "focused": false,
+      "focused": true,
       "resizable": false,
       "transparent": true,
-      "includeFiles": [
-        "**/**"
-      ],
+      "includeFiles": ["**/**"],
       "caching": {
         "defaultDuration": 604800,
         "rules": []
@@ -104,9 +98,9 @@
           "name": "default",
           "anchor": "top_left",
           "offsetX": "0px",
-          "offsetY": "0px",
+          "offsetY": "8px",
           "width": "100%",
-          "height": "40px",
+          "height": "30px",
           "monitorSelection": {
             "type": "all"
           },
