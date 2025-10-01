@@ -68,4 +68,4 @@ Komorebic(cmd) {
 !+7::Komorebic("move-to-workspace 6")
 !+8::Komorebic("move-to-workspace 7")
 
-!Enter::Run("pwsh")
+!\::Run("pwsh -wd ~")
