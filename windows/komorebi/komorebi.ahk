@@ -15,10 +15,10 @@ Komorebic(cmd) {
 !l::Komorebic("focus right")
 
 ; Move windows
-~!+h::Komorebic("move left")
-~!+j::Komorebic("move down")
-~!+k::Komorebic("move up")
-~!+l::Komorebic("move right")
+!+h::Komorebic("move left")
+!+j::Komorebic("move down")
+!+k::Komorebic("move up")
+!+l::Komorebic("move right")
 
 ; Stack windows
 ; !Left::Komorebic("stack left")
