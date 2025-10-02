@@ -7,9 +7,6 @@ $cmp_paths = @(
   # "D:\Users\witty\Documents\PowerShell\Completions\fnm.ps1",
   "D:\Users\witty\Documents\PowerShell\Scripts"
 )
-$env:EDITOR="nvim"
-$env:KOMOREBI_CONFIG_HOME = "$env:USERPROFILE\.config\komorebi"
-$env:KOMOREBI_AHK_EXE = "AutoHotkey64.exe"
 foreach ($cmp_path in $cmp_paths)
 {
   if (Test-Path -Path $cmp_path -PathType Container)
