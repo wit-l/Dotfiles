@@ -43,7 +43,13 @@ Komorebic(cmd) {
 
 ; Window manager options
 !r::Komorebic("retile")
-!p::Komorebic("toggle-pause")
+; Suspend hotkeys but exempt the suspend hotkey itself
+#SuspendExempt
+!p::{
+  Suspend
+  Komorebic("toggle-pause")
+}
+#SuspendExempt False
 
 ; Layouts
 !x::Komorebic("flip-layout horizontal")
@@ -71,8 +77,3 @@ Komorebic(cmd) {
 
 ; Open a new terminal in home directory
 !\::Run("pwsh -wd ~")
-
-; Suspend hotkeys but exempt the suspend hotkey itself
-#SuspendExempt
-!s::Suspend
-#SuspendExempt False
