@@ -68,4 +68,10 @@ Komorebic(cmd) {
 !+7::Komorebic("move-to-workspace 6")
 !+8::Komorebic("move-to-workspace 7")
 
+; Open a new terminal in home directory
 !\::Run("pwsh -wd ~")
+
+; Suspend hotkeys but exempt the suspend hotkey itself
+#SuspendExempt
+!s::Suspend
+#SuspendExempt False
