@@ -39,6 +39,7 @@ Komorebic(cmd) {
 !t::Komorebic("toggle-float")
 !+f::Komorebic("toggle-monocle")
 !Space::Komorebic("toggle-workspace-layer")
+!/::Komorebic("manage")
 
 ; Window manager options
 !r::Komorebic("retile")
