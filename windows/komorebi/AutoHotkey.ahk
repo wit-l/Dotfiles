@@ -21,13 +21,13 @@ Komorebic(cmd) {
 !+l::Komorebic("move right")
 
 ; Stack windows
-; !Left::Komorebic("stack left")
-; !Down::Komorebic("stack down")
-; !Up::Komorebic("stack up")
-; !Right::Komorebic("stack right")
-; !;::Komorebic("unstack")
-; ![::Komorebic("cycle-stack previous")
-; !]::Komorebic("cycle-stack next")
+!a::Komorebic("stack left")
+!s::Komorebic("stack down")
+!w::Komorebic("stack up")
+!d::Komorebic("stack right")
+!'::Komorebic("unstack")
+![::Komorebic("cycle-stack previous")
+!]::Komorebic("cycle-stack next")
 
 ; Resize
 !.::Komorebic("resize-axis horizontal increase")
