@@ -76,4 +76,4 @@ Komorebic(cmd) {
 !+8::Komorebic("move-to-workspace 7")
 
 ; Open a new terminal in home directory
-!\::Run("pwsh -wd ~")
+!\::Run("wt")
