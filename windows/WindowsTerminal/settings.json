@@ -20,6 +20,10 @@
             "id": "User.resizePane.6CD791B"
         },
         {
+            "command": "closePane",
+            "id": "User.closePane"
+        },
+        {
             "command": 
             {
                 "action": "moveTab",
@@ -38,18 +42,18 @@
         {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "left"
-            },
-            "id": "User.resizePane.2A0DA8E0"
-        },
-        {
-            "command": 
-            {
                 "action": "moveFocus",
                 "direction": "down"
             },
             "id": "User.moveFocus.F747588A"
+        },
+        {
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "left"
+            },
+            "id": "User.resizePane.2A0DA8E0"
         },
         {
             "command": "find",
@@ -129,6 +133,17 @@
         {
             "command": "toggleFocusMode",
             "id": "User.toggleFocusMode"
+        },
+        {
+            "command": 
+            {
+                "action": "closeTab"
+            },
+            "id": "User.closeTab.0"
+        },
+        {
+            "command": "closeWindow",
+            "id": "User.closeWindow"
         }
     ],
     "alwaysShowNotificationIcon": true,
@@ -171,10 +186,6 @@
             "keys": "ctrl+shift+j"
         },
         {
-            "id": "User.openNewTabDropdown",
-            "keys": "ctrl+alt+;"
-        },
-        {
             "id": "User.splitPane.A6751878",
             "keys": "alt+shift+d"
         },
@@ -209,6 +220,10 @@
         {
             "id": "User.toggleFocusMode",
             "keys": "alt+z"
+        },
+        {
+            "id": "User.closeTab.0",
+            "keys": "ctrl+shift+w"
         }
     ],
     "launchMode": "focus",
