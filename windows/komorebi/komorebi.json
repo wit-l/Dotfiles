@@ -27,9 +27,12 @@
   ],
   "theme": {
     "palette": "Base16",
-    "name": "Ashes",
-    "unfocused_border": "Base03",
-    "bar_accent": "Base0D"
+    "name": "CatppuccinMacchiato",
+    "unfocused_border": "Base04",
+    "bar_accent": "Base0D",
+    "monocle_border": "Base05",
+    "stack_border": "Base08",
+    "floating_border": "Base0E"
   },
   "border_style": "Rounded",
   "manage_rules": [
