@@ -77,6 +77,11 @@
       "kind": "Exe",
       "id": "Ahk2Exe.exe",
       "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "QQ.exe",
+      "matching_strategy": "Equals"
     }
   ],
   "floating_layer_behaviour": "Float",
