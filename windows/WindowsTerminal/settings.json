@@ -6,22 +6,26 @@
         {
             "command": 
             {
-                "action": "copy",
-                "singleLine": false
-            },
-            "id": "User.copy.644BA8F2"
-        },
-        {
-            "command": 
-            {
                 "action": "resizePane",
                 "direction": "up"
             },
             "id": "User.resizePane.6CD791B"
         },
         {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2"
+        },
+        {
             "command": "closePane",
             "id": "User.closePane"
+        },
+        {
+            "command": "openNewTabDropdown",
+            "id": "User.openNewTabDropdown"
         },
         {
             "command": 
@@ -30,10 +34,6 @@
                 "direction": "forward"
             },
             "id": "User.moveTab.793E2350"
-        },
-        {
-            "command": "openNewTabDropdown",
-            "id": "User.openNewTabDropdown"
         },
         {
             "command": "paste",
@@ -78,6 +78,14 @@
         {
             "command": 
             {
+                "action": "resizePane",
+                "direction": "right"
+            },
+            "id": "User.resizePane.87C324ED"
+        },
+        {
+            "command": 
+            {
                 "action": "scrollUp"
             },
             "id": "User.scrollUp.0"
@@ -85,10 +93,10 @@
         {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "right"
+                "action": "moveFocus",
+                "direction": "left"
             },
-            "id": "User.resizePane.87C324ED"
+            "id": "User.moveFocus.2A0DA8E0"
         },
         {
             "command": 
@@ -105,14 +113,6 @@
                 "direction": "down"
             },
             "id": "User.resizePane.F747588A"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "left"
-            },
-            "id": "User.moveFocus.2A0DA8E0"
         },
         {
             "command": 
@@ -154,24 +154,24 @@
     "keybindings": 
     [
         {
-            "id": "User.scrollUp.0",
-            "keys": "ctrl+shift+k"
-        },
-        {
             "id": "User.copy.644BA8F2",
             "keys": "ctrl+c"
+        },
+        {
+            "id": "User.scrollUp.0",
+            "keys": "ctrl+shift+k"
         },
         {
             "id": "User.moveTab.793E2350",
             "keys": "ctrl+shift+l"
         },
         {
-            "id": "User.paste",
-            "keys": "ctrl+v"
-        },
-        {
             "id": "User.find",
             "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
         },
         {
             "id": "User.resizePane.6CD791B",
@@ -290,18 +290,14 @@
         [
             {
                 "commandline": "D:\\Program Files\\PowerShell\\7\\pwsh.exe -ExecutionPolicy ByPass",
+                "environment": 
+                {
+                    "PATH": "%PATH%;D:\\msys64\\ucrt64\\bin"
+                },
                 "guid": "{e00e127c-3aa0-47e2-a80c-a63c22fb31a3}",
                 "hidden": false,
                 "icon": "D:\\Users\\witty\\OneDrive\\Pictures\\pwsh-icons\\black-transparent-32.ico",
                 "name": "PowerShell7",
-                "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "commandline": "pwsh -ExecutionPolicy ByPass -NoExit -Command \"& 'D:\\Software\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'D:\\Software\\miniconda3' \"",
-                "guid": "{554b3d86-556f-4474-8db4-4de1f80f3175}",
-                "hidden": false,
-                "icon": "D:\\Users\\witty\\OneDrive\\Pictures\\pwsh-icons\\black-transparent-32.ico",
-                "name": "Anaconda PowerShell Prompt",
                 "startingDirectory": "%USERPROFILE%"
             },
             {
@@ -318,6 +314,45 @@
                 "icon": "D:\\Users\\witty\\OneDrive\\Pictures\\pwsh-icons\\debian.ico",
                 "name": "Debian",
                 "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -msys2",
+                "guid": "{e9dcb44f-b0a9-4e54-8c34-a88e9bef1ec3}",
+                "hidden": false,
+                "icon": "D:\\msys64\\msys2.ico",
+                "name": "MSYS / MSYS2",
+                "startingDirectory": "D:/msys64/home/%USERNAME%"
+            },
+            {
+                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -ucrt64",
+                "guid": "{bbd04805-282b-4697-91ab-ed20074c952f}",
+                "hidden": false,
+                "icon": "D:\\msys64\\ucrt64.ico",
+                "name": "UCRT64 / MSYS2",
+                "startingDirectory": "D:/msys64/home/%USERNAME%"
+            },
+            {
+                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -mingw64",
+                "guid": "{e8af0abe-17fb-43e0-ad83-785ad9617236}",
+                "hidden": false,
+                "icon": "D:\\msys64\\mingw64.ico",
+                "name": "MINGW64 / MSYS2",
+                "startingDirectory": "D:/msys64/home/%USERNAME%"
+            },
+            {
+                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -clang64",
+                "guid": "{1a60ba25-9ff5-449d-a2b1-cf3a0e95f789}",
+                "hidden": false,
+                "icon": "D:\\msys64\\clang64.ico",
+                "name": "CLANG64 / MSYS2",
+                "startingDirectory": "D:/msys64/home/%USERNAME%"
+            },
+            {
+                "commandline": "%windir%\\system32\\cmd.exe \"/K\" D:\\Software\\miniforge3\\Scripts\\activate.bat D:\\Software\\miniforge3",
+                "guid": "{77470806-6691-45af-b337-a827ba13b006}",
+                "hidden": false,
+                "name": "Miniforge Prompt",
+                "startingDirectory": "%USERPROFILE%"
             },
             {
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
@@ -338,38 +373,6 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -msys2",
-                "guid": "{e9dcb44f-b0a9-4e54-8c34-a88e9bef1ec3}",
-                "hidden": false,
-                "icon": "D:\\msys64\\msys2.ico",
-                "name": "MSYS / MSYS2",
-                "startingDirectory": "D:/msys64/home/%USERNAME%"
-            },
-            {
-                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -ucrt64",
-                "guid": "{bbd04805-282b-4697-91ab-ed20074c952f}",
-                "hidden": false,
-                "icon": "D:\\msys64\\ucrt64.ico",
-                "name": "UCRT64 / MSYS2",
-                "startingDirectory": "D:/msys64/home/%USERNAME%"
-            },
-            {
-                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -clang64",
-                "guid": "{1a60ba25-9ff5-449d-a2b1-cf3a0e95f789}",
-                "hidden": false,
-                "icon": "D:\\msys64\\clang64.ico",
-                "name": "CLANG64 / MSYS2",
-                "startingDirectory": "D:/msys64/home/%USERNAME%"
-            },
-            {
-                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -mingw64",
-                "guid": "{e8af0abe-17fb-43e0-ad83-785ad9617236}",
-                "hidden": false,
-                "icon": "D:\\msys64\\mingw64.ico",
-                "name": "MINGW64 / MSYS2",
-                "startingDirectory": "D:/msys64/home/%USERNAME%"
-            },
-            {
                 "commandline": "\"D:/Software/Git/bin/bash.exe\" -i -l",
                 "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
                 "hidden": false,
@@ -383,26 +386,6 @@
                 "source": "Windows.Terminal.SSH"
             },
             {
-                "guid": "{d83b884d-8731-575a-83d6-c6554ff098e6}",
-                "hidden": false,
-                "name": "SSH - github.com",
-                "source": "Windows.Terminal.SSH"
-            },
-            {
-                "commandline": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy ByPass -NoExit -Command \"& 'D:\\Software\\miniconda3\\shell\\condabin\\conda-hook.ps1' ; conda activate 'D:\\Software\\miniconda3' \"",
-                "guid": "{baef6041-a2f3-5472-b295-a7d7fb0ed62f}",
-                "icon": "D:\\Software\\miniconda3\\Menu\\anaconda_powershell_prompt.ico",
-                "name": "Anaconda PowerShell Prompt (miniconda3)",
-                "startingDirectory": "C:\\Users\\witty"
-            },
-            {
-                "commandline": "%WINDIR%\\System32\\cmd.exe \"/K\" D:\\Software\\miniconda3\\Scripts\\activate.bat D:\\Software\\miniconda3",
-                "guid": "{35427e1d-45ad-517a-8692-8d5e4093f90f}",
-                "icon": "D:\\Software\\miniconda3\\Menu\\anaconda_prompt.ico",
-                "name": "Anaconda Prompt (miniconda3)",
-                "startingDirectory": "C:\\Users\\witty"
-            },
-            {
                 "guid": "{a2989ad9-e355-5de7-abb4-1e4c62205682}",
                 "hidden": false,
                 "name": "Developer Command Prompt for VS 18 [Preview]",
@@ -413,6 +396,12 @@
                 "hidden": false,
                 "name": "Developer PowerShell for VS 18 [Preview]",
                 "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "commandline": "pwsh",
+                "guid": "{19dc1aa2-0f2c-4d6d-a38d-5f9f87153898}",
+                "hidden": false,
+                "name": "Profile 18"
             }
         ]
     },
