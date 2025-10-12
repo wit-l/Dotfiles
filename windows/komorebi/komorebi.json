@@ -11,9 +11,9 @@
   "floating_layer_placement": "CenterAndResize",
   "toggle_float_placement": "CenterAndResize",
   "global_work_area_offset": {
-    "top": 0,
+    "top": 55,
     "right": 20,
-    "bottom": 0,
+    "bottom": 55,
     "left": 10
   },
   "border_width": 8,
