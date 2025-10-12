@@ -17,3 +17,5 @@ $Env:MAMBA_ROOT_PREFIX = "D:\Software\miniforge3"
 $Env:MAMBA_EXE = "D:\Software\miniforge3\Library\bin\mamba.exe"
 (& $Env:MAMBA_EXE 'shell' 'hook' -s 'powershell' -r $Env:MAMBA_ROOT_PREFIX) | Out-String | Invoke-Expression
 #endregion
+$Env:HTTPS_PROXY = "http://127.0.0.1:7890"
+$Env:HTTP_PROXY = "http://127.0.0.1:7890"
