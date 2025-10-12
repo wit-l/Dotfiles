@@ -10,6 +10,11 @@
   "floating_layer_behaviour": "Float",
   "floating_layer_placement": "CenterAndResize",
   "toggle_float_placement": "CenterAndResize",
+  "animation": {
+    "enabled": true,
+    "duration": 150,
+    "style": "EaseOutSine"
+  },
   "global_work_area_offset": {
     "top": 55,
     "right": 20,
