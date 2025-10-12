@@ -6,26 +6,22 @@
         {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "up"
-            },
-            "id": "User.resizePane.6CD791B"
-        },
-        {
-            "command": 
-            {
                 "action": "copy",
                 "singleLine": false
             },
             "id": "User.copy.644BA8F2"
         },
         {
-            "command": "closePane",
-            "id": "User.closePane"
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "up"
+            },
+            "id": "User.resizePane.6CD791B"
         },
         {
-            "command": "openNewTabDropdown",
-            "id": "User.openNewTabDropdown"
+            "command": "closePane",
+            "id": "User.closePane"
         },
         {
             "command": 
@@ -34,6 +30,10 @@
                 "direction": "forward"
             },
             "id": "User.moveTab.793E2350"
+        },
+        {
+            "command": "openNewTabDropdown",
+            "id": "User.openNewTabDropdown"
         },
         {
             "command": "paste",
@@ -78,14 +78,6 @@
         {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "right"
-            },
-            "id": "User.resizePane.87C324ED"
-        },
-        {
-            "command": 
-            {
                 "action": "scrollUp"
             },
             "id": "User.scrollUp.0"
@@ -93,10 +85,10 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "left"
+                "action": "resizePane",
+                "direction": "right"
             },
-            "id": "User.moveFocus.2A0DA8E0"
+            "id": "User.resizePane.87C324ED"
         },
         {
             "command": 
@@ -113,6 +105,14 @@
                 "direction": "down"
             },
             "id": "User.resizePane.F747588A"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "id": "User.moveFocus.2A0DA8E0"
         },
         {
             "command": 
@@ -154,24 +154,24 @@
     "keybindings": 
     [
         {
-            "id": "User.copy.644BA8F2",
-            "keys": "ctrl+c"
-        },
-        {
             "id": "User.scrollUp.0",
             "keys": "ctrl+shift+k"
+        },
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
         },
         {
             "id": "User.moveTab.793E2350",
             "keys": "ctrl+shift+l"
         },
         {
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
-        },
-        {
             "id": "User.paste",
             "keys": "ctrl+v"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
         },
         {
             "id": "User.resizePane.6CD791B",
@@ -222,7 +222,7 @@
             "keys": "alt+z"
         },
         {
-            "id": "User.closeTab.0",
+            "id": "User.closePane",
             "keys": "ctrl+shift+w"
         }
     ],
@@ -292,7 +292,7 @@
                 "commandline": "D:\\Program Files\\PowerShell\\7\\pwsh.exe -ExecutionPolicy ByPass",
                 "environment": 
                 {
-                    "PATH": "%PATH%;D:\\msys64\\ucrt64\\bin"
+                    "PATH": "%PATH%;D:\\msys64\\ucrt64\\bin;D:\\Software\\CppCompiler\\mingw64\\bin"
                 },
                 "guid": "{e00e127c-3aa0-47e2-a80c-a63c22fb31a3}",
                 "hidden": false,
