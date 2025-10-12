@@ -115,13 +115,13 @@ zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|
 compdef _mv advmv
 compdef _cp advcp
 # >>> conda initialize >>>
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+[ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
 # <<< conda initialize <<<
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba shell init' !!
-export MAMBA_EXE='/opt/miniconda3/bin/mamba';
-export MAMBA_ROOT_PREFIX='/opt/miniconda3'
+export MAMBA_EXE='/opt/miniforge/bin/mamba';
+export MAMBA_ROOT_PREFIX='/opt/miniforge';
 __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"
