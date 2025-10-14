@@ -4,4 +4,4 @@ gui:
 
 git:
   paging:
-    pager: delta --dark --paging=never
+    pager: delta --dark --paging=never --side-by-side --line-numbers
