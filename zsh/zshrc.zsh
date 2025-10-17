@@ -41,7 +41,7 @@ zstyle ':fzf-tab:complete:kill:*' popup-pad 0 3
 # custom fzf flags
 # NOTE: fzf-tab does not follow FZF_DEFAULT_OPTS by default
 zstyle ':fzf-tab:*' fzf-flags --height='80%' --color=bg+:23,border:#cceeff \
-  --border=rounded -e --ansi --preview-window='65%'
+  --border=rounded -e --ansi --preview-window='50%'
 # enable tmux popup for fzf to show results
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 # set the lines number of fzf's prompt occupied
