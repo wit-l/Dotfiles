@@ -94,6 +94,11 @@
       "kind": "Exe",
       "id": "QQ.exe",
       "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "XiaomiPcManager.exe",
+      "matching_strategy": "Equals"
     }
   ],
   "monitors": [
