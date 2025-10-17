@@ -3,7 +3,7 @@
 [interactive]
   diffFilter = delta --color-only
 [delta]
-    features = line-numbers side-by-side
+    features = line-numbers
 [user]
 	name = wit-l
 	email = witty.ysl@gmail.com
