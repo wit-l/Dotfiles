@@ -6,22 +6,26 @@
         {
             "command": 
             {
-                "action": "copy",
-                "singleLine": false
-            },
-            "id": "User.copy.644BA8F2"
-        },
-        {
-            "command": 
-            {
                 "action": "resizePane",
                 "direction": "up"
             },
             "id": "User.resizePane.6CD791B"
         },
         {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2"
+        },
+        {
             "command": "closePane",
             "id": "User.closePane"
+        },
+        {
+            "command": "openNewTabDropdown",
+            "id": "User.openNewTabDropdown"
         },
         {
             "command": 
@@ -30,10 +34,6 @@
                 "direction": "forward"
             },
             "id": "User.moveTab.793E2350"
-        },
-        {
-            "command": "openNewTabDropdown",
-            "id": "User.openNewTabDropdown"
         },
         {
             "command": "paste",
@@ -78,6 +78,14 @@
         {
             "command": 
             {
+                "action": "resizePane",
+                "direction": "right"
+            },
+            "id": "User.resizePane.87C324ED"
+        },
+        {
+            "command": 
+            {
                 "action": "scrollUp"
             },
             "id": "User.scrollUp.0"
@@ -85,10 +93,10 @@
         {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "right"
+                "action": "moveFocus",
+                "direction": "left"
             },
-            "id": "User.resizePane.87C324ED"
+            "id": "User.moveFocus.2A0DA8E0"
         },
         {
             "command": 
@@ -105,14 +113,6 @@
                 "direction": "down"
             },
             "id": "User.resizePane.F747588A"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "left"
-            },
-            "id": "User.moveFocus.2A0DA8E0"
         },
         {
             "command": 
@@ -154,24 +154,24 @@
     "keybindings": 
     [
         {
-            "id": "User.scrollUp.0",
-            "keys": "ctrl+shift+k"
-        },
-        {
             "id": "User.copy.644BA8F2",
             "keys": "ctrl+c"
+        },
+        {
+            "id": "User.scrollUp.0",
+            "keys": "ctrl+shift+k"
         },
         {
             "id": "User.moveTab.793E2350",
             "keys": "ctrl+shift+l"
         },
         {
-            "id": "User.paste",
-            "keys": "ctrl+v"
-        },
-        {
             "id": "User.find",
             "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
         },
         {
             "id": "User.resizePane.6CD791B",
@@ -304,7 +304,7 @@
                 "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Arch",
                 "guid": "{c6dcb63b-de3f-46e7-bb63-5749eb017b97}",
                 "hidden": false,
-                "icon": "E:\\WSL2\\Arch\\shortcut.ico",
+                "icon": "D:\\Users\\witty\\WSL2_Distributions\\Arch\\shortcut.ico",
                 "name": "Arch",
                 "startingDirectory": "~"
             },
@@ -396,12 +396,6 @@
                 "hidden": false,
                 "name": "Developer PowerShell for VS 18 [Preview]",
                 "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "commandline": "pwsh",
-                "guid": "{19dc1aa2-0f2c-4d6d-a38d-5f9f87153898}",
-                "hidden": false,
-                "name": "Profile 18"
             }
         ]
     },
