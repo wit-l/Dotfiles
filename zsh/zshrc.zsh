@@ -106,7 +106,7 @@ zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
 # To disable or override preview for command options and subcommands, use
 zstyle ':fzf-tab:complete:*:options' fzf-preview
 zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
-zstyle ':fzf-tab:complete:*:argument-rest' fzf-preview
+zstyle ':fzf-tab:complete:systemctl:argument-rest' fzf-preview
 zstyle ':fzf-tab:complete:_zlua:*' fzf-preview
 zstyle ':fzf-tab:complete:-command-:*' fzf-preview
 zstyle ':fzf-tab:complete:tmux*:*' fzf-preview
