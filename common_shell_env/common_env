@@ -31,15 +31,27 @@ export FZF_DEFAULT_OPTS="--height 80% -e --ansi --reverse --border=rounded --col
 
 ## ctrl+t 用于搜索文件/路径
 export FZF_CTRL_T_COMMAND='fd --follow -H --exclude .git --color=always'
-# export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range=:500 {}'"
-export FZF_CTRL_T_OPTS="--preview 'less {}' --preview-window='65%'"
+# Preview file content using bat (https://github.com/sharkdp/bat)
+export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'less {}' --preview-window='65%'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
 ## alt+c用于搜索路径并切换过去
 export FZF_ALT_C_COMMAND="fd -td --follow -H --color=always"
-export FZF_ALT_C_OPTS="--preview 'eza --git -hl --color=always --icons {}'"
+# export FZF_ALT_C_OPTS="--preview 'eza --git -hl --color=always --icons {}'"
+# Print tree structure in the preview window
+export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'tree -C {}'"
 
 ## ctrl+r用于搜索历史命令
-export FZF_CTRL_R_COMMAND="fd"
+# export FZF_CTRL_R_COMMAND="fd"
+# CTRL-Y to copy the command into clipboard using pbcopy
+export FZF_CTRL_R_OPTS="
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
 
 ## 给manual加上语法高亮
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
