@@ -145,6 +145,6 @@ fi
 if ! command -v node &>/dev/null; then
   eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines --shell zsh)"
 fi
-[[ -f $XDG_CONFIG_HOME/.aliases ]] && . $XDG_CONFIG_HOME/.aliases
-[[ -f $XDG_CONFIG_HOME/.fzf.zsh ]] && . $XDG_CONFIG_HOME/.fzf.zsh
-[[ -f $XDG_CONFIG_HOME/.cargo/env ]] && . $XDG_CONFIG_HOME/.cargo/env
+[[ -f $DOTDIR/aliases ]] && . $DOTDIR/aliases
+[[ -f $DOTDIR/completions/fzf/fzf.zsh ]] && . $DOTDIR/completions/fzf/fzf.zsh
+[[ -f $XDG_CONFIG_HOME/cargo/env ]] && . $XDG_CONFIG_HOME/cargo/env
