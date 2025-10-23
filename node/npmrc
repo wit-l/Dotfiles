@@ -9,7 +9,7 @@
 ; Configs like `//<hostname>/:_authToken` are auth that is restricted
 ; to the registry host specified.
 
-cache=~/.config/.npm
+cache=~/.config/npm
 https-proxy=http://127.0.0.1:7890
 proxy=http://127.0.0.1:7890
 registry=https://registry.npmmirror.com
