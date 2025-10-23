@@ -77,7 +77,9 @@ zinit wait lucid light-mode as"completion" blockf for \
   has'pnpm' compile'completions/_pnpm' \
     empresslabs/pnpm.plugin.zsh \
   has'fnm' id-as'_fnm' \
-    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/fnm/_fnm
+    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/fnm/_fnm \
+  has'dms' id-as'_dms' \
+    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/dms/_dms
 
 zinit wait lucid light-mode for \
   blockf atinit"zicompinit; source $ZDOTDIR/zshrc.zsh" \
