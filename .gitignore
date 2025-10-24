@@ -1,4 +1,4 @@
 windows/glzr/glazewm/errors.log
 windows/glzr/zebar/errors.log
 *.zwc
-zsh/.zcompdump
+*.zcompdump
