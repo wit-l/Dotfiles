@@ -12,10 +12,8 @@
 cache=~/.config/npm
 https-proxy=http://127.0.0.1:7890
 init-module=~/.config/.npm-init.js
-init.module=~/.config/.npm-init.js
 proxy=http://127.0.0.1:7890
 registry=https://registry.npmmirror.com
-userconfig=$DOTDIR/node/npmrc
 
 ;;;;
 ; all available options shown below with default values
@@ -86,9 +84,7 @@ userconfig=$DOTDIR/node/npmrc
 ; init-author-url=
 ; init-license=ISC
 ; init-module=~/.npm-init.js
-; init-type=commonjs
 ; init-version=1.0.0
-; init-private=false
 ; init.author.email=
 ; init.author.name=
 ; init.author.url=
@@ -112,7 +108,6 @@ userconfig=$DOTDIR/node/npmrc
 ; long=false
 ; maxsockets=15
 ; message=%s
-; node-gyp=/home/witty/.config/local/fnm/node-versions/v22.21.0/installation/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js
 ; node-options=null
 ; noproxy=
 ; offline=false
