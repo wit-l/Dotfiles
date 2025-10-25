@@ -1,5 +1,5 @@
 ;;;;
-; npm userconfig file: /home/witty/.config/npmrc
+; npm userconfig file: /home/witty/.config/dotfiles/node/npmrc
 ; this is a simple ini-formatted file
 ; lines that start with semi-colons are comments
 ; run `npm help 7 config` for documentation of the various options
@@ -11,10 +11,11 @@
 
 cache=~/.config/npm
 https-proxy=http://127.0.0.1:7890
-proxy=http://127.0.0.1:7890
-registry=https://registry.npmmirror.com
 init-module=~/.config/.npm-init.js
 init.module=~/.config/.npm-init.js
+proxy=http://127.0.0.1:7890
+registry=https://registry.npmmirror.com
+userconfig=$DOTDIR/node/npmrc
 
 ;;;;
 ; all available options shown below with default values
@@ -85,7 +86,9 @@ init.module=~/.config/.npm-init.js
 ; init-author-url=
 ; init-license=ISC
 ; init-module=~/.npm-init.js
+; init-type=commonjs
 ; init-version=1.0.0
+; init-private=false
 ; init.author.email=
 ; init.author.name=
 ; init.author.url=
@@ -109,6 +112,7 @@ init.module=~/.config/.npm-init.js
 ; long=false
 ; maxsockets=15
 ; message=%s
+; node-gyp=/home/witty/.config/local/fnm/node-versions/v22.21.0/installation/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js
 ; node-options=null
 ; noproxy=
 ; offline=false
@@ -153,7 +157,7 @@ init.module=~/.config/.npm-init.js
 ; searchlimit=20
 ; searchopts=
 ; searchstaleness=900
-; shell=/usr/bin/zsh
+; shell=/bin/zsh
 ; shrinkwrap=true
 ; sign-git-commit=false
 ; sign-git-tag=false
