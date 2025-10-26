@@ -10,6 +10,8 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export LAUNCHPAD_HOME="$XDG_CONFIG_HOME/launchpadlib"
 export ZDOTDIR="$DOTDIR/zsh"
+# completion func search python_envs base on this env
+export CONDA_ENVS_PATH="$XDG_CONFIG_HOME/conda/envs"
 export CONDARC="$DOTDIR/conda/condarc"
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 export PYTHONUSERBASE="$XDG_DATA_HOME"
