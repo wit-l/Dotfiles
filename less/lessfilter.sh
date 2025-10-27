@@ -54,15 +54,11 @@ elif [[ "$category" = "text" || "$kind" == "javascript" ]]; then
       center=${BASH_REMATCH[2]}
     fi
   fi
-  bat -n --color=always "$file"
   # Sometimes bat is installed as batcat.
   if command -v batcat >/dev/null; then
     batname="batcat"
   elif command -v bat >/dev/null; then
     batname="bat"
-  else
-    cat "$1"
-    exit
   fi
   ${batname} --style="${BAT_STYLE:-numbers}" --color=always --pager=never --highlight-line="${center:-0}" -- "$file"
 
