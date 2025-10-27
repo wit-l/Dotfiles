@@ -7,18 +7,6 @@ file=${1/#\~\//$HOME/}
 if [ -d "$file" ]; then
   eza --git -ahl --color=always --icons "$file"
 elif [ "$category" = image ]; then
-  # dim=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}
-  # if [[ $dim = x ]]; then
-  #   dim=$(stty size </dev/tty | awk '{print $2 "x" $1}')
-  # elif ! [[ $KITTY_WINDOW_ID ]] && ((FZF_PREVIEW_TOP + FZF_PREVIEW_LINES == $(stty size </dev/tty | awk '{print $1}'))); then
-  #   # Avoid scrolling issue when the Sixel image touches the bottom of the screen
-  #   # * https://github.com/junegunn/fzf/issues/2544
-  #   dim=${FZF_PREVIEW_COLUMNS}x$((FZF_PREVIEW_LINES - 1))
-  # fi
-  # img2sixel "$1" -w 600 -h 400
-  # chafa "$file" -f sixels -s "$dim" --stretch --clear
-  # exiftool "$file"
-
   dim=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}
   if [[ $dim == x ]]; then
     dim=$(stty size </dev/tty | awk '{print $2 "x" $1}')
@@ -51,11 +39,33 @@ elif [ "$category" = image ]; then
     # that's the case here.
     imgcat -W "${dim%%x*}" -H "${dim##*x}" "$file"
   fi
+
 elif [ "$kind" = vnd.openxmlformats-officedocument.spreadsheetml.sheet ] ||
   [ "$kind" = vnd.ms-excel ]; then
   in2csv "$file" | xsv table | bat -n -ltsv --color=always
 elif [[ "$category" = "text" || "$kind" == "javascript" ]]; then
+  center=0
+  if [[ ! -r $file ]]; then
+    if [[ $file =~ ^(.+):([0-9]+)\ *$ ]] && [[ -r ${BASH_REMATCH[1]} ]]; then
+      file=${BASH_REMATCH[1]}
+      center=${BASH_REMATCH[2]}
+    elif [[ $file =~ ^(.+):([0-9]+):[0-9]+\ *$ ]] && [[ -r ${BASH_REMATCH[1]} ]]; then
+      file=${BASH_REMATCH[1]}
+      center=${BASH_REMATCH[2]}
+    fi
+  fi
   bat -n --color=always "$file"
+  # Sometimes bat is installed as batcat.
+  if command -v batcat >/dev/null; then
+    batname="batcat"
+  elif command -v bat >/dev/null; then
+    batname="bat"
+  else
+    cat "$1"
+    exit
+  fi
+  ${batname} --style="${BAT_STYLE:-numbers}" --color=always --pager=never --highlight-line="${center:-0}" -- "$file"
+
 elif [[ "$kind" == "json" ]]; then
   jq --color-output . "$file"
   # bat -n --color=always "$file"
