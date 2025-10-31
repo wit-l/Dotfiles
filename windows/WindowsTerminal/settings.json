@@ -1,410 +1,386 @@
 {
-    "$help": "https://aka.ms/terminal-documentation",
-    "$schema": "https://aka.ms/terminal-profiles-schema-preview",
-    "actions": 
-    [
-        {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "up"
-            },
-            "id": "User.resizePane.6CD791B"
-        },
-        {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "id": "User.copy.644BA8F2"
-        },
-        {
-            "command": "closePane",
-            "id": "User.closePane"
-        },
-        {
-            "command": "openNewTabDropdown",
-            "id": "User.openNewTabDropdown"
-        },
-        {
-            "command": 
-            {
-                "action": "moveTab",
-                "direction": "forward"
-            },
-            "id": "User.moveTab.793E2350"
-        },
-        {
-            "command": "paste",
-            "id": "User.paste"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "down"
-            },
-            "id": "User.moveFocus.F747588A"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "left"
-            },
-            "id": "User.resizePane.2A0DA8E0"
-        },
-        {
-            "command": "find",
-            "id": "User.find"
-        },
-        {
-            "command": 
-            {
-                "action": "scrollDown"
-            },
-            "id": "User.scrollDown.0"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            },
-            "id": "User.splitPane.A6751878"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "right"
-            },
-            "id": "User.resizePane.87C324ED"
-        },
-        {
-            "command": 
-            {
-                "action": "scrollUp"
-            },
-            "id": "User.scrollUp.0"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "left"
-            },
-            "id": "User.moveFocus.2A0DA8E0"
-        },
-        {
-            "command": 
-            {
-                "action": "moveTab",
-                "direction": "backward"
-            },
-            "id": "User.moveTab.EF07D31B"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "down"
-            },
-            "id": "User.resizePane.F747588A"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "up"
-            },
-            "id": "User.moveFocus.6CD791B"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "right"
-            },
-            "id": "User.moveFocus.87C324ED"
-        },
-        {
-            "command": "toggleFocusMode",
-            "id": "User.toggleFocusMode"
-        },
-        {
-            "command": 
-            {
-                "action": "closeTab"
-            },
-            "id": "User.closeTab.0"
-        },
-        {
-            "command": "closeWindow",
-            "id": "User.closeWindow"
-        }
-    ],
-    "alwaysShowNotificationIcon": true,
-    "centerOnLaunch": true,
-    "copyFormatting": "none",
-    "copyOnSelect": false,
-    "defaultProfile": "{e00e127c-3aa0-47e2-a80c-a63c22fb31a3}",
-    "keybindings": 
-    [
-        {
-            "id": "User.copy.644BA8F2",
-            "keys": "ctrl+c"
-        },
-        {
-            "id": "User.scrollUp.0",
-            "keys": "ctrl+shift+k"
-        },
-        {
-            "id": "User.moveTab.793E2350",
-            "keys": "ctrl+shift+l"
-        },
-        {
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "id": "User.paste",
-            "keys": "ctrl+v"
-        },
-        {
-            "id": "User.resizePane.6CD791B",
-            "keys": "alt+shift+k"
-        },
-        {
-            "id": "User.resizePane.2A0DA8E0",
-            "keys": "alt+shift+h"
-        },
-        {
-            "id": "User.scrollDown.0",
-            "keys": "ctrl+shift+j"
-        },
-        {
-            "id": "User.splitPane.A6751878",
-            "keys": "alt+shift+d"
-        },
-        {
-            "id": "User.moveTab.EF07D31B",
-            "keys": "ctrl+shift+h"
-        },
-        {
-            "id": "User.moveFocus.2A0DA8E0",
-            "keys": "ctrl+alt+h"
-        },
-        {
-            "id": "User.resizePane.F747588A",
-            "keys": "alt+shift+j"
-        },
-        {
-            "id": "User.resizePane.87C324ED",
-            "keys": "alt+shift+l"
-        },
-        {
-            "id": "User.moveFocus.6CD791B",
-            "keys": "ctrl+alt+k"
-        },
-        {
-            "id": "User.moveFocus.87C324ED",
-            "keys": "ctrl+alt+l"
-        },
-        {
-            "id": "User.moveFocus.F747588A",
-            "keys": "ctrl+alt+j"
-        },
-        {
-            "id": "User.toggleFocusMode",
-            "keys": "alt+z"
-        },
-        {
-            "id": "User.closePane",
-            "keys": "ctrl+shift+w"
-        }
-    ],
-    "launchMode": "focus",
-    "newTabMenu": 
-    [
-        {
-            "type": "remainingProfiles"
-        },
-        {
-            "allowEmpty": false,
-            "entries": 
-            [
-                {
-                    "commandline": null,
-                    "name": null,
-                    "source": "Windows.Terminal.SSH",
-                    "type": "matchProfiles"
-                }
-            ],
-            "icon": "\ue969",
-            "inline": "auto",
-            "name": "SSH",
-            "type": "folder"
-        }
-    ],
-    "newTabPosition": "afterCurrentTab",
-    "profiles": 
+  "$help": "https://aka.ms/terminal-documentation",
+  "$schema": "https://aka.ms/terminal-profiles-schema-preview",
+  "actions": [
     {
-        "defaults": 
-        {
-            "adjustIndistinguishableColors": "indexed",
-            "antialiasingMode": "cleartype",
-            "autoMarkPrompts": true,
-            "backgroundImage": null,
-            "backgroundImageOpacity": 0.08,
-            "backgroundImageStretchMode": "uniformToFill",
-            "colorScheme": "One Half Dark",
-            "compatibility.allowDECRQCRA": true,
-            "cursorColor": "#61AFEF",
-            "cursorShape": "filledBox",
-            "experimental.rainbowSuggestions": true,
-            "experimental.repositionCursorWithMouse": true,
-            "font": 
-            {
-                "cellHeight": "1.2",
-                "face": "Maple Mono NF CN",
-                "features": 
-                {
-                    "aalt": 0
-                },
-                "size": 14
-            },
-            "icon": "\ue7f8",
-            "opacity": 88,
-            "padding": "6",
-            "pathTranslationStyle": "wsl",
-            "rightClickContextMenu": true,
-            "scrollbarState": "visible",
-            "selectionBackground": "#C678DD",
-            "showMarksOnScrollbar": true,
-            "useAcrylic": false
-        },
-        "list": 
-        [
-            {
-                "commandline": "D:\\Program Files\\PowerShell\\7\\pwsh.exe -ExecutionPolicy ByPass",
-                "environment": 
-                {
-                    "PATH": "%PATH%;D:\\msys64\\ucrt64\\bin;D:\\Software\\CppCompiler\\mingw64\\bin"
-                },
-                "guid": "{e00e127c-3aa0-47e2-a80c-a63c22fb31a3}",
-                "hidden": false,
-                "icon": "D:\\Users\\witty\\OneDrive\\Pictures\\pwsh-icons\\black-transparent-32.ico",
-                "name": "PowerShell7",
-                "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Arch",
-                "guid": "{c6dcb63b-de3f-46e7-bb63-5749eb017b97}",
-                "hidden": false,
-                "icon": "D:\\Users\\witty\\WSL2_Distributions\\Arch\\shortcut.ico",
-                "name": "Arch",
-                "startingDirectory": "~"
-            },
-            {
-                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
-                "hidden": false,
-                "icon": "D:\\Users\\witty\\OneDrive\\Pictures\\pwsh-icons\\debian.ico",
-                "name": "Debian",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -msys2",
-                "guid": "{e9dcb44f-b0a9-4e54-8c34-a88e9bef1ec3}",
-                "hidden": false,
-                "icon": "D:\\msys64\\msys2.ico",
-                "name": "MSYS / MSYS2",
-                "startingDirectory": "D:/msys64/home/%USERNAME%"
-            },
-            {
-                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -ucrt64",
-                "guid": "{bbd04805-282b-4697-91ab-ed20074c952f}",
-                "hidden": false,
-                "icon": "D:\\msys64\\ucrt64.ico",
-                "name": "UCRT64 / MSYS2",
-                "startingDirectory": "D:/msys64/home/%USERNAME%"
-            },
-            {
-                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -mingw64",
-                "guid": "{e8af0abe-17fb-43e0-ad83-785ad9617236}",
-                "hidden": false,
-                "icon": "D:\\msys64\\mingw64.ico",
-                "name": "MINGW64 / MSYS2",
-                "startingDirectory": "D:/msys64/home/%USERNAME%"
-            },
-            {
-                "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -clang64",
-                "guid": "{1a60ba25-9ff5-449d-a2b1-cf3a0e95f789}",
-                "hidden": false,
-                "icon": "D:\\msys64\\clang64.ico",
-                "name": "CLANG64 / MSYS2",
-                "startingDirectory": "D:/msys64/home/%USERNAME%"
-            },
-            {
-                "commandline": "%windir%\\system32\\cmd.exe \"/K\" D:\\Software\\miniforge3\\Scripts\\activate.bat D:\\Software\\miniforge3",
-                "guid": "{77470806-6691-45af-b337-a827ba13b006}",
-                "hidden": false,
-                "name": "Miniforge Prompt",
-                "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": false,
-                "name": "Windows PowerShell"
-            },
-            {
-                "commandline": "%SystemRoot%\\System32\\cmd.exe",
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
-                "name": "Command Prompt"
-            },
-            {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": true,
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
-            },
-            {
-                "commandline": "\"D:/Software/Git/bin/bash.exe\" -i -l",
-                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
-                "hidden": false,
-                "name": "Git Bash",
-                "source": "Git"
-            },
-            {
-                "guid": "{8ba14d01-e9b6-5506-8575-662a5bbf779b}",
-                "hidden": false,
-                "name": "SSH - m1",
-                "source": "Windows.Terminal.SSH"
-            },
-            {
-                "guid": "{a2989ad9-e355-5de7-abb4-1e4c62205682}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 18 [Preview]",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{71e29662-e4b0-54cf-8c92-23de044417ef}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 18 [Preview]",
-                "source": "Windows.Terminal.VisualStudio"
-            }
-        ]
+      "command": {
+        "action": "resizePane",
+        "direction": "up"
+      },
+      "id": "User.resizePane.6CD791B"
     },
-    "schemes": [],
-    "showTabsFullscreen": true,
-    "showTerminalTitleInTitlebar": true,
-    "tabWidthMode": "titleLength",
-    "theme": "dark",
-    "themes": [],
-    "useAcrylicInTabRow": true,
-    "windowingBehavior": "useNew"
+    {
+      "command": {
+        "action": "copy",
+        "singleLine": false
+      },
+      "id": "User.copy.644BA8F2"
+    },
+    {
+      "command": "closePane",
+      "id": "User.closePane"
+    },
+    {
+      "command": "openNewTabDropdown",
+      "id": "User.openNewTabDropdown"
+    },
+    {
+      "command": {
+        "action": "moveTab",
+        "direction": "forward"
+      },
+      "id": "User.moveTab.793E2350"
+    },
+    {
+      "command": "paste",
+      "id": "User.paste"
+    },
+    {
+      "command": {
+        "action": "moveFocus",
+        "direction": "down"
+      },
+      "id": "User.moveFocus.F747588A"
+    },
+    {
+      "command": {
+        "action": "resizePane",
+        "direction": "left"
+      },
+      "id": "User.resizePane.2A0DA8E0"
+    },
+    {
+      "command": "find",
+      "id": "User.find"
+    },
+    {
+      "command": {
+        "action": "scrollDown"
+      },
+      "id": "User.scrollDown.0"
+    },
+    {
+      "command": {
+        "action": "splitPane",
+        "split": "auto",
+        "splitMode": "duplicate"
+      },
+      "id": "User.splitPane.A6751878"
+    },
+    {
+      "command": {
+        "action": "resizePane",
+        "direction": "right"
+      },
+      "id": "User.resizePane.87C324ED"
+    },
+    {
+      "command": {
+        "action": "scrollUp"
+      },
+      "id": "User.scrollUp.0"
+    },
+    {
+      "command": {
+        "action": "moveFocus",
+        "direction": "left"
+      },
+      "id": "User.moveFocus.2A0DA8E0"
+    },
+    {
+      "command": {
+        "action": "moveTab",
+        "direction": "backward"
+      },
+      "id": "User.moveTab.EF07D31B"
+    },
+    {
+      "command": {
+        "action": "resizePane",
+        "direction": "down"
+      },
+      "id": "User.resizePane.F747588A"
+    },
+    {
+      "command": {
+        "action": "moveFocus",
+        "direction": "up"
+      },
+      "id": "User.moveFocus.6CD791B"
+    },
+    {
+      "command": {
+        "action": "moveFocus",
+        "direction": "right"
+      },
+      "id": "User.moveFocus.87C324ED"
+    },
+    {
+      "command": "toggleFocusMode",
+      "id": "User.toggleFocusMode"
+    },
+    {
+      "command": {
+        "action": "closeTab"
+      },
+      "id": "User.closeTab.0"
+    },
+    {
+      "command": "closeWindow",
+      "id": "User.closeWindow"
+    }
+  ],
+  "alwaysShowNotificationIcon": true,
+  "centerOnLaunch": true,
+  "copyFormatting": "none",
+  "copyOnSelect": false,
+  "defaultProfile": "{e00e127c-3aa0-47e2-a80c-a63c22fb31a3}",
+  "keybindings": [
+    {
+      "id": "User.copy.644BA8F2",
+      "keys": "ctrl+c"
+    },
+    {
+      "id": "User.scrollUp.0",
+      "keys": "ctrl+shift+k"
+    },
+    {
+      "id": "User.moveTab.793E2350",
+      "keys": "ctrl+shift+l"
+    },
+    {
+      "id": "User.find",
+      "keys": "ctrl+shift+f"
+    },
+    {
+      "id": "User.paste",
+      "keys": "ctrl+v"
+    },
+    {
+      "id": "User.resizePane.6CD791B",
+      "keys": "alt+shift+k"
+    },
+    {
+      "id": "User.resizePane.2A0DA8E0",
+      "keys": "alt+shift+h"
+    },
+    {
+      "id": "User.scrollDown.0",
+      "keys": "ctrl+shift+j"
+    },
+    {
+      "id": "User.splitPane.A6751878",
+      "keys": "alt+shift+d"
+    },
+    {
+      "id": "User.moveTab.EF07D31B",
+      "keys": "ctrl+shift+h"
+    },
+    {
+      "id": "User.moveFocus.2A0DA8E0",
+      "keys": "ctrl+alt+h"
+    },
+    {
+      "id": "User.resizePane.F747588A",
+      "keys": "alt+shift+j"
+    },
+    {
+      "id": "User.resizePane.87C324ED",
+      "keys": "alt+shift+l"
+    },
+    {
+      "id": "User.moveFocus.6CD791B",
+      "keys": "ctrl+alt+k"
+    },
+    {
+      "id": "User.moveFocus.87C324ED",
+      "keys": "ctrl+alt+l"
+    },
+    {
+      "id": "User.moveFocus.F747588A",
+      "keys": "ctrl+alt+j"
+    },
+    {
+      "id": "User.toggleFocusMode",
+      "keys": "alt+z"
+    },
+    {
+      "id": "User.closePane",
+      "keys": "ctrl+shift+w"
+    }
+  ],
+  "launchMode": "focus",
+  "newTabMenu": [
+    {
+      "type": "remainingProfiles"
+    },
+    {
+      "allowEmpty": false,
+      "entries": [
+        {
+          "commandline": null,
+          "name": null,
+          "source": "Windows.Terminal.SSH",
+          "type": "matchProfiles"
+        }
+      ],
+      "icon": "\ue969",
+      "inline": "auto",
+      "name": "SSH",
+      "type": "folder"
+    }
+  ],
+  "newTabPosition": "afterCurrentTab",
+  "profiles": {
+    "defaults": {
+      "adjustIndistinguishableColors": "indexed",
+      "antialiasingMode": "cleartype",
+      "autoMarkPrompts": true,
+      "backgroundImage": null,
+      "backgroundImageOpacity": 0.08,
+      "backgroundImageStretchMode": "uniformToFill",
+      "colorScheme": "One Half Dark",
+      "compatibility.allowDECRQCRA": true,
+      "cursorColor": "#61AFEF",
+      "cursorShape": "filledBox",
+      "experimental.rainbowSuggestions": true,
+      "experimental.repositionCursorWithMouse": true,
+      "font": {
+        "cellHeight": "1.2",
+        "face": "Maple Mono NF CN",
+        "features": {
+          "aalt": 0
+        },
+        "size": 12
+      },
+      "icon": "\ue7f8",
+      "opacity": 88,
+      "padding": "6",
+      "pathTranslationStyle": "wsl",
+      "rightClickContextMenu": true,
+      "scrollbarState": "visible",
+      "selectionBackground": "#C678DD",
+      "showMarksOnScrollbar": true,
+      "useAcrylic": false
+    },
+    "list": [
+      {
+        "commandline": "D:\\Program Files\\PowerShell\\7\\pwsh.exe -ExecutionPolicy ByPass",
+        "environment": {
+          "PATH": "%PATH%;D:\\msys64\\ucrt64\\bin;D:\\Software\\CppCompiler\\mingw64\\bin"
+        },
+        "guid": "{e00e127c-3aa0-47e2-a80c-a63c22fb31a3}",
+        "hidden": false,
+        "icon": "D:\\Users\\witty\\OneDrive\\Pictures\\pwsh-icons\\black-transparent-32.ico",
+        "name": "PowerShell7",
+        "startingDirectory": "%USERPROFILE%"
+      },
+      {
+        "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Arch",
+        "guid": "{c6dcb63b-de3f-46e7-bb63-5749eb017b97}",
+        "hidden": false,
+        "icon": "D:\\Users\\witty\\WSL2_Distributions\\Arch\\shortcut.ico",
+        "name": "Arch",
+        "startingDirectory": "~"
+      },
+      {
+        "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+        "hidden": false,
+        "icon": "D:\\Users\\witty\\OneDrive\\Pictures\\pwsh-icons\\debian.ico",
+        "name": "Debian",
+        "source": "Windows.Terminal.Wsl"
+      },
+      {
+        "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -msys2",
+        "guid": "{e9dcb44f-b0a9-4e54-8c34-a88e9bef1ec3}",
+        "hidden": false,
+        "icon": "D:\\msys64\\msys2.ico",
+        "name": "MSYS / MSYS2",
+        "startingDirectory": "D:/msys64/home/%USERNAME%"
+      },
+      {
+        "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -ucrt64",
+        "guid": "{bbd04805-282b-4697-91ab-ed20074c952f}",
+        "hidden": false,
+        "icon": "D:\\msys64\\ucrt64.ico",
+        "name": "UCRT64 / MSYS2",
+        "startingDirectory": "D:/msys64/home/%USERNAME%"
+      },
+      {
+        "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -mingw64",
+        "guid": "{e8af0abe-17fb-43e0-ad83-785ad9617236}",
+        "hidden": false,
+        "icon": "D:\\msys64\\mingw64.ico",
+        "name": "MINGW64 / MSYS2",
+        "startingDirectory": "D:/msys64/home/%USERNAME%"
+      },
+      {
+        "commandline": "D:/msys64/msys2_shell.cmd -defterm -no-start -shell zsh  -here -clang64",
+        "guid": "{1a60ba25-9ff5-449d-a2b1-cf3a0e95f789}",
+        "hidden": false,
+        "icon": "D:\\msys64\\clang64.ico",
+        "name": "CLANG64 / MSYS2",
+        "startingDirectory": "D:/msys64/home/%USERNAME%"
+      },
+      {
+        "commandline": "%windir%\\system32\\cmd.exe \"/K\" D:\\Software\\miniforge3\\Scripts\\activate.bat D:\\Software\\miniforge3",
+        "guid": "{77470806-6691-45af-b337-a827ba13b006}",
+        "hidden": false,
+        "name": "Miniforge Prompt",
+        "startingDirectory": "%USERPROFILE%"
+      },
+      {
+        "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "hidden": false,
+        "name": "Windows PowerShell"
+      },
+      {
+        "commandline": "%SystemRoot%\\System32\\cmd.exe",
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "hidden": false,
+        "name": "Command Prompt"
+      },
+      {
+        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+        "hidden": true,
+        "name": "Azure Cloud Shell",
+        "source": "Windows.Terminal.Azure"
+      },
+      {
+        "commandline": "\"D:/Software/Git/bin/bash.exe\" -i -l",
+        "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+        "hidden": false,
+        "name": "Git Bash",
+        "source": "Git"
+      },
+      {
+        "guid": "{8ba14d01-e9b6-5506-8575-662a5bbf779b}",
+        "hidden": false,
+        "name": "SSH - m1",
+        "source": "Windows.Terminal.SSH"
+      },
+      {
+        "guid": "{a2989ad9-e355-5de7-abb4-1e4c62205682}",
+        "hidden": false,
+        "name": "Developer Command Prompt for VS 18 [Preview]",
+        "source": "Windows.Terminal.VisualStudio"
+      },
+      {
+        "guid": "{71e29662-e4b0-54cf-8c92-23de044417ef}",
+        "hidden": false,
+        "name": "Developer PowerShell for VS 18 [Preview]",
+        "source": "Windows.Terminal.VisualStudio"
+      }
+    ]
+  },
+  "schemes": [],
+  "showTabsFullscreen": true,
+  "showTerminalTitleInTitlebar": true,
+  "tabWidthMode": "titleLength",
+  "theme": "dark",
+  "themes": [],
+  "useAcrylicInTabRow": true,
+  "windowingBehavior": "useNew"
 }
+
