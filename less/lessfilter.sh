@@ -28,7 +28,7 @@ elif [ "$category" = image ]; then
 
   # 2. Use chafa with Sixel output
   elif command -v chafa >/dev/null; then
-    chafa -s "$dim" "$file"
+    chafa -f sixels -s "$dim" "$file" --stretch --clear
     # Add a new line character so that fzf can display multiple images in the preview window
     echo
 
@@ -39,6 +39,7 @@ elif [ "$category" = image ]; then
     # that's the case here.
     imgcat -W "${dim%%x*}" -H "${dim##*x}" "$file"
   fi
+  exiftool "$file"
 
 elif [ "$kind" = vnd.openxmlformats-officedocument.spreadsheetml.sheet ] ||
   [ "$kind" = vnd.ms-excel ]; then
