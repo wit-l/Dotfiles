@@ -57,7 +57,6 @@ function mkcd() {
 alias mvg='/usr/local/bin/advmv -g'
 alias cpg='/usr/local/bin/advcp -g'
 alias lg="lazygit"
-alias open='wslview'
 ## 用于从ranger退出时自动跳转到ranger所处位置
 function ranger_cd {
     temp_file="$(mktemp)"
