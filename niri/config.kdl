@@ -365,18 +365,21 @@ window-rule {
     draw-border-with-background false
 }
 
+// 浮动非聚焦窗口高透明度
 window-rule {
     match is-focused=false is-floating=true
     opacity 0.1
 }
 
 window-rule {
-    match app-id="kitty|Alacritty"
-    // opacity 0.9
+  match app-id="kitty" title="floating"
+  default-column-width { fixed 850; }
+  default-window-height { fixed 500; }
 }
 
 window-rule {
   match app-id="Timeshift"
+  match title="floating"
   open-floating true
 }
 
@@ -397,7 +400,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+slash hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+backslash hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+backslash hotkey-overlay-title="Open a Terminal: kitty" { spawn-sh "kitty -o font_size=9 -T floating"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "fuzzel --config=$DOTDIR/fuzzel/fuzzel.ini"; }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+Alt+L hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
