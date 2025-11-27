@@ -1,7 +1,6 @@
 gui:
   language: zh-CN
   animateExplosion: true
-
 git:
-  paging:
-    pager: delta --dark --paging=never --line-numbers
+  pagers:
+    - pager: delta --dark --paging=never --line-numbers

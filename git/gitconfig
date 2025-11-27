@@ -4,6 +4,7 @@
   diffFilter = delta --color-only
 [delta]
     features = line-numbers
+    navigate = true  # use n and N to move between diff sections
 [user]
 	name = wit-l
 	email = witty.ysl@gmail.com
@@ -16,3 +17,5 @@
 [credential]
 	helper = cache --timeout 21600
 	helper = oauth
+[credential "helperselector"]
+	selected = manager
