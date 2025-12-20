@@ -5,7 +5,7 @@ $cmp_paths = @(
   # "D:\Software\MsysSoftware\sharkdp---bat\bat\autocomplete\_bat.ps1",
   # "D:\Software\MsysSoftware\sharkdp---fd\fd\autocomplete\fd.ps1",
   # "D:\Users\witty\Documents\PowerShell\Completions\fnm.ps1",
-  "D:\Users\witty\Documents\PowerShell\Scripts"
+  "C:\Users\witty\Documents\PowerShell\Scripts"
 )
 foreach ($cmp_path in $cmp_paths)
 {
@@ -24,3 +24,14 @@ Remove-Variable -Name cmp_paths,cmp_path
 # replace 'Ctrl+t' and 'Ctrl+r' with your preferred bindings:(too slow)
 # Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 # Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
+
+#region mamba initialize
+# !! Contents within this block are managed by 'mamba shell init' !!
+$Env:MAMBA_ROOT_PREFIX = "$Env:MINIFORGE"
+$Env:MAMBA_EXE = "$Env:MINIFORGE\Library\bin\mamba.exe"
+(& $Env:MAMBA_EXE 'shell' 'hook' -s 'powershell' -r $Env:MAMBA_ROOT_PREFIX) | Out-String | Invoke-Expression
+#endregion
+$Env:HTTPS_PROXY = "http://127.0.0.1:7890"
+$Env:HTTP_PROXY = "http://127.0.0.1:7890"
+$Env:EDITOR = "nvim"
+$Env:KOMOREBI_CONFIG_HOME = "$Env:DOTDIR\windows\komorebi"
