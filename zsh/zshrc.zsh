@@ -139,7 +139,7 @@ unset __mamba_setup
 
 # 防止重复插入PATH
 if [[ ":$PATH:" != *":$PNPM_HOME:"* ]]; then
-  export PATH="$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$PATH:/usr/bin/vendor_perl"
+  export PATH="$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$CARGO_HOME/bin:$PATH:/usr/bin/vendor_perl"
 fi
 # 仅首次执行
 if ! command -v node &>/dev/null; then
