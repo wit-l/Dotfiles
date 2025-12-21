@@ -3,3 +3,4 @@ autoMemoryReclaim=Gradual
 networkingMode=Mirrored
 autoProxy=false
 hostAddressLoopback=true
+sparseVhd=true
