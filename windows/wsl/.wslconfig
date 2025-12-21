@@ -4,3 +4,6 @@ networkingMode=Mirrored
 autoProxy=false
 hostAddressLoopback=true
 sparseVhd=true
+dnsTunneling=false
+[wsl2]
+dnsProxy=false
