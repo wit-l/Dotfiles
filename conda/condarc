@@ -10,9 +10,9 @@ custom_channels:
   pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 
 envs_dirs:
-  - /home/witty/.config/conda/envs # 自定义环境存储路径
+  - /home/wit_lu/.config/conda/envs # 自定义环境存储路径
   - /opt/miniforge/envs
 
 pkgs_dirs:
-  - /home/witty/.config/conda/pkgs # 自定义包缓存路径
+  - /home/wit_lu/.config/conda/pkgs # 自定义包缓存路径
   - /opt/miniforge/pkgs

@@ -1,5 +1,5 @@
 ;;;;
-; npm userconfig file: /home/witty/.config/dotfiles/node/npmrc
+; npm userconfig file: /home/wit_lu/.config/dotfiles/node/npmrc
 ; this is a simple ini-formatted file
 ; lines that start with semi-colons are comments
 ; run `npm help 7 config` for documentation of the various options
@@ -84,7 +84,9 @@ registry=https://registry.npmmirror.com
 ; init-author-url=
 ; init-license=ISC
 ; init-module=~/.npm-init.js
+; init-type=commonjs
 ; init-version=1.0.0
+; init-private=false
 ; init.author.email=
 ; init.author.name=
 ; init.author.url=
@@ -108,6 +110,7 @@ registry=https://registry.npmmirror.com
 ; long=false
 ; maxsockets=15
 ; message=%s
+; node-gyp=/home/wit_lu/.config/local/fnm/node-versions/v24.12.0/installation/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js
 ; node-options=null
 ; noproxy=
 ; offline=false
