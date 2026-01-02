@@ -15,4 +15,4 @@
 [advice]
 	mergeConflict = false
 [credential]
-	helper = manager
+	helper = oauth
