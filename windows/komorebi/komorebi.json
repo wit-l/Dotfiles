@@ -16,9 +16,9 @@
     "style": "EaseOutSine"
   },
   "global_work_area_offset": {
-    "top": 45,
+    "top": 5,
     "right": 20,
-    "bottom": 50,
+    "bottom": 10,
     "left": 10
   },
   "border_width": 8,
