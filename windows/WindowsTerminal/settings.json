@@ -206,7 +206,7 @@
     },
     {
       "id": "User.toggleFocusMode",
-      "keys": "alt+z"
+      "keys": "alt+v"
     },
     {
       "id": "User.closePane",

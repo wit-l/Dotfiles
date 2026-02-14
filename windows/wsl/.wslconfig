@@ -1,9 +1,10 @@
 [experimental]
 autoMemoryReclaim=Gradual
-networkingMode=Mirrored
 autoProxy=false
 hostAddressLoopback=true
 sparseVhd=true
-dnsTunneling=false
+firewall=false
+networkingMode=Mirrored
+bestEffortDnsParsing=true
 [wsl2]
 dnsProxy=false

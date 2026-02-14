@@ -7,18 +7,16 @@
   "C_Cpp.formatting": "clangFormat",
   "C_Cpp.inlayHints.parameterNames.enabled": true,
   "C_Cpp.intelliSenseCachePath": "D:\\Microsoft\\vscode-cpptools\\ipch\\",
-  "Codegeex.EnableExtension": true,
-  "Codegeex.Privacy": true,
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
-  "backgroundCover.imagePath": "d:\\Users\\witty\\OneDrive - GiantHard\\图片\\Saved Pictures\\SFW\\blueHair.png",
+  "backgroundCover.imagePath": "c:\\Users\\witty\\OneDrive\\图片\\Saved Pictures\\SFW\\7 (2).jpg",
   "backgroundCover.randomImageFolder": "d:\\Users\\witty\\OneDrive - GiantHard\\图片\\Saved Pictures\\SFW",
   "c-cpp-compile-run.c-flags": "-Wall -Wextra -g3 -fexec-charset=GBK",
   "c-cpp-compile-run.cpp-flags": "-Wall -Wextra -g3 -fexec-charset=GBK",
@@ -26,7 +24,6 @@
   "cmake.configureOnEdit": false,
   "cmake.configureOnOpen": false,
   "cmake.showConfigureWithDebuggerNotification": false,
-  "cmake.showOptionsMovedNotification": false,
   "code-runner.customCommand": "",
   "code-runner.executorMap": {
     "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
@@ -81,20 +78,19 @@
     "typescript": "ts-node",
     "v": "v run",
     "vbscript": "cscript //Nologo",
-    "zig": "zig run"
+    "zig": "zig run",
   },
   "code-runner.runInTerminal": true,
   "code-runner.saveAllFilesBeforeRun": true,
   "code-runner.saveFileBeforeRun": true,
-  "color-highlight.markerType": "dot-before",
   "debug.onTaskErrors": "debugAnyway",
   "editor.codeActionsOnSave": {
     "source.addMissingImports": "explicit",
     "source.organizeImports": "explicit",
-    "source.removeUnused": "explicit"
+    "source.removeUnused": "explicit",
   },
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "'Maple Mono Normal NF CN', Monaco, Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "'Maple Mono NF CN', Monaco, Consolas, 'Courier New', monospace",
   "editor.fontSize": 18,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
@@ -113,15 +109,15 @@
   "editor.wordWrap": "on",
   "emmet.syntaxProfiles": {
     "html": {
-      "inline_break": 2
-    }
+      "inline_break": 2,
+    },
   },
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "extensions.autoUpdate": "onlyEnabledExtensions",
   // To improve performance"
   "extensions.experimental.affinity": {
-    "vscodevim.vim": 1
+    "vscodevim.vim": 1,
   },
   "extensions.ignoreRecommendations": true,
   "javascript.inlayHints.parameterNames.enabled": "all",
@@ -129,11 +125,10 @@
   "oneDarkPro.bold": true,
   "path-prompt.extensionOnImport": true,
   "path-prompt.pathMappings": {
-    "@": "${folder}"
+    "@": "${folder}",
   },
   "projectManager.git.baseFolders": ["$home/workspace/"],
   "projectManager.sortList": "Recent",
-  "redhat.telemetry.enabled": true,
   "security.allowedUNCHosts": ["wsl.localhost"],
   "security.workspace.trust.untrustedFiles": "open",
   "sortJSON.orderOverride": [
@@ -149,14 +144,14 @@
     "scripts",
     "prefix",
     "description",
-    "body"
+    "body",
   ],
   "sortJSON.orderUnderride": [
     "resolutions",
     "dependencies",
     "devDependencies",
     "peerDependencies",
-    "cSpell.userWords"
+    "cSpell.userWords",
   ],
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "line",
@@ -167,17 +162,18 @@
   "terminal.integrated.profiles.windows": {
     "PowerShell7": {
       "path": "pwsh.exe",
-      "args": ["-ExecutionPolicy", "ByPass"]
-    }
+      "args": ["-ExecutionPolicy", "ByPass"],
+    },
   },
   "terminal.integrated.smoothScrolling": true,
   "typescript.inlayHints.parameterNames.enabled": "all",
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "vim.enableNeovim": false,
   "vim.foldfix": true,
   "vim.handleKeys": {
     "<C-f>": false,
-    "<C-s>": false
+    "<C-s>": false,
   },
   "vim.highlightedyank.color": "rgba(230, 97, 90, 0.7)",
   "vim.highlightedyank.enable": true,
@@ -188,122 +184,128 @@
   "vim.insertModeKeyBindings": [
     {
       "after": ["<Esc>"],
-      "before": ["j", "f"]
-    }
+      "before": ["j", "f"],
+    },
   ],
   "vim.leader": "<space>",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["z", "a"],
-      "commands": ["editor.toggleFold"]
+      "commands": ["editor.toggleFold"],
     },
     {
       "before": ["leader", "r", "n"],
-      "commands": ["editor.action.rename"]
+      "commands": ["editor.action.rename"],
     },
     {
       "before": ["leader", "i"],
-      "commands": ["extension.toggleBool"]
+      "commands": ["extension.toggleBool"],
     },
     {
       "after": ["<C-w>", "j"],
-      "before": ["<C-j>"]
+      "before": ["<C-j>"],
     },
     {
       "after": ["<C-w>", "k"],
-      "before": ["<C-k>"]
+      "before": ["<C-k>"],
     },
     {
       "after": ["<C-w>", "h"],
-      "before": ["<C-h>"]
+      "before": ["<C-h>"],
     },
     {
       "after": ["<C-w>", "l"],
-      "before": ["<C-l>"]
+      "before": ["<C-l>"],
     },
     {
-      "before": ["leader", "v"],
-      "commands": [":vs"]
+      "before": ["leader", "|"],
+      "commands": [":vs"],
     },
     {
-      "before": ["leader", "s"],
-      "commands": [":sp"]
+      "before": ["leader", "-"],
+      "commands": [":sp"],
     },
     {
       "after": ["o", "<Esc>"],
-      "before": ["o"]
+      "before": ["o"],
     },
     {
       "after": ["O", "<Esc>"],
-      "before": ["O"]
+      "before": ["O"],
     },
     {
       "before": ["leader", "w"],
-      "commands": [":w!"]
+      "commands": [":w!"],
     },
     {
       "before": ["leader", "q"],
-      "commands": [":q!"]
+      "commands": [":q!"],
     },
     {
       "before": ["K"],
-      "commands": ["lineBreakInsert"],
-      "silent": true
-    },
-    {
-      "before": ["leader", "k"],
-      "commands": ["editor.action.showHover"]
+      "commands": ["editor.action.showHover"],
     },
     {
       "before": ["]", "d"],
-      "commands": ["editor.action.marker.next"]
+      "commands": ["editor.action.marker.next"],
     },
     {
       "before": ["[", "d"],
-      "commands": ["editor.action.marker.prev"]
+      "commands": ["editor.action.marker.prev"],
     },
     {
       "before": ["leader", "c", "a"],
-      "commands": ["editor.action.quickFix"]
+      "commands": ["editor.action.quickFix"],
     },
     {
       "before": ["leader", "\\"],
-      "commands": [":noh"]
-    }
+      "commands": [":noh"],
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"],
+    },
   ],
   "vim.useCtrlKeys": true,
   "vim.useSystemClipboard": true,
   "vscode_custom_css.imports": [
-    "file:///C:/Users/witty/AppData/Roaming/Code/User/index.js"
+    "file:///C:/Users/witty/AppData/Roaming/Code/User/index.js",
+    "file:///C:/Users/witty/Documents/dotfiles/windows/vscode/index.js",
   ],
-  "window.zoomLevel": 1,
   "workbench.colorTheme": "One Dark Pro",
   "workbench.editor.empty.hint": "text",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "readme",
   "zenMode.hideLineNumbers": false,
   "workbench.colorCustomizations": {
-    "editorCursor.background": "#A052FF"
+    "editorCursor.background": "#A052FF",
   },
   "C_Cpp.clang_format_path": "clang-format",
   "C_Cpp.clang_format_fallbackStyle": "LLVM",
   "C_Cpp.clang_format_style": "LLVM",
   "git.autofetch": true,
-  "python.defaultInterpreterPath": "D:\\Software\\anaconda3\\envs\\sklearn\\python.exe",
   "editor.tabSize": 2,
   "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
+    "editor.defaultFormatter": "vscode.html-language-features",
   },
   "markdown-preview-enhanced.codeBlockTheme": "solarized-dark.css",
   "markdown-preview-enhanced.enablePreviewZenMode": false,
   "markdown-preview-enhanced.previewTheme": "solarized-dark.css",
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "remote.SSH.remotePlatform": {
-    "m1": "linux"
+    "m1": "linux",
   },
   "terminal.integrated.suggest.enabled": true,
   "terminal.integrated.env.windows": {},
-  "diffEditor.hideUnchangedRegions.enabled": true
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "json.schemaDownload.trustedDomains": {
+    "https://schemastore.azurewebsites.net/": true,
+    "https://raw.githubusercontent.com/": true,
+    "https://www.schemastore.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://json-schema.org/": true,
+    "https://biomejs.dev": true,
+  },
 }
