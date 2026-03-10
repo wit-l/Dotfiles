@@ -31,7 +31,27 @@ $Env:MAMBA_ROOT_PREFIX = "$Env:MINIFORGE"
 $Env:MAMBA_EXE = "$Env:MINIFORGE\Library\bin\mamba.exe"
 (& $Env:MAMBA_EXE 'shell' 'hook' -s 'powershell' -r $Env:MAMBA_ROOT_PREFIX) | Out-String | Invoke-Expression
 #endregion
-$Env:HTTPS_PROXY = "http://127.0.0.1:7890"
-$Env:HTTP_PROXY = "http://127.0.0.1:7890"
+# $Env:HTTPS_PROXY = "http://127.0.0.1:7890"
+# $Env:HTTP_PROXY = "http://127.0.0.1:7890"
 $Env:EDITOR = "nvim"
 $Env:KOMOREBI_CONFIG_HOME = "$Env:DOTDIR\windows\komorebi"
+
+function Set-Proxy {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory=$true, Position=0)]
+        [string]$ProxyUrl
+    )
+
+    $env:HTTP_PROXY = $ProxyUrl
+    $env:HTTPS_PROXY = $ProxyUrl
+    Write-Host "代理已设置为: $ProxyUrl"
+}
+
+function Clear-Proxy {
+    Remove-Item Env:HTTP_PROXY -ErrorAction SilentlyContinue
+    Remove-Item Env:HTTPS_PROXY -ErrorAction SilentlyContinue
+    Write-Host "代理环境变量已清除。"
+}
+Set-Alias -Name "spr" -Value "Set-Proxy"
+Set-Alias -Name "cpr" -Value "Clear-Proxy"
