@@ -82,8 +82,8 @@ zinit wait lucid light-mode as"completion" blockf for \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/dms/_dms \
   has'niri' id-as'_niri' \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/niri/_niri \
-  has'openclaw' id-as'openclaw' \
-    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/openclaw/_openclaw \
+  has'openclaw' id-as'_openclaw' \
+    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/openclaw/_openclaw
 
 zinit wait lucid light-mode for \
   blockf atinit"zicompinit; source $ZDOTDIR/zshrc.zsh" \
