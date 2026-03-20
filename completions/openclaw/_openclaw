@@ -1,7 +1,7 @@
 
 #compdef openclaw
 
-_openclaw() {
+_openclaw_root_completion() {
   local -a commands
   local -a options
   
@@ -3871,9 +3871,5 @@ _openclaw_update() {
 }
 
 
-if [ "$funcstack[1]" = "_openclaw" ]; then
-    _openclaw "$@"
-else
-    compdef _openclaw openclaw
-fi
+compdef _openclaw_root_completion openclaw
 
