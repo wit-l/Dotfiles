@@ -1,7 +1,7 @@
 
 #compdef openclaw
 
-_openclaw_root_completion() {
+_openclaw() {
   local -a commands
   local -a options
   
@@ -3871,5 +3871,5 @@ _openclaw_update() {
 }
 
 
-compdef _openclaw_root_completion openclaw
+compdef _openclaw openclaw
 
