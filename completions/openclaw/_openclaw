@@ -3871,5 +3871,9 @@ _openclaw_update() {
 }
 
 
-compdef _openclaw openclaw
+if [ "$funcstack[1]" = "_openclaw" ]; then
+    _openclaw "$@"
+else
+    compdef _openclaw openclaw
+fi
 
