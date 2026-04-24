@@ -137,14 +137,18 @@ fi
 unset __mamba_setup
 # <<< mamba initialize <<<
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+
 # 防止重复插入PATH
 if [[ ":$PATH:" != *":$PNPM_HOME:"* ]]; then
-  export PATH="$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$CARGO_HOME/bin:$PATH:/usr/bin/vendor_perl"
+  export PATH="$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$CARGO_HOME/bin:$BUN_INSTALL/bin:$PATH:/usr/bin/vendor_perl"
 fi
 # 仅首次执行
 if ! command -v node &>/dev/null; then
   eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines --shell zsh)"
 fi
+
 [[ -f $DOTDIR/aliases ]] && source $DOTDIR/aliases
 [[ -f $DOTDIR/fzf/fzf.zsh ]] && source $DOTDIR/fzf/fzf.zsh
 [[ -f $XDG_CONFIG_HOME/cargo/env ]] && source $XDG_CONFIG_HOME/cargo/env
