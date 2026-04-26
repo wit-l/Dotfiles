@@ -11,15 +11,6 @@ export FZ_HISTORY_CD_CMD="_zlua"
 export RANGER_LOAD_DEFAULT_RC=false
 export W3M_DIR=$XDG_CONFIG_HOME/.w3m # bun
 export BUN_INSTALL="$HOME/.bun"
-
-# 防止重复插入PATH
-if [[ ":$PATH:" != *":$PNPM_HOME:"* ]]; then
-  export PATH="$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$CARGO_HOME/bin:$BUN_INSTALL/bin:$XDG_CONFIG_HOME/cc-haha/bin:$PATH:/usr/bin/vendor_perl"
-fi
-# 仅首次执行
-if ! command -v node &>/dev/null; then
-  eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines --shell zsh)"
-fi
 export HISTFILE="$XDG_CONFIG_HOME/zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=10000
