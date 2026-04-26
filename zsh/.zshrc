@@ -84,7 +84,7 @@ zinit wait lucid light-mode as"completion" blockf for \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/niri/_niri \
   has'bun' id-as'_bun' \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/bun/_bun
-  
+
 zi wait lucid light-mode for \
   has'openclaw' id-as'_openclaw' \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/openclaw/_openclaw
