@@ -54,6 +54,10 @@ alias treload='tmux source-file $XDG_CONFIG_HOME/dotfiles/tmux/tmux.conf'
 function mkcd() {
     mkdir -p "$1" && cd "$1" || return $?
 }
+function clear_proxy() {
+    unset http_proxy
+    unset https_proxy
+}
 alias mvg='/usr/local/bin/advmv -g'
 alias cpg='/usr/local/bin/advcp -g'
 alias lg="lazygit"
