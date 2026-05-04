@@ -28,7 +28,13 @@ elif [ "$category" = image ]; then
 
   # 2. Use chafa with Sixel output
   elif command -v chafa >/dev/null; then
-    chafa -f sixels -s "$dim" "$file" --stretch --clear
+    if [[ -n "$TMUX" ]] || [[ "$TERM" =~ tmux ]]; then
+      # 当前在 tmux 会话内
+      viu "$file" -w "${dim%x*}" -h "${dim#*x}"
+    else
+      # 不在 tmux 内（普通终端）
+      chafa -f sixels -s "$dim" "$file" --stretch --clear
+    fi
     # Add a new line character so that fzf can display multiple images in the preview window
     echo
 
