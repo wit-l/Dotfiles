@@ -54,8 +54,6 @@ zinit wait lucid light-mode as"completion" blockf for \
     https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/fzf/_fzf \
   has'eza' id-as'_eza' \
     https://cdn.jsdelivr.net/gh/eza-community/eza@main/completions/zsh/_eza \
-  has'bob' id-as'_bob' \
-    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/bob/_bob \
   has'rustc' id-as'_rustc' \
     OMZP::rust/_rustc \
   has'docker' id-as'_docker' \
@@ -63,31 +61,23 @@ zinit wait lucid light-mode as"completion" blockf for \
   has'docker' id-as'_docker-compose' \
     OMZP::docker-compose/_docker-compose \
   has'rustup' id-as'_rustup' \
-    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/rust/_rustup \
+    $DOTDIR/completions/rust/_rustup \
   has'cargo' id-as'_cargo' \
-    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/rust/_cargo \
+    $DOTDIR/completions/rust/_cargo \
   has'joshuto' id-as'_joshuto'\
-    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/joshuto/_joshuto \
+    $DOTDIR/completions/joshuto/_joshuto \
   has'yq' id-as'_yq'\
-    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/yq/_yq \
+    $DOTDIR/completions/yq/_yq \
   has'delta' id-as'_delta'\
     https://cdn.jsdelivr.net/gh/dandavison/delta@main/etc/completion/completion.zsh \
   has'npm' compile'_npm' \
     Ajnasz/zsh-npm-completion \
   has'pnpm' compile'completions/_pnpm' \
     empresslabs/pnpm.plugin.zsh \
-  has'fnm' id-as'_fnm' \
-    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/fnm/_fnm \
   has'dms' id-as'_dms' \
-    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/dms/_dms \
+    $DOTDIR/completions/dms/_dms \
   has'niri' id-as'_niri' \
-    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/niri/_niri \
-  has'bun' id-as'_bun' \
-    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/bun/_bun
-
-zi wait lucid light-mode for \
-  has'openclaw' id-as'_openclaw' \
-    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/completions/openclaw/_openclaw
+    $DOTDIR/completions/niri/_niri
 
 zinit wait lucid light-mode for \
   blockf atinit"zicompinit; source $ZDOTDIR/zshrc.zsh" \

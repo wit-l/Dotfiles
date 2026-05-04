@@ -1,4 +1,8 @@
 #!/hint/zsh
+if [ "$COMMON_INIT_ONCE" = "1" ]; then
+    return
+fi
+export COMMON_INIT_ONCE=1
 export DOTDIR=$(git -C "$(dirname "$0")" rev-parse --show-toplevel 2>/dev/null)
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$XDG_CONFIG_HOME/local"
