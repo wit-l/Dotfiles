@@ -1,3 +1,4 @@
+#!/hint/zsh
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r $DOTDIR/dircolors && eval "$(dircolors -b $DOTDIR/dircolors)" || eval "$(dircolors -b)"
@@ -57,6 +58,10 @@ function mkcd() {
 function clear_proxy() {
     unset http_proxy
     unset https_proxy
+}
+function set_proxy() {
+    export http_proxy=http://127.0.0.1:7890
+    export https_proxy=http://127.0.0.1:7890
 }
 alias mvg='/usr/local/bin/advmv -g'
 alias cpg='/usr/local/bin/advcp -g'
