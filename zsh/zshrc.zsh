@@ -125,6 +125,7 @@ compdef _cp advcp
 [[ -f $DOTDIR/fzf/fzf.zsh ]] && source $DOTDIR/fzf/fzf.zsh
 [[ -f $XDG_CONFIG_HOME/cargo/env ]] && source $XDG_CONFIG_HOME/cargo/env
 [[ -f $HOME/.openclaw/completions/openclaw.zsh ]] && source $HOME/.openclaw/completions/openclaw.zsh
+[[ -f $DOTDIR/completions/hf/_hf ]] && source $DOTDIR/completions/hf/_hf
 
 # >>> conda initialize >>>
 [ -f /opt/miniforge/etc/profile.d/conda.sh ] && source /opt/miniforge/etc/profile.d/conda.sh
