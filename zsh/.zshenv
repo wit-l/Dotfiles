@@ -21,6 +21,6 @@ if [ "$MODIFY_PATH_ONCE" = "1" ]; then
     return
 fi
 export MODIFY_PATH_ONCE=1
-export PATH="$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$CARGO_HOME/bin:$PATH:/usr/bin/vendor_perl"
+export PATH="$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$CARGO_HOME/bin:$CUDA_HOME/bin:$PATH:/usr/bin/vendor_perl"
 # fnm 来自CARGO_HOME/bin
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines --shell zsh)"

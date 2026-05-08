@@ -27,6 +27,8 @@ export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 export BOB_CONFIG="$DOTDIR/bob/config.json"
 export SVN_CONFIG_DIR="$XDG_CONFIG_HOME/subversion"
 export TZ="Asia/Shanghai"
+export CUDA_HOME=/usr/local/cuda-13.2
+export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:${LD_LIBRARY_PATH}
 
 ## fzf相关配置
 export FZF_DEFAULT_OPTS="
