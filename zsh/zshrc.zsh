@@ -109,6 +109,7 @@ zstyle ':fzf-tab:complete:*:options' fzf-preview
 zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
 zstyle ':fzf-tab:complete:systemctl:argument-rest' fzf-preview
 zstyle ':fzf-tab:complete:(_zlua|-command-|tmux*|docker*|pkill*|git-stash):*' fzf-preview
+zstyle ':fzf-tab:complete:type:*' fzf-preview 'type ${(Q)word} 2>/dev/null'
 
 # environment variable
 zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
