@@ -28,8 +28,9 @@ zinit wait lucid light-mode for \
   OMZL::history.zsh \
   OMZL::git.zsh \
   OMZP::git/git.plugin.zsh \
-  OMZP::docker/docker.plugin.zsh \
-  OMZP::docker-compose/docker-compose.plugin.zsh \
+  if'command -v docker &>/dev/null' \
+    OMZP::docker/docker.plugin.zsh \
+    OMZP::docker-compose/docker-compose.plugin.zsh \
   atclone"sed -i '105,108s/\\\e\\\e/\\^o/g' sudo.plugin.zsh" \
   nocompile"!" atpull"%atclone" \
     OMZP::sudo/sudo.plugin.zsh \
