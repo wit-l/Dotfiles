@@ -65,4 +65,3 @@ export NIRI_CONFIG=$DOTDIR/niri/config.kdl
 export KITTY_CONFIG_DIRECTORY=$DOTDIR/kitty
 export OPENCLAW_API_URL=http://localhost:11434
 export HF_ENDPOINT=https://hf-mirror.com
-[[ -f $DOTDIR/aliases ]] && source $DOTDIR/aliases

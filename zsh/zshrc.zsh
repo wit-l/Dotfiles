@@ -118,6 +118,7 @@ zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|
 compdef _mv advmv
 compdef _cp advcp
 
+[[ -f $DOTDIR/aliases ]] && source $DOTDIR/aliases
 [[ -f $DOTDIR/fzf/fzf.zsh ]] && source $DOTDIR/fzf/fzf.zsh
 [[ -f $XDG_CONFIG_HOME/cargo/env ]] && source $XDG_CONFIG_HOME/cargo/env
 [[ -f $HOME/.openclaw/completions/openclaw.zsh ]] && source $HOME/.openclaw/completions/openclaw.zsh
