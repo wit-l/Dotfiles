@@ -17,10 +17,12 @@ declare -A ZINIT          # initial Zinit's hash definition, if configuring befo
 # ZINIT[OPTIMIZE_OUT_DISK_ACCESSES]='1' # If set to 1, then Zinit will skip checking if a Turbo-loaded object exists on the disk.
 
 # 防止重复插入PATH
-if [ "$MODIFY_PATH_ONCE" = "1" ]; then
-    return
+if [ "$MODIFY_PATH_ONCE" != "1" ]; then
+  export MODIFY_PATH_ONCE=1
+  export PATH="$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$CARGO_HOME/bin:$CUDA_HOME/bin:$PATH:/usr/bin/vendor_perl"
 fi
-export MODIFY_PATH_ONCE=1
-export PATH="$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$CARGO_HOME/bin:$CUDA_HOME/bin:$PATH:/usr/bin/vendor_perl"
-# fnm 来自CARGO_HOME/bin
-eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines --shell zsh)"
+# 仅在nvim以外的shell中需要初始化fnm
+if [ -z "$NVIM" ]; then
+  # fnm 来自CARGO_HOME/bin
+  eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines --shell zsh)"
+fi
