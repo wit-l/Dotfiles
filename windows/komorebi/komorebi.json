@@ -110,11 +110,11 @@
         },
         {
           "name": "2",
-          "layout": "VerticalStack"
+          "layout": "Grid"
         },
         {
           "name": "3",
-          "layout": "HorizontalStack"
+          "layout": "VerticalStack"
         },
         {
           "name": "4",
@@ -126,7 +126,7 @@
         },
         {
           "name": "6",
-          "layout": "Grid"
+          "layout": "HorizontalStack"
         },
         {
           "name": "7",
@@ -142,11 +142,11 @@
         },
         {
           "name": "2",
-          "layout": "VerticalStack"
+          "layout": "Grid"
         },
         {
           "name": "3",
-          "layout": "HorizontalStack"
+          "layout": "VerticalStack"
         },
         {
           "name": "4",
@@ -158,7 +158,7 @@
         },
         {
           "name": "6",
-          "layout": "Grid"
+          "layout": "HorizontalStack"
         },
         {
           "name": "7",
