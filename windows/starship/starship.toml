@@ -1,6 +1,7 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+format = "$directory$all"
 # Inserts a blank line between shell prompts
 add_newline = true
 
@@ -11,3 +12,7 @@ success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set
 # Disable the package module, hiding it from the prompt completely
 [package]
 # disabled = true
+
+[directory]
+truncation_length = 0
+truncate_to_repo = false
