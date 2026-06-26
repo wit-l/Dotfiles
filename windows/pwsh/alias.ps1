@@ -56,7 +56,14 @@ function mkcd {
     Set-Location -Path $dir
 }
 # Utilities
-function which ($command) {
-  Get-Command -Name $command -ErrorAction SilentlyContinue |
-    Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
+function which {
+    param([String]$name)
+    $cmd = Get-Command $name
+    switch ($cmd.CommandType) {
+        "Alias"     { "{0}: Alias for ({1})" -f $cmd.Name, (which $cmd.Definition) }
+        "Application" { $cmd.Source }
+        "Cmdlet"    { "{0}: {1} in module {2}" -f $cmd.Name, $cmd.CommandType, $cmd.Source }
+        "Function"  { "{0}: {1} in module {2}" -f $cmd.Name, $cmd.CommandType, $cmd.Source }
+        default     { $cmd }
+    }
 }
