@@ -1,11 +1,6 @@
 # load completion function
 $cmp_paths = @(
-  # "D:\Software\zoxide\completions\_zoxide.ps1",
-  # "D:\Software\MsysSoftware\BurntSushi---ripgrep\ripgrep\complete\_rg.ps1",
-  # "D:\Software\MsysSoftware\sharkdp---bat\bat\autocomplete\_bat.ps1",
-  # "D:\Software\MsysSoftware\sharkdp---fd\fd\autocomplete\fd.ps1",
-  # "D:\Users\witty\Documents\PowerShell\Completions\fnm.ps1",
-  "C:\Users\witty\Documents\PowerShell\Scripts"
+  "C:\Users\$ENV:USERNAME\Documents\PowerShell\Scripts"
 )
 foreach ($cmp_path in $cmp_paths)
 {
