@@ -3,8 +3,20 @@ New-Alias -Name "v" -Value "nvim"
 New-Alias -Name "ghl" -Value "Get-Help"
 New-Alias -Name "lg" -Value "lazygit"
 
+function gb {
+    git branch @args
+}
+
+function gr {
+    git remote @args
+}
+
 function grv {
     git remote -v @args
+}
+
+function grs {
+    git remote show @args
 }
 
 function gs {
@@ -16,7 +28,7 @@ function gss {
 }
 
 function gpo {
-    git push @args
+    git push origin @args
 }
 
 function gpl {
