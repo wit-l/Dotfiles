@@ -6,8 +6,8 @@
     features = line-numbers
     navigate = true  # use n and N to move between diff sections
 [user]
-	name = wit-l
-	email = witty.ysl@gmail.com
+	name = lsy
+	email = 986448807@qq.com
 [init]
 	defaultBranch = main
 [pull]
