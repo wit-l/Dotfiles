@@ -7,6 +7,10 @@ function gb {
     git branch @args
 }
 
+function gbvv {
+    git branch -vv @args
+}
+
 function gbd {
     git branch --delete @args
 }
