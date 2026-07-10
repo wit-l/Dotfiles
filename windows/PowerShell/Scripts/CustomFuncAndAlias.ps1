@@ -7,6 +7,14 @@ function gb {
     git branch @args
 }
 
+function gbd {
+    git branch --delete @args
+}
+
+function gbD {
+    git branch --delete --force @args
+}
+
 function gr {
     git remote @args
 }
@@ -27,8 +35,20 @@ function gss {
     git status --short @args
 }
 
+function gsw {
+    git switch @args
+}
+
+function gswc {
+    git switch --create @args
+}
+
 function gpo {
     git push origin @args
+}
+
+function gco {
+    git checkout @args
 }
 
 function gpl {
