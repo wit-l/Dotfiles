@@ -5,7 +5,7 @@ category=${mime%%/*}
 kind=${mime##*/}
 file=${1/#\~\//$HOME/}
 if [ -d "$file" ]; then
-  eza --git -ahl --color=always --icons "$file"
+  eza --git -ahl --color=always --icons=always "$file"
 elif [ "$category" = image ]; then
   dim=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}
   if [[ $dim == x ]]; then
