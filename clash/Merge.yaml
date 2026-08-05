@@ -1,0 +1,17 @@
+# Profile Enhancement Merge Template for Clash Verge
+
+profile:
+  store-selected: true
+
+# 允许局域网（含 WSL）连接代理端口
+allow-lan: true
+bind-address: "*"
+
+# 路由规则：私有网络走 DIRECT，由 mihomo 进程发起
+rules:
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,local,DIRECT
