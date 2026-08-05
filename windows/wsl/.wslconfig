@@ -1,10 +1,6 @@
-[wsl2]
-firewall=false
-dnsTunneling=false
-dnsProxy=false
-hardwarePerformanceCounters=false
-networkingMode=Mirrored
 [experimental]
 autoMemoryReclaim=Gradual
 sparseVhd=true
 hostAddressLoopback=true
+bestEffortDnsParsing=true
+firewall=false
