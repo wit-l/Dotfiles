@@ -2,7 +2,7 @@ gui:
   language: zh-CN
   animateExplosion: true
 git:
-  pagers:
-    - pager: delta --dark --paging=never --line-numbers
+  diffRenderers:
+    - command: delta --dark --paging=never --line-numbers
 os:
   editPreset: "nvim"
