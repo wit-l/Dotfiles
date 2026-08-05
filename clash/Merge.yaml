@@ -7,8 +7,9 @@ profile:
 allow-lan: true
 bind-address: "*"
 
-# 路由规则：私有网络走 DIRECT，由 mihomo 进程发起
-rules:
+# 前置规则：私有网络走 DIRECT，避免内网流量走代理节点
+# 使用 prepend-rules 而非 rules，避免覆盖订阅自带的完整规则数组
+prepend-rules:
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
