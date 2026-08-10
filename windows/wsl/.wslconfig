@@ -4,3 +4,6 @@ sparseVhd=true
 hostAddressLoopback=true
 bestEffortDnsParsing=true
 firewall=false
+networkingMode=Mirrored
+
+[wsl2]
