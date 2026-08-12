@@ -19,7 +19,7 @@ declare -A ZINIT          # initial Zinit's hash definition, if configuring befo
 # 防止重复插入PATH
 if [ "$MODIFY_PATH_ONCE" != "1" ]; then
   export MODIFY_PATH_ONCE=1
-  export PATH="$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME:$CARGO_HOME/bin:$CUDA_HOME/bin:$PATH:/usr/bin/vendor_perl"
+  export PATH="$XDG_DATA_HOME/bin:$XDG_DATA_HOME/bob/nvim-bin:$PNPM_HOME/bin:$CARGO_HOME/bin:$CUDA_HOME/bin:$PATH:/usr/bin/vendor_perl"
 fi
 # 仅在nvim以外的shell中需要初始化fnm
 if [ -z "$NVIM" ]; then
