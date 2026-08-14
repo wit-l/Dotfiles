@@ -1,9 +1,10 @@
+[wsl2]
+networkingMode=Mirrored
+firewall=false
+guiApplications=true
+
 [experimental]
 autoMemoryReclaim=Gradual
 sparseVhd=true
 hostAddressLoopback=true
 bestEffortDnsParsing=true
-firewall=false
-networkingMode=Mirrored
-
-[wsl2]
