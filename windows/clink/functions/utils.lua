@@ -38,14 +38,13 @@ end
 -- which
 
 -- Clink Lua commands registered across functions/*.lua
-local lua_commands = {
-	mkcd = true,
-	which = true,
-	["set-proxy"] = true,
-	["clear-proxy"] = true,
-	["enable-linux-tools"] = true,
-	["disable-linux-tools"] = true,
-}
+local function is_lua_command(name)
+	local key = name:lower()
+	if clink_lua_commands and clink_lua_commands[key] then
+		return true
+	end
+	return false
+end
 
 -- CMD.exe internal commands (ss64.com/nt/syntax-internal.html)
 local cmd_builtins = {
@@ -96,10 +95,6 @@ local cmd_builtins = {
 	vol = true,
 }
 
-local function is_lua_command(name)
-	return lua_commands[name:lower()] == true
-end
-
 local function is_cmd_builtin(name)
 	return cmd_builtins[name:lower()] == true
 end
@@ -127,14 +122,15 @@ local function which_resolve(name, seen)
 	end
 	seen[key] = true
 
+	-- Prefer Lua-command identity over the dummy `rem $*` doskey used for coloring.
+	if is_lua_command(name) then
+		return name .. " (Clink Lua command)"
+	end
+
 	local alias = os.getalias and os.getalias(name)
 	if alias and alias ~= "" then
 		local target = alias:match('^"([^"]+)"') or alias:match("^(%S+)") or alias
 		return which_resolve(target, seen)
-	end
-
-	if is_lua_command(name) then
-		return name .. " (Clink Lua command)"
 	end
 
 	if is_cmd_builtin(name) then
@@ -155,14 +151,15 @@ local function which_cmd(rest)
 		return "", false
 	end
 
-	local alias = os.getalias and os.getalias(name)
-	if alias and alias ~= "" then
-		print(string.format("%s: Alias for (%s)", name, which_resolve(name)))
+	-- Lua commands are also doskey aliases (for color/completion); report them as Lua cmds.
+	if is_lua_command(name) then
+		print(name .. ": Clink Lua command")
 		return "", false
 	end
 
-	if is_lua_command(name) then
-		print(name .. ": Clink Lua command")
+	local alias = os.getalias and os.getalias(name)
+	if alias and alias ~= "" then
+		print(string.format("%s: Alias for (%s)", name, which_resolve(name)))
 		return "", false
 	end
 
@@ -204,6 +201,10 @@ end
 
 if clink.onfilterinput then
 	clink.onfilterinput(onfilterinput)
+	if register_clink_lua_command then
+		register_clink_lua_command("which")
+		register_clink_lua_command("mkcd")
+	end
 else
 	print("utils.lua requires a newer version of Clink; please upgrade.")
 end

@@ -73,6 +73,10 @@ end
 
 if clink.onfilterinput then
 	clink.onfilterinput(onfilterinput)
+	if register_clink_lua_command then
+		register_clink_lua_command("set-proxy")
+		register_clink_lua_command("clear-proxy")
+	end
 else
 	print("proxy.lua requires a newer version of Clink; please upgrade.")
 end

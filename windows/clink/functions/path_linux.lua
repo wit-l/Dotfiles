@@ -94,6 +94,10 @@ end
 
 if clink.onfilterinput then
 	clink.onfilterinput(onfilterinput)
+	if register_clink_lua_command then
+		register_clink_lua_command("enable-linux-tools")
+		register_clink_lua_command("disable-linux-tools")
+	end
 else
 	print("path_linux.lua requires a newer version of Clink; please upgrade.")
 end

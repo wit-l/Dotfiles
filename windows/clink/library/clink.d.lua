@@ -51,9 +51,18 @@ function clink.onbeginedit(func) end
 function clink.parseline(line) end
 
 ---Creates an argument matcher for a command.
+---Having an argmatcher also colors the command with color.argmatcher.
 ---@param ... string
 ---@return table
 function clink.argmatcher(...) end
+
+---Creates a match generator. Lower priority runs earlier.
+---@param priority? number
+---@return table
+function clink.generator(priority) end
+
+---Directory match helper for argmatchers.
+clink.dirmatches = clink.dirmatches
 
 ---@class settings
 settings = {}
