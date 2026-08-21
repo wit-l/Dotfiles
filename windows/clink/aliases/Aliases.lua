@@ -1,3 +1,5 @@
+-- Doskey aliases for Clink (cmd.exe).
+
 os.setalias("ls", "eza --icons=auto $*")
 os.setalias("ll", "eza --icons=auto -l $*")
 os.setalias("lla", "eza --icons=auto -al $*")
@@ -18,3 +20,7 @@ os.setalias("ga", "git add $*")
 os.setalias("gco", "git checkout $*")
 os.setalias("gpo", "git push origin $*")
 os.setalias("glog", "git log --decorate --graph --oneline $*")
+os.setalias("spr", "set-proxy $*")
+os.setalias("cpr", "clear-proxy $*")
+os.setalias("elt", "enable-linux-tools")
+os.setalias("dlt", "disable-linux-tools")

@@ -52,6 +52,31 @@ clink set autosuggest.inline true
 clink set clink.logo none
 ```
 
+## 自定义脚本（放到 `%LocalAppData%\clink\`）
+
+别名与函数分目录存放；根目录的 `load_custom.lua` 负责加载（Clink 不会递归扫描子目录）。
+
+```
+clink/
+  load_custom.lua          # 加载器
+  aliases/
+    aliases.lua            # doskey 别名（含 spr/cpr/elt/dlt）
+  functions/
+    path_linux.lua         # enable-linux-tools / disable-linux-tools
+    utils.lua              # mkcd / which
+    proxy.lua              # set-proxy / clear-proxy
+```
+
+```cmd
+mkcd mydir
+which spr
+which set-proxy
+spr http://127.0.0.1:7890
+cpr
+elt
+dlt
+```
+
 ## 配置 `z.lua`
 
 ### 将 `%LocalAppData%\clink` 加入环境变量 `PATH`

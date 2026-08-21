@@ -1,6 +1,6 @@
--- Port of UseLinuxTools.ps1 for Clink (cmd.exe).
--- elt / EnableLinuxTools : append %GIT%\usr\bin to PATH
--- dlt / DisableLinuxTools: remove %GIT%\usr\bin from PATH
+-- Toggle %GIT%\usr\bin on PATH (port of UseLinuxTools.ps1).
+-- enable-linux-tools  (alias: elt)
+-- disable-linux-tools (alias: dlt)
 
 local function git_usr_bin()
 	local git = os.getenv("GIT")
@@ -61,11 +61,17 @@ local function disable_linux_tools()
 end
 
 local commands = {
-	elt = enable_linux_tools,
-	enablelinuxtools = enable_linux_tools,
-	dlt = disable_linux_tools,
-	disablelinuxtools = disable_linux_tools,
+	["enable-linux-tools"] = enable_linux_tools,
+	["disable-linux-tools"] = disable_linux_tools,
 }
+
+local function alias_target(name)
+	local alias = os.getalias and os.getalias(name)
+	if not alias or alias == "" then
+		return nil
+	end
+	return alias:match('^"([^"]+)"') or alias:match("^(%S+)")
+end
 
 local function onfilterinput(line)
 	local cmd = line:match("^%s*(%S+)")
@@ -73,6 +79,12 @@ local function onfilterinput(line)
 		return
 	end
 	local handler = commands[cmd:lower()]
+	if not handler then
+		local target = alias_target(cmd)
+		if target then
+			handler = commands[target:lower()]
+		end
+	end
 	if not handler then
 		return
 	end
@@ -83,5 +95,5 @@ end
 if clink.onfilterinput then
 	clink.onfilterinput(onfilterinput)
 else
-	print("LinuxTools.lua requires a newer version of Clink; please upgrade.")
+	print("path_linux.lua requires a newer version of Clink; please upgrade.")
 end

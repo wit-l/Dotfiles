@@ -23,6 +23,16 @@ function os.getalias(name) end
 ---@return string[]
 function os.getaliases() end
 
+---Returns true if path is an existing directory.
+---@param path string
+---@return boolean
+function os.isdir(path) end
+
+---Creates a directory.
+---@param path string
+---@return boolean|nil
+function os.mkdir(path) end
+
 ---@class clink
 clink = {}
 
