@@ -53,16 +53,12 @@ alias tkill='pkill -f tmux'
 alias tl='tmux ls'
 alias tn='tmux new -s'
 alias treload='tmux source-file $XDG_CONFIG_HOME/dotfiles/tmux/tmux.conf'
+alias spr=proxy_on
+alias cpr=proxy_off
+alias gpr=proxy_status
+
 function mkcd() {
     mkdir -p "$1" && cd "$1" || return $?
-}
-function clear_proxy() {
-    unset http_proxy
-    unset https_proxy
-}
-function set_proxy() {
-    export http_proxy=http://127.0.0.1:7890
-    export https_proxy=http://127.0.0.1:7890
 }
 alias mvg='/usr/local/bin/advmv -g'
 alias cpg='/usr/local/bin/advcp -g'

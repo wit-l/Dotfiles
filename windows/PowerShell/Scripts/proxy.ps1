@@ -1,11 +1,11 @@
 # Proxy helpers for PowerShell.
-# Aliases: spr / cpr
+# proxy_on / proxy_off / proxy_status  (aliases: spr / cpr / gpr)
 
-function Set-Proxy {
+function proxy_on {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $true, Position = 0)]
-        [string]$ProxyUrl,
+        [Parameter(Position = 0)]
+        [string]$ProxyUrl = 'http://127.0.0.1:7890',
 
         [Parameter(Position = 1)]
         [string]$NoProxy
@@ -24,21 +24,36 @@ function Set-Proxy {
         $env:no_proxy = $NoProxy
     }
 
-    Write-Host "代理已设置为: $ProxyUrl"
+    Write-Host "proxy on: $ProxyUrl"
     if ($env:NO_PROXY) {
         Write-Host "NO_PROXY: $env:NO_PROXY"
     }
 }
 
-function Clear-Proxy {
+function proxy_off {
     foreach ($name in @(
             'HTTP_PROXY', 'HTTPS_PROXY', 'ALL_PROXY', 'NO_PROXY',
             'http_proxy', 'https_proxy', 'all_proxy', 'no_proxy'
         )) {
         Remove-Item -Path "Env:$name" -ErrorAction SilentlyContinue
     }
-    Write-Host '代理环境变量已清除。'
+    Write-Host 'proxy off'
 }
 
-Set-Alias -Name 'spr' -Value 'Set-Proxy' -Force
-Set-Alias -Name 'cpr' -Value 'Clear-Proxy' -Force
+function proxy_status {
+    $names = @(
+        'HTTP_PROXY', 'HTTPS_PROXY', 'http_proxy', 'https_proxy',
+        'ALL_PROXY', 'all_proxy', 'NO_PROXY', 'no_proxy'
+    )
+    foreach ($name in $names) {
+        $value = [Environment]::GetEnvironmentVariable($name, 'Process')
+        if ([string]::IsNullOrEmpty($value)) {
+            $value = '(unset)'
+        }
+        Write-Host "${name}=${value}"
+    }
+}
+
+Set-Alias -Name 'spr' -Value 'proxy_on' -Force
+Set-Alias -Name 'gpr' -Value 'proxy_status' -Force
+Set-Alias -Name 'cpr' -Value 'proxy_off' -Force

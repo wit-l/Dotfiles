@@ -1,6 +1,5 @@
 -- Proxy helpers for Clink (cmd.exe).
--- set-proxy <proxyUrl>  (alias: spr)
--- clear-proxy           (alias: cpr)
+-- proxy_on / proxy_off / proxy_status  (aliases: spr / cpr / gpr)
 
 local function trim(s)
 	return (s:gsub("^%s+", ""):gsub("%s+$", ""))
@@ -18,31 +17,71 @@ local function first_arg(rest)
 	return rest:match("^(%S+)")
 end
 
-local function set_proxy(rest)
+local function env_or_unset(name)
+	local v = os.getenv(name)
+	if not v or v == "" then
+		return "(unset)"
+	end
+	return v
+end
+
+local function proxy_status()
+	local names = {
+		"HTTP_PROXY",
+		"HTTPS_PROXY",
+		"http_proxy",
+		"https_proxy",
+		"ALL_PROXY",
+		"all_proxy",
+		"NO_PROXY",
+		"no_proxy",
+	}
+	for _, name in ipairs(names) do
+		print(name .. "=" .. env_or_unset(name))
+	end
+	return "", false
+end
+
+local DEFAULT_PROXY = "http://127.0.0.1:7890"
+
+local function proxy_on(rest)
 	local url = first_arg(rest)
 	if not url then
-		print("用法: set-proxy <proxyUrl>  (或别名 spr)")
-		return "", false
-	end
-	if not rest:match('^%s*"') then
+		url = DEFAULT_PROXY
+	elseif not rest:match('^%s*"') then
 		url = trim(rest)
 	end
 	os.setenv("HTTP_PROXY", url)
 	os.setenv("HTTPS_PROXY", url)
-	print("代理已设置为: " .. url)
+	os.setenv("http_proxy", url)
+	os.setenv("https_proxy", url)
+	os.setenv("ALL_PROXY", url)
+	os.setenv("all_proxy", url)
+	print("proxy on: " .. url)
 	return "", false
 end
 
-local function clear_proxy()
-	os.setenv("HTTP_PROXY", nil)
-	os.setenv("HTTPS_PROXY", nil)
-	print("代理环境变量已清除。")
+local function proxy_off()
+	for _, name in ipairs({
+		"HTTP_PROXY",
+		"HTTPS_PROXY",
+		"http_proxy",
+		"https_proxy",
+		"ALL_PROXY",
+		"all_proxy",
+		"NO_PROXY",
+		"no_proxy",
+	}) do
+		os.setenv(name, nil)
+	end
+	print("proxy off")
 	return "", false
 end
 
 local commands = {
-	["set-proxy"] = set_proxy,
-	["clear-proxy"] = clear_proxy,
+	proxy_on = proxy_on,
+	proxy_off = proxy_off,
+	proxy_status = proxy_status,
 }
 
 local function alias_target(name)
@@ -74,8 +113,9 @@ end
 if clink.onfilterinput then
 	clink.onfilterinput(onfilterinput)
 	if register_clink_lua_command then
-		register_clink_lua_command("set-proxy")
-		register_clink_lua_command("clear-proxy")
+		register_clink_lua_command("proxy_on")
+		register_clink_lua_command("proxy_off")
+		register_clink_lua_command("proxy_status")
 	end
 else
 	print("proxy.lua requires a newer version of Clink; please upgrade.")

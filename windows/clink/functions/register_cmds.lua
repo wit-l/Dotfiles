@@ -1,5 +1,5 @@
 -- Register onfilterinput Lua commands as doskey aliases so Clink colors them
--- with color.doskey (same as spr/cpr) and includes them in command completion.
+-- with color.doskey (same as other aliases) and includes them in command completion.
 
 clink_lua_commands = clink_lua_commands or {}
 

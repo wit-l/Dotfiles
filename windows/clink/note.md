@@ -60,13 +60,13 @@ clink set clink.logo none
 clink/
   load_custom.lua          # 加载器
   aliases/
-    aliases.lua            # doskey 别名（含 spr/cpr/elt/dlt）
+    aliases.lua            # doskey 别名（含 spr/gpr/cpr/elt/dlt）
   functions/
     register_cmds.lua      # Lua 命令着色/补全注册
     fnm.lua                # fnm env --use-on-cd --version-file-strategy=recursive + onbeginedit
     path_linux.lua         # enable-linux-tools / disable-linux-tools
     utils.lua              # mkcd / which / rm
-    proxy.lua              # set-proxy / clear-proxy
+    proxy.lua              # proxy_on / proxy_off / proxy_status
 ```
 
 ```cmd
@@ -76,7 +76,12 @@ rm -r dir
 rm -rf dir
 which spr
 which set-proxy
-spr http://127.0.0.1:7890
+proxy_on
+proxy_on http://127.0.0.1:7890
+spr
+proxy_status
+gpr
+proxy_off
 cpr
 elt
 dlt
