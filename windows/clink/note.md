@@ -85,3 +85,9 @@ dlt
 ### 克隆 `https://github.com/skywind3000/z.lua` 仓库到本地
 
 ### 将 `z.lua` 和 `z.cmd` 移至 `%LocalAppData%\clink` 下
+
+## 启用快捷键 `ctrl` + `d` 退出
+
+```cmd
+clink set cmd.ctrld_exits true
+```
