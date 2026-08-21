@@ -1,5 +1,6 @@
 os.setalias("ls", "eza --icons=auto $*")
 os.setalias("ll", "eza --icons=auto -l $*")
+os.setalias("lla", "eza --icons=auto -al $*")
 os.setalias("v", "nvim $*")
 os.setalias("lg", "lazygit $*")
 os.setalias("gs", "git status $*")
