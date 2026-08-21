@@ -103,3 +103,23 @@ function which {
         default     { $cmd }
     }
 }
+
+function Set-Proxy {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory=$true, Position=0)]
+        [string]$ProxyUrl
+    )
+
+    $env:HTTP_PROXY = $ProxyUrl
+    $env:HTTPS_PROXY = $ProxyUrl
+    Write-Host "代理已设置为: $ProxyUrl"
+}
+
+function Clear-Proxy {
+    Remove-Item Env:HTTP_PROXY -ErrorAction SilentlyContinue
+    Remove-Item Env:HTTPS_PROXY -ErrorAction SilentlyContinue
+    Write-Host "代理环境变量已清除。"
+}
+Set-Alias -Name "spr" -Value "Set-Proxy"
+Set-Alias -Name "cpr" -Value "Clear-Proxy"
