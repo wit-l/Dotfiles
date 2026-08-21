@@ -28,6 +28,16 @@ function os.getaliases() end
 ---@return boolean
 function os.isdir(path) end
 
+---Returns true if path is an existing file.
+---@param path string
+---@return boolean
+function os.isfile(path) end
+
+---Returns files/dirs matching a glob pattern.
+---@param pattern string
+---@return table
+function os.glob(pattern) end
+
 ---Creates a directory.
 ---@param path string
 ---@return boolean|nil
