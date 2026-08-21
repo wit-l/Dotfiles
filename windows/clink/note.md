@@ -63,7 +63,7 @@ clink/
     aliases.lua            # doskey 别名（含 spr/cpr/elt/dlt）
   functions/
     register_cmds.lua      # Lua 命令着色/补全注册
-    fnm.lua                # fnm env --use-on-cd
+    fnm.lua                # fnm env --use-on-cd --version-file-strategy=recursive + onbeginedit
     path_linux.lua         # enable-linux-tools / disable-linux-tools
     utils.lua              # mkcd / which
     proxy.lua              # set-proxy / clear-proxy

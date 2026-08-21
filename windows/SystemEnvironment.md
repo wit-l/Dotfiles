@@ -23,6 +23,10 @@ KOMOREBI_CONFIG_HOME=%DOTDIR%\windows\komorebi
 
 MINIFORGE=C:\Software\miniforge3
 
+### fnm 版本文件查找策略（与 WSL 对齐；Clink / pwsh 共用）
+
+FNM_VERSION_FILE_STRATEGY=recursive
+
 ### Starship 配置文件
 
 STARSHIP_CONFIG=%DOTDIR%\windows\starship\starship.toml

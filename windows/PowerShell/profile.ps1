@@ -30,11 +30,49 @@ if ($env:TERM -ne 'dumb' -and $Host.UI.SupportsVirtualTerminal) {
 }
 
 Invoke-ProfileHook fnm {
-    fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
+    # Align with WSL/Clink: recursive so leaving a project reverts to default.
+    $fnmArgs = @('env', '--use-on-cd', '--shell', 'powershell')
+    if (-not $env:FNM_VERSION_FILE_STRATEGY) {
+        $fnmArgs += @('--version-file-strategy', 'recursive')
+    }
+    & fnm @fnmArgs | Out-String | Invoke-Expression
 }
 
 Invoke-ProfileHook zoxide {
     zoxide init powershell | Out-String | Invoke-Expression
+}
+
+# fnm --use-on-cd only aliases `cd`. zoxide's `z` calls Set-Location directly,
+# so it bypasses that alias (same class of issue as z.lua vs doskey on CMD).
+# Mirror Clink onbeginedit: run fnm use whenever the location changes.
+# Native fnm output must NOT enter prompt()'s success stream — PowerShell would
+# treat "Using Node ..." as the prompt, leaving the cursor on that line.
+if (Get-Command Set-FnmOnLoad -ErrorAction SilentlyContinue) {
+    $global:__DotfilesFnmPwd = $PWD.ProviderPath
+    $global:__DotfilesPromptBeforeFnm = $function:prompt
+    function global:prompt {
+        $prefix = ''
+        $here = $PWD.ProviderPath
+        if ($here -ne $global:__DotfilesFnmPwd) {
+            $global:__DotfilesFnmPwd = $here
+            try {
+                $fnmMsg = & fnm use --silent-if-unchanged 2>&1 | Out-String
+                if ($fnmMsg -and $fnmMsg.Trim()) {
+                    # Must be part of prompt()'s return value. Write-Host during
+                    # prompt() is ignored by PSReadLine, so the cursor stays on
+                    # the "Using Node …" line (enter and leave both hit this).
+                    $prefix = $fnmMsg.TrimEnd() + "`n"
+                }
+            } catch {
+                Write-Warning "fnm use failed: $($_.Exception.Message)"
+            }
+        }
+        $inner = ''
+        if ($null -ne $global:__DotfilesPromptBeforeFnm) {
+            $inner = -join @(& $global:__DotfilesPromptBeforeFnm)
+        }
+        return $prefix + $inner
+    }
 }
 
 if (Get-Module -ListAvailable PSReadLine) {
