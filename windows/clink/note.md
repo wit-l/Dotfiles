@@ -26,16 +26,16 @@ clink config prompt use starship
 clink set clink.default_bindings bash
 ```
 
-## 启动clink自动建议 (Auto-Suggestions)
+## 启动clink自动建议 (Auto-Suggestions)（默认）
 
 ```cmd
 clink set autosuggest.enable true
 ```
 
-## 让clink根据历史命令生成自动建议规则
+## 让clink根据历史命令生成自动建议规则（默认）
 
 ```cmd
-clink set autosuggest.strategy history completion
+clink set autosuggest.strategy match_prev_cmd history completion
 ```
 
 ## 让clink在命令行行内显示建议
