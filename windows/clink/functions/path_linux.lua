@@ -1,4 +1,4 @@
--- Toggle %GIT%\usr\bin on PATH (port of UseLinuxTools.ps1).
+-- Toggle %GIT%\usr\bin on PATH (port of path_linux.ps1).
 -- enable-linux-tools  (alias: elt)
 -- disable-linux-tools (alias: dlt)
 
