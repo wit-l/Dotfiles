@@ -6,18 +6,20 @@
 winget install --id=chrisant996.Clink -e
 ```
 
-## 配置文件
+## 让 clink 使用 starship 提示符
 
-`%LocalAppData%\clink\starship.lua`中写入：
-
-```lua
-load(io.popen('starship init cmd'):read("*a"))()
-```
-
-## 让clink使用starship命令
+安装 Starship 后执行（会写入 `clink.customprompt`，加载 Clink 自带的 `starship.clinkprompt`）：
 
 ```cmd
 clink config prompt use starship
+```
+
+不要再创建 `%LocalAppData%\clink\starship.lua`；旧写法与 `.clinkprompt` 重复，可能造成提示符异常。
+
+若 `starship.exe` 不在 `PATH` 中：
+
+```cmd
+clink set starship.exepath "完整路径\starship.exe"
 ```
 
 ## clink切换快捷键风格为bash命令
