@@ -12,6 +12,7 @@ local scripts = {
 	"functions\\utf8_console.lua",
 	"functions\\register_cmds.lua",
 	"functions\\fzf_env.lua",
+	"functions\\fzf_bindings.lua",
 	"functions\\fnm.lua",
 	"functions\\path_linux.lua",
 	"functions\\utils.lua",

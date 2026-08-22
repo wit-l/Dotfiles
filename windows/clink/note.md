@@ -73,6 +73,7 @@ clink/
     utils.lua              # mkcd / which / rm
     proxy.lua              # proxy_on / proxy_off / proxy_status
     fzf_env.lua            # FZF_* 预览环境变量（仅 cmd/clink）
+    fzf_bindings.lua       # Alt+Shift+/ (\e?) = fzf_bindings；Alt+B 还原 backward-word
 ```
 
 `z.lua` / `z.cmd` 为上游第三方脚本（~83KB），**不提交到 dotfiles**；由 `install\z.ps1` 链接到 `%Z_LUA_HOME%`（默认 `C:\Software\clink\z.lua`）。
@@ -125,7 +126,7 @@ pwsh -File "%CLINK_PROFILE%\install\clink-fzf.ps1" -Minimal
 
 3. 脚本会启用 `fzf.default_bindings` 与 `fzf_git.default_bindings`。
 
-常用键：`Ctrl+T` 选文件，`**` + `Tab` 递归补全，`Ctrl+R` 历史，`Alt+C` 进子目录。
+常用键：`Ctrl+T` 选文件，`**` + `Tab` 递归补全，`Ctrl+R` 历史，`Alt+C` 进子目录，`Alt+Shift+/`（`\e?`）列出并执行已绑定命令（覆盖 clink-fzf 默认的 `Alt+B`，以及 Clink 默认的 `clink-what-is`）。
 
 ### fzf 预览配置
 
