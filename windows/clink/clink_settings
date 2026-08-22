@@ -131,7 +131,7 @@ fzf_git.default_bindings = True
 
 # name: Height to use for the --height flag
 # type: string
-fzf.height = 40%
+fzf.height = 80%
 
 # name: Height to use for the --height flag
 # type: string

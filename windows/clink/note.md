@@ -131,7 +131,15 @@ pwsh -File "%CLINK_PROFILE%\install\clink-fzf.ps1" -Minimal
 
 **`clink_settings`**：`fzf.height`、`fzf_rg.show_preview`、`fzf_rg.editor` 等。
 
-**`functions/fzf_env.lua`**：`FZF_CTRL_T_OPTS`、`FZF_COMPLETION_OPTS`（Ctrl+T 与 `**` Tab 共用预览）、`FZF_GIT_CAT` 等。
+**`functions/fzf_env.lua`**：`FZF_CTRL_T_OPTS`、`FZF_COMPLETION_OPTS`（Ctrl+T 与 `**` Tab 共用预览）、`FZF_GIT_CAT` 等。若已安装 dirx，会自动设置 `FZF_CTRL_T_COMMAND` / `FZF_ALT_C_COMMAND` 为 `--bare-relative`（菜单与回显均为相对路径，与 WSL 一致）。
+
+**dirx（相对路径列表）**：
+
+```powershell
+pwsh -File "%CLINK_PROFILE%\install\dirx.ps1"
+```
+
+默认安装到 `C:\Software\dirx.exe` 并将 `C:\Software` 加入用户 PATH（与 clink 上游仓库分离）。文档见 [clink-fzf FZF_CTRL_T_COMMAND](https://github.com/chrisant996/clink-fzf/blob/master/fzf.lua)、[dirx --bare-relative](https://github.com/chrisant996/dirx#options)。
 
 **`fzf-preview.cmd`**：目录 → `eza -al`，图片 → chafa，文本 → bat。预览窗 `Ctrl+/` 切换。
 

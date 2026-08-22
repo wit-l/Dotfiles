@@ -7,7 +7,31 @@ param(
 
 $script:ClinkProfileDir = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $script:ClinkSoftwareRoot = if ($env:CLINK_SOFTWARE_HOME) { $env:CLINK_SOFTWARE_HOME } else { 'C:\Software\clink' }
+$script:SoftwareRoot = if ($env:SOFTWARE_HOME) { $env:SOFTWARE_HOME } else { 'C:\Software' }
 $script:InstallProxy = if ($NoProxy) { $null } else { $Proxy }
+
+function Add-UserPathEntry {
+    param([string]$Dir)
+    if (-not (Test-Path -LiteralPath $Dir)) {
+        New-Item -ItemType Directory -Path $Dir -Force | Out-Null
+    }
+    $Dir = (Resolve-Path -LiteralPath $Dir).Path
+    $userPath = [Environment]::GetEnvironmentVariable('Path', 'User')
+    if (-not $userPath) { $userPath = '' }
+    $parts = $userPath -split ';' | Where-Object { $_ -and $_.Trim() -ne '' }
+    foreach ($part in $parts) {
+        if ($part.TrimEnd('\') -ieq $Dir.TrimEnd('\')) {
+            Write-Host "PATH already contains $Dir"
+            return
+        }
+    }
+    $newPath = if ($userPath.Trim()) { "$Dir;$userPath" } else { $Dir }
+    [Environment]::SetEnvironmentVariable('Path', $newPath, 'User')
+    if ($env:Path -notlike "*$Dir*") {
+        $env:Path = "$Dir;$env:Path"
+    }
+    Write-Host "Added to user PATH: $Dir"
+}
 
 function Use-InstallProxy {
     if (-not $script:InstallProxy) { return }
