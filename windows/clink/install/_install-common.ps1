@@ -5,6 +5,7 @@ param(
     [switch]$NoProxy
 )
 
+$script:ClinkProfileDir = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $script:ClinkSoftwareRoot = if ($env:CLINK_SOFTWARE_HOME) { $env:CLINK_SOFTWARE_HOME } else { 'C:\Software\clink' }
 $script:InstallProxy = if ($NoProxy) { $null } else { $Proxy }
 

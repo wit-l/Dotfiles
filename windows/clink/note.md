@@ -59,9 +59,10 @@ clink set clink.logo none
 ```
 clink/
   load_custom.lua          # 加载器
-  install-z.ps1            # 安装 z.lua / z.cmd（上游在 C:\Software\clink\z.lua）
-  install-clink-fzf.ps1    # 安装 fzf 集成（上游在 C:\Software\clink\fzf）
-  install-clink-gizmos.ps1 # 安装 clink-gizmos 脚本（如 tilde_autoexpand.lua）
+  install/                 # 上游安装脚本
+    z.ps1                  # z.lua / z.cmd（C:\Software\clink\z.lua）
+    clink-fzf.ps1          # fzf 集成（C:\Software\clink\fzf）
+    clink-gizmos.ps1
   fzf-preview.cmd          # fzf 预览脚本（目录/图片/文本）
   aliases/
     aliases.lua            # doskey 别名（含 spr/gpr/cpr/elt/dlt）
@@ -74,7 +75,7 @@ clink/
     fzf_env.lua            # FZF_* 预览环境变量（仅 cmd/clink）
 ```
 
-`z.lua` / `z.cmd` 为上游第三方脚本（~83KB），**不提交到 dotfiles**；由 `install-z.ps1` 链接到 `%Z_LUA_HOME%`（默认 `C:\Software\clink\z.lua`）。
+`z.lua` / `z.cmd` 为上游第三方脚本（~83KB），**不提交到 dotfiles**；由 `install\z.ps1` 链接到 `%Z_LUA_HOME%`（默认 `C:\Software\clink\z.lua`）。
 
 ```cmd
 mkcd mydir
@@ -100,7 +101,7 @@ dlt
 2. 克隆上游（或由脚本代劳）：
 
 ```powershell
-pwsh -File "%CLINK_PROFILE%\install-z.ps1"
+pwsh -File "%CLINK_PROFILE%\install\z.ps1"
 ```
 
 默认克隆到 `C:\Software\clink\z.lua`，并在 `%CLINK_PROFILE%` 下创建 `z.lua`、`z.cmd` 符号链接。可选环境变量 `Z_LUA_HOME` 覆盖上游路径。安装脚本默认经 `http://127.0.0.1:7890` 代理拉取；`-NoProxy` 禁用。
@@ -113,13 +114,13 @@ WSL/zsh 侧仍由 zinit 管理 `skywind3000/z.lua`，与 Windows 无关。
 2. 安装并链接上游文件：
 
 ```powershell
-pwsh -File "%CLINK_PROFILE%\install-clink-fzf.ps1"
+pwsh -File "%CLINK_PROFILE%\install\clink-fzf.ps1"
 ```
 
 默认克隆到 `C:\Software\clink\fzf`，并在 profile 下链接 `fzf.lua` 等文件（符号链接）。默认经 `http://127.0.0.1:7890` 代理拉取；`-NoProxy` 禁用。仅核心：
 
 ```powershell
-pwsh -File "%CLINK_PROFILE%\install-clink-fzf.ps1" -Minimal
+pwsh -File "%CLINK_PROFILE%\install\clink-fzf.ps1" -Minimal
 ```
 
 3. 脚本会启用 `fzf.default_bindings` 与 `fzf_git.default_bindings`。
@@ -137,7 +138,7 @@ pwsh -File "%CLINK_PROFILE%\install-clink-fzf.ps1" -Minimal
 ## 配置 tilde_autoexpand（`~` 展开为 HOME）
 
 ```powershell
-pwsh -File "%CLINK_PROFILE%\install-clink-gizmos.ps1"
+pwsh -File "%CLINK_PROFILE%\install\clink-gizmos.ps1"
 ```
 
 默认克隆到 `C:\Software\clink\gizmos` 并链接 `tilde_autoexpand.lua`（符号链接）。

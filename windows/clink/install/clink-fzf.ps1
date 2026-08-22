@@ -1,5 +1,5 @@
 # Install chrisant996/clink-fzf (upstream lives outside dotfiles).
-# Clones to C:\Software\clink\fzf and symlinks needed files into this profile.
+# Clones to C:\Software\clink\fzf and symlinks needed files into the profile.
 
 param(
     [string]$Repo,
@@ -13,7 +13,6 @@ $ErrorActionPreference = 'Stop'
 . "$PSScriptRoot\_install-common.ps1" -Proxy $Proxy -NoProxy:$NoProxy
 
 if (-not $Repo) { $Repo = Join-Path $ClinkSoftwareRoot 'fzf' }
-$ProfileDir = $PSScriptRoot
 
 $AllFiles = @(
     'fzf.lua',
@@ -27,7 +26,7 @@ $Files = if ($Minimal) { @('fzf.lua') } else { $AllFiles }
 Ensure-GitRepo -Repo $Repo -CloneUrl 'https://github.com/chrisant996/clink-fzf.git'
 
 foreach ($name in $Files) {
-    New-ProfileSymlink -ProfileDir $ProfileDir -Name $name -Target (Join-Path $Repo $name)
+    New-ProfileSymlink -ProfileDir $ClinkProfileDir -Name $name -Target (Join-Path $Repo $name)
 }
 
 if (-not $NoBindings) {

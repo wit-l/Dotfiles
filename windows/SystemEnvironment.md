@@ -84,11 +84,11 @@ CLINK_PROFILE=%DOTDIR%\windows\clink
 
 | 脚本 | 上游路径 |
 |------|----------|
-| `install-z.ps1` | `C:\Software\clink\z.lua`（`Z_LUA_HOME` 可覆盖） |
-| `install-clink-fzf.ps1` | `C:\Software\clink\fzf` |
-| `install-clink-gizmos.ps1` | `C:\Software\clink\gizmos` |
+| `install\z.ps1` | `C:\Software\clink\z.lua`（`Z_LUA_HOME` 可覆盖） |
+| `install\clink-fzf.ps1` | `C:\Software\clink\fzf` |
+| `install\clink-gizmos.ps1` | `C:\Software\clink\gizmos` |
 
-在 `%CLINK_PROFILE%` 下执行对应 `install-*.ps1`，会在 profile 目录创建符号链接。
+在 `%CLINK_PROFILE%\install\` 下执行对应脚本，会在 profile 目录创建符号链接。
 
 ## 自动添加部分
 

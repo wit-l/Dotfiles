@@ -1,5 +1,5 @@
 # Install chrisant996/clink-gizmos scripts (upstream lives outside dotfiles).
-# Clones to C:\Software\clink\gizmos and symlinks selected .lua files into this profile.
+# Clones to C:\Software\clink\gizmos and symlinks selected .lua files into the profile.
 
 param(
     [string]$Repo,
@@ -12,12 +12,11 @@ $ErrorActionPreference = 'Stop'
 . "$PSScriptRoot\_install-common.ps1" -Proxy $Proxy -NoProxy:$NoProxy
 
 if (-not $Repo) { $Repo = Join-Path $ClinkSoftwareRoot 'gizmos' }
-$ProfileDir = $PSScriptRoot
 
 Ensure-GitRepo -Repo $Repo -CloneUrl 'https://github.com/chrisant996/clink-gizmos.git'
 
 foreach ($name in $Files) {
-    New-ProfileSymlink -ProfileDir $ProfileDir -Name $name -Target (Join-Path $Repo $name)
+    New-ProfileSymlink -ProfileDir $ClinkProfileDir -Name $name -Target (Join-Path $Repo $name)
 }
 
 Write-Host "Done. Linked $($Files.Count) file(s) from clink-gizmos."
