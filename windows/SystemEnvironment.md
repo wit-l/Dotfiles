@@ -1,6 +1,8 @@
 # 系统环境变量
 
-## 手动添加部分（不指明情况下默认用户变量）
+不指明情况下默认为用户变量
+
+## 手动添加部分
 
 ### 配置仓库路径
 
@@ -71,8 +73,18 @@ JAVA8=C:\Program Files\Java\jdk1.8.0_202
 ### Clink 配置目录
 
 ```cmd
-CLINK_PROFILE=%DOTDIR%\clink
+CLINK_PROFILE=%DOTDIR%\windows\clink
 ```
+
+将 `%CLINK_PROFILE%` 加入用户 `PATH`，以便全局调用 `z.cmd`（doskey 别名 `zb`/`zf` 等依赖此项）。
+
+### z.lua 上游仓库（不纳入 dotfiles）
+
+```cmd
+Z_LUA_HOME=C:\Software\z.lua
+```
+
+在 `%CLINK_PROFILE%` 下执行 `install-z.ps1`，会克隆/更新上游并在 profile 目录创建 `z.lua`、`z.cmd` 符号链接。
 
 ## 自动添加部分
 

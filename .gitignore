@@ -2,3 +2,7 @@
 *.log
 *.zwc
 *.zcompdump
+clink_error*
+clink_history*
+windows/clink/z.lua
+windows/clink/z.cmd

@@ -52,13 +52,14 @@ clink set autosuggest.inline true
 clink set clink.logo none
 ```
 
-## 自定义脚本（放到 `%LocalAppData%\clink\`）
+## 自定义脚本（`%CLINK_PROFILE%`，即 `%DOTDIR%\windows\clink`）
 
 别名与函数分目录存放；根目录的 `load_custom.lua` 负责加载（Clink 不会递归扫描子目录）。
 
 ```
 clink/
   load_custom.lua          # 加载器
+  install-z.ps1            # 安装 z.lua / z.cmd（上游在 C:\Software\z.lua）
   aliases/
     aliases.lua            # doskey 别名（含 spr/gpr/cpr/elt/dlt）
   functions/
@@ -68,6 +69,8 @@ clink/
     utils.lua              # mkcd / which / rm
     proxy.lua              # proxy_on / proxy_off / proxy_status
 ```
+
+`z.lua` / `z.cmd` 为上游第三方脚本（~83KB），**不提交到 dotfiles**；由 `install-z.ps1` 链接到 `%Z_LUA_HOME%`（默认 `C:\Software\z.lua`）。
 
 ```cmd
 mkcd mydir
@@ -89,11 +92,16 @@ dlt
 
 ## 配置 `z.lua`
 
-### 将 `%LocalAppData%\clink` 加入环境变量 `PATH`
+1. 将 `%CLINK_PROFILE%` 加入用户 `PATH`（让 `z.cmd` 可在任意目录调用）
+2. 克隆上游（或由脚本代劳）：
 
-### 克隆 `https://github.com/skywind3000/z.lua` 仓库到本地
+```powershell
+pwsh -File "%CLINK_PROFILE%\install-z.ps1"
+```
 
-### 将 `z.lua` 和 `z.cmd` 移至 `%LocalAppData%\clink` 下
+默认克隆到 `C:\Software\z.lua`，并在 `%CLINK_PROFILE%` 下创建 `z.lua`、`z.cmd` 符号链接。可选环境变量 `Z_LUA_HOME` 覆盖上游路径。
+
+WSL/zsh 侧仍由 zinit 管理 `skywind3000/z.lua`，与 Windows 无关。
 
 ## 启用快捷键 `ctrl` + `d` 退出
 
