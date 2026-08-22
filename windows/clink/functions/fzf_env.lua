@@ -26,7 +26,7 @@ end
 local fzf_file_opts = table.concat({
 	'--preview "fzf-preview.cmd {}"',
 	"--preview-window right,65%,border-left",
-	'--bind "ctrl-/:change-preview-window(down,50%|hidden|),ctrl-f:preview-down,ctrl-b:preview-up"',
+	'--bind "ctrl-/:change-preview-window(down,50%|hidden|),ctrl-f:preview-page-down,ctrl-b:preview-page-up"',
 }, " ")
 
 set_default("CLINK_FZF_PREVIEW_SIXELS", "1")

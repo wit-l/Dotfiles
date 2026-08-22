@@ -33,14 +33,14 @@ export FZF_DEFAULT_OPTS="
   --height 80% -e --ansi --reverse --border=rounded
   --color=border:#cceeff
   --walker-skip .git,node_modules,target
-  --bind 'ctrl-f:preview-down,ctrl-b:preview-up'"
+  --bind 'ctrl-f:preview-page-down,ctrl-b:preview-page-up'"
 
 ## ctrl+t 用于搜索文件/路径
 export FZF_CTRL_T_COMMAND='fd --follow --color=always'
 # Preview file content using bat (https://github.com/sharkdp/bat)
 export FZF_CTRL_T_OPTS="
   --preview 'less {}' --preview-window='65%'
-  --bind 'ctrl-/:change-preview-window(down|hidden|),ctrl-f:preview-down,ctrl-b:preview-up'"
+  --bind 'ctrl-/:change-preview-window(down|hidden|),ctrl-f:preview-page-down,ctrl-b:preview-page-up'"
 
 ## alt+c用于搜索路径并切换过去
 export FZF_ALT_C_COMMAND="fd -td --follow --color=always"
