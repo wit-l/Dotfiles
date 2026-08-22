@@ -52,7 +52,7 @@ zinit wait lucid light-mode as"completion" blockf for \
   has'conda' \
     conda-incubator/conda-zsh-completion \
   has'fzf' id-as'_fzf' \
-    https://fastly.jsdelivr.net/gh/wit-l/Dotfiles/main/completions/fzf/_fzf \
+    https://fastly.jsdelivr.net/gh/wit-l/Dotfiles@main/completions/fzf/_fzf \
   has'eza' id-as'_eza' \
     https://fastly.jsdelivr.net/gh/eza-community/eza@main/completions/zsh/_eza \
   has'rustc' id-as'_rustc' \
