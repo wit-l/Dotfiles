@@ -1,0 +1,7 @@
+# Keep LF in the repository; avoid mass CRLF diffs on Windows.
+* text=auto eol=lf
+
+# Windows scripts may use CRLF when checked out (optional; LF also works).
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
