@@ -43,7 +43,7 @@ zinit wait lucid light-mode for \
 # install manual and scripts
 zinit wait lucid as"null" light-mode for \
   atclone"chmod a+x fzf-preview.sh;mkdir -p $ZPFX/bin;mv fzf-preview.sh $ZPFX/bin/" atpull"%atclone" id-as"fzf-preview.sh" \
-    https://cdn.jsdelivr.net/gh/junegunn/fzf/bin/fzf-preview.sh
+    https://fastly.jsdelivr.net/gh/junegunn/fzf/bin/fzf-preview.sh
 
 # completions
 zinit wait lucid light-mode as"completion" blockf for \
@@ -52,9 +52,9 @@ zinit wait lucid light-mode as"completion" blockf for \
   has'conda' \
     conda-incubator/conda-zsh-completion \
   has'fzf' id-as'_fzf' \
-    https://cdn.jsdelivr.net/gh/wit-l/Dotfiles/main/completions/fzf/_fzf \
+    https://fastly.jsdelivr.net/gh/wit-l/Dotfiles/main/completions/fzf/_fzf \
   has'eza' id-as'_eza' \
-    https://cdn.jsdelivr.net/gh/eza-community/eza@main/completions/zsh/_eza \
+    https://fastly.jsdelivr.net/gh/eza-community/eza@main/completions/zsh/_eza \
   has'rustc' id-as'_rustc' \
     OMZP::rust/_rustc \
   has'docker' id-as'_docker' \
@@ -70,7 +70,7 @@ zinit wait lucid light-mode as"completion" blockf for \
   has'yq' id-as'_yq'\
     $DOTDIR/completions/yq/_yq \
   has'delta' id-as'_delta'\
-    https://cdn.jsdelivr.net/gh/dandavison/delta@main/etc/completion/completion.zsh \
+    https://fastly.jsdelivr.net/gh/dandavison/delta@main/etc/completion/completion.zsh \
   has'npm' compile'_npm' \
     Ajnasz/zsh-npm-completion \
   has'pnpm' compile'completions/_pnpm' \
