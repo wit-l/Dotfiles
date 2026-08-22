@@ -117,3 +117,36 @@ match.expand_envvars = True
 # type: boolean
 match.substring = True
 
+# name: Automatically expand ~ to home directory
+# type: boolean
+tilde.autoexpand = True
+
+# name: Enable default fzf key bindings (Ctrl+T, ** Tab, etc.)
+# type: boolean
+fzf.default_bindings = True
+
+# name: Enable default fzf_git key bindings (Ctrl+G, ...)
+# type: boolean
+fzf_git.default_bindings = True
+
+# name: Height to use for the --height flag
+# type: string
+fzf.height = 40%
+
+# name: Height to use for the --height flag
+# type: string
+fzf_git.height = 50%
+
+# name: Show preview window by default in fzf
+# type: enum
+# options: right,bottom,off
+fzf_rg.show_preview = right
+
+# name: Height to use for the --height flag
+# type: string
+fzf_rg.height = 75%
+
+# name: Command to launch editor
+# type: string
+fzf_rg.editor = nvim {file} +{line}
+
