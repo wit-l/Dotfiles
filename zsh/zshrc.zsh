@@ -42,7 +42,7 @@ zstyle ':fzf-tab:complete:kill:*' popup-pad 0 3
 # NOTE: fzf-tab does not follow FZF_DEFAULT_OPTS by default
 zstyle ':fzf-tab:*' fzf-flags --height='80%' --color=bg+:23,border:#cceeff \
   --border=rounded -e --ansi --preview-window='50%' \
-  --bind 'ctrl-/:change-preview-window(down|hidden|)'
+  --bind 'ctrl-/:change-preview-window(down|hidden|),ctrl-f:preview-down,ctrl-b:preview-up'
 # enable tmux popup for fzf to show results
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 # set the lines number of fzf's prompt occupied
