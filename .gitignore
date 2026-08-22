@@ -6,3 +6,9 @@ clink_error*
 clink_history*
 windows/clink/z.lua
 windows/clink/z.cmd
+windows/clink/fzf.lua
+windows/clink/fzf_git.lua
+windows/clink/fzf_git_helper.cmd
+windows/clink/fzf_rg.lua
+windows/clink/fzf_rg.cmd
+windows/clink/tilde_autoexpand.lua

@@ -78,13 +78,17 @@ CLINK_PROFILE=%DOTDIR%\windows\clink
 
 将 `%CLINK_PROFILE%` 加入用户 `PATH`，以便全局调用 `z.cmd`（doskey 别名 `zb`/`zf` 等依赖此项）。
 
-### z.lua 上游仓库（不纳入 dotfiles）
+### Clink 上游仓库（不纳入 dotfiles）
 
-```cmd
-Z_LUA_HOME=C:\Software\z.lua
-```
+所有 Clink 第三方仓库统一放在 `C:\Software\clink\`（可用 `CLINK_SOFTWARE_HOME` 覆盖根目录）：
 
-在 `%CLINK_PROFILE%` 下执行 `install-z.ps1`，会克隆/更新上游并在 profile 目录创建 `z.lua`、`z.cmd` 符号链接。
+| 脚本 | 上游路径 |
+|------|----------|
+| `install-z.ps1` | `C:\Software\clink\z.lua`（`Z_LUA_HOME` 可覆盖） |
+| `install-clink-fzf.ps1` | `C:\Software\clink\fzf` |
+| `install-clink-gizmos.ps1` | `C:\Software\clink\gizmos` |
+
+在 `%CLINK_PROFILE%` 下执行对应 `install-*.ps1`，会在 profile 目录创建符号链接。
 
 ## 自动添加部分
 
