@@ -78,6 +78,20 @@ CLINK_PROFILE=%DOTDIR%\windows\clink
 
 将 `%CLINK_PROFILE%` 加入用户 `PATH`，以便全局调用 `z.cmd`（doskey 别名 `zb`/`zf` 等依赖此项）。
 
+### CMD / 控制台 UTF-8
+
+中文 Windows 默认代码页是 **936（GBK）**。不要用 `chcp 65001` 切（Windows Terminal 里会话内首次切换会复位视口）。
+
+Clink 启动时通过 `tools/set_console_utf8.exe` 调用 `SetConsoleCP` / `SetConsoleOutputCP`（与 pwsh 的 `[Console]::OutputEncoding` 同类）。源码：`windows/clink/tools/set_console_utf8.c`。重新编译：
+
+```cmd
+gcc -O2 -s -o %CLINK_PROFILE%\tools\set_console_utf8.exe %CLINK_PROFILE%\tools\set_console_utf8.c
+```
+
+系统级方案（改 ACP，影响所有非 Unicode 程序）：设置 → 时间和语言 → 管理语言设置 → 更改系统区域设置 → **Beta: 使用 Unicode UTF-8**。
+
+不要改 `HKCU\Software\Microsoft\Command Processor\AutoRun`：该项已被 Clink 占用。
+
 ### Clink 上游仓库（不纳入 dotfiles）
 
 所有 Clink 第三方仓库统一放在 `C:\Software\clink\`（可用 `CLINK_SOFTWARE_HOME` 覆盖根目录）：

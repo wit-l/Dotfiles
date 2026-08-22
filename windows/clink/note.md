@@ -141,7 +141,7 @@ pwsh -File "%CLINK_PROFILE%\install\dirx.ps1"
 
 默认安装到 `C:\Software\dirx.exe` 并将 `C:\Software` 加入用户 PATH（与 clink 上游仓库分离）。文档见 [clink-fzf FZF_CTRL_T_COMMAND](https://github.com/chrisant996/clink-fzf/blob/master/fzf.lua)、[dirx --bare-relative](https://github.com/chrisant996/dirx#options)。
 
-**`fzf-preview.cmd`**：目录 → `eza -al`，图片 → chafa，文本 → bat。预览窗 `Ctrl+/` 切换。
+**`fzf-preview.cmd`**：目录 → `eza --git -ahl --color=always --icons=always`（同 `less/lessfilter.sh`），图片 → chafa，文本 → bat。预览窗 `Ctrl+/` 切换。
 
 ## 配置 tilde_autoexpand（`~` 展开为 HOME）
 

@@ -23,7 +23,9 @@ if command_on_path("dirx.exe") then
 	set_default("FZF_ALT_C_COMMAND", "fzf-list-dirs.cmd $dir")
 end
 
+-- --layout=reverse：输入框在 fzf 窗口顶部（与 Ctrl+R 一致）
 local fzf_file_opts = table.concat({
+	"--layout=reverse",
 	'--preview "fzf-preview.cmd {}"',
 	"--preview-window right,65%,border-left",
 	'--bind "ctrl-/:change-preview-window(down,50%|hidden|),ctrl-f:preview-page-down,ctrl-b:preview-page-up"',
@@ -31,15 +33,13 @@ local fzf_file_opts = table.concat({
 
 set_default("CLINK_FZF_PREVIEW_SIXELS", "1")
 
-set_default(
-	"FZF_DEFAULT_OPTS",
-	"--border=rounded --info=inline --scrollbar=▌"
-)
+set_default("FZF_DEFAULT_OPTS", "--border=rounded --info=inline --scrollbar=▌")
 
-set_default("FZF_CTRL_T_OPTS", fzf_file_opts)
+os.setenv("FZF_CTRL_T_OPTS", fzf_file_opts)
 set_default("FZF_COMPLETION_OPTS", fzf_file_opts)
+os.setenv("FZF_ALT_C_OPTS", "--layout=reverse")
 
-set_default(
-	"FZF_GIT_CAT",
-	"bat --style=numbers,changes --color=always --pager=never"
-)
+-- Ctrl+R：输入框在 fzf 窗口顶部
+os.setenv("FZF_CTRL_R_OPTS", "--layout=reverse")
+
+set_default("FZF_GIT_CAT", "bat --style=numbers,changes --color=always --pager=never")

@@ -1,6 +1,7 @@
 -- Doskey aliases for Clink (cmd.exe).
 
 os.setalias("ls", "eza --icons=auto $*")
+os.setalias("la", "eza --icons=auto -a $*")
 os.setalias("ll", "eza --icons=auto -l $*")
 os.setalias("lla", "eza --icons=auto -al $*")
 os.setalias("v", "nvim $*")

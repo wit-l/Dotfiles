@@ -9,6 +9,7 @@ local root = src:match("^(.*)[/\\]") or "."
 
 local scripts = {
 	"aliases\\aliases.lua",
+	"functions\\utf8_console.lua",
 	"functions\\register_cmds.lua",
 	"functions\\fzf_env.lua",
 	"functions\\fnm.lua",

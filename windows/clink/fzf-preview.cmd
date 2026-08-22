@@ -14,9 +14,9 @@ for /f "tokens=1,2 delims=	" %%a in ("%__DELIMITED%") do set __ARG="%%a"
 
 if %__ARG% == "" goto :end
 
-rem Directory: list contents with eza.
+rem Directory: list contents with eza (same as less/lessfilter.sh).
 if exist %__ARG%\ (
-    eza -al %__ARG%
+    eza --git -ahl --color=always --icons=always %__ARG%
     goto :end
 )
 
